@@ -65,12 +65,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: rgba(10, 10, 10, 0.9);
 }
 .nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  letter-spacing: 3px;
-  color: var(--white);
+  display: flex;
+  align-items: center;
 }
-.nav-logo span { color: var(--red); }
+.nav-logo img {
+  height: 40px;
+  width: auto;
+}
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -866,13 +867,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-top: 1px solid rgba(255,255,255,0.03);
 }
 .footer-logo {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  letter-spacing: 3px;
-  color: var(--white);
   margin-bottom: 1rem;
 }
-.footer-logo span { color: var(--red); }
+.footer-logo img {
+  height: 36px;
+  width: auto;
+  margin: 0 auto;
+}
 .footer-links {
   display: flex;
   justify-content: center;
@@ -892,6 +893,29 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 0.7rem;
   color: var(--text-muted);
   letter-spacing: 1px;
+}
+.footer-affiliate {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 2rem;
+}
+.footer-affiliate span {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.footer-affiliate svg {
+  height: 20px;
+  width: auto;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.footer-affiliate:hover svg {
+  opacity: 1;
 }
 
 /* ========== ANIMATIONS ========== */
@@ -1016,7 +1040,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 <!-- ========== NAV ========== -->
 <nav class="nav" id="nav">
-  <a href="#" class="nav-logo">CROSSFIT <span>OTL</span></a>
+  <a href="#" class="nav-logo"><img src="photos/logo-banner.svg" alt="CrossFit OTL — On The Line Fitness"></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#programs" onclick="closeNav()">Programs</a></li>
     <li><a href="#process" onclick="closeNav()">How It Works</a></li>
@@ -1394,7 +1418,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 <!-- ========== FOOTER ========== -->
 <footer class="footer">
-  <div class="footer-logo">CROSSFIT <span>OTL</span></div>
+  <div class="footer-logo"><img src="photos/logo-banner.svg" alt="CrossFit OTL — On The Line Fitness"></div>
   <div class="footer-links">
     <a href="#programs">Programs</a>
     <a href="#schedule">Schedule</a>
@@ -1402,8 +1426,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     <a href="#contact">Contact</a>
     <a href="https://instagram.com/crossfitotl" target="_blank" rel="noopener">Instagram</a>
   </div>
-  <p class="footer-copy" style="margin-bottom: 0.5rem;">Partnered with <a href="https://www.crossfit.com" target="_blank" rel="noopener" style="color: var(--grey); text-decoration: underline; text-underline-offset: 2px;">CrossFit</a></p>
   <p class="footer-copy">&copy; 2025 On The Line Fitness, LLC. All rights reserved. CrossFit is a registered trademark of CrossFit, LLC.</p>
+  <a href="https://www.crossfit.com" target="_blank" rel="noopener" class="footer-affiliate">
+    <span>Partnered with</span>
+    <svg viewBox="0 0 220 30" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <text x="0" y="24" font-family="'Bebas Neue', 'Arial Black', sans-serif" font-size="28" font-weight="700" letter-spacing="3" fill="white">CROSSFIT</text>
+    </svg>
+  </a>
 </footer>
 
 <!-- ========== JAVASCRIPT ========== -->
