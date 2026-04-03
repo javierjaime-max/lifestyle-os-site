@@ -369,7 +369,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ========== PROGRAMS ========== */
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin-top: 4rem;
 }
@@ -501,7 +501,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ========== HOW IT WORKS ========== */
 .steps-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
   margin-top: 5rem;
 }
@@ -948,7 +948,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 1024px) {
   .programs-grid { grid-template-columns: 1fr 1fr; }
-  .program-card:last-child { grid-column: span 1; }
+  
   .about-split { grid-template-columns: 1fr; }
   .about-image { height: 400px; }
   .about-image::after {
