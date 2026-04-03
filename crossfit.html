@@ -265,15 +265,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-toggle {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   cursor: pointer;
   z-index: 1001;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 10px;
 }
 .nav-toggle span {
   display: block;
   width: 24px;
-  height: 2px;
+  height: 3px;
   background: var(--white);
+  border-radius: 2px;
   transition: all 0.3s ease;
 }
 .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
