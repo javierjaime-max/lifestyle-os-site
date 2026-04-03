@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment — Lifestyle OS</title>
+  <meta name="description" content="The Lifestyle OS diagnostic assessment. 157 questions across 8 subsystems. Find out what is actually running your life.">
+  <meta property="og:title" content="Assessment — Lifestyle OS">
+  <meta property="og:description" content="The Lifestyle OS diagnostic assessment. 157 questions across 8 subsystems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lifestyle-os.fit/assessment">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --light-grey: #F5F5F7;
+      --white: #FFFFFF;
+      --border: #D2D2D7;
+      --secondary: #86868B;
+      --dark-grey: #6E6E73;
+      --near-black: #1D1D1F;
+      --blue: #0071E3;
+      --recovery: #007AFF;
+      --metabolic: #FF9500;
+      --physical: #FF3B30;
+      --cognitive: #AF52DE;
+      --time: #5AC8FA;
+      --financial: #34C759;
+      --relational: #FF2D55;
+      --strategic: #5856D6;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--near-black);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- HEADER ---- */
+    .site-header {
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-header a {
+      text-decoration: none;
+    }
+
+    .header-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .header-nav a {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .header-nav a:hover {
+      color: var(--white);
+    }
+
+    .header-nav a.active {
+      color: var(--white);
+    }
+
+    /* ---- MAIN ---- */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .main-inner {
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.25rem;
+    }
+
+    /* Subsystem ring */
+    .subsystem-ring {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .ring-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    .ring-dot:nth-child(1) { animation-delay: 0s; }
+    .ring-dot:nth-child(2) { animation-delay: 0.3s; }
+    .ring-dot:nth-child(3) { animation-delay: 0.6s; }
+    .ring-dot:nth-child(4) { animation-delay: 0.9s; }
+    .ring-dot:nth-child(5) { animation-delay: 1.2s; }
+    .ring-dot:nth-child(6) { animation-delay: 1.5s; }
+    .ring-dot:nth-child(7) { animation-delay: 1.8s; }
+    .ring-dot:nth-child(8) { animation-delay: 2.1s; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.3); }
+    }
+
+    .label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dark-grey);
+    }
+
+    .title {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 2.5rem;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .description {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: 1.7;
+      max-width: 460px;
+    }
+
+    /* Stats row */
+    .stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: var(--white);
+    }
+
+    .stat-label {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      color: var(--dark-grey);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .divider {
+      width: 40px;
+      height: 0.5px;
+      background: var(--dark-grey);
+    }
+
+    /* Email capture */
+    .capture {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .capture-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--dark-grey);
+    }
+
+    .capture-form {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 0.5px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .capture-form input[type="email"] {
+      flex: 1;
+      padding: 0.875rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      outline: none;
+    }
+
+    .capture-form input[type="email"]::placeholder {
+      color: var(--dark-grey);
+    }
+
+    .capture-form button {
+      padding: 0.875rem 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      background: var(--blue);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .capture-form button:hover {
+      background: #0077ED;
+    }
+
+    .capture-success {
+      display: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--secondary);
+    }
+
+    .capture-success.visible {
+      display: block;
+    }
+
+    /* ---- FOOTER ---- */
+    .site-footer {
+      padding: 1.5rem 2rem;
+      text-align: center;
+      border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-text {
+      font-size: 0.6875rem;
+      font-weight: 300;
+      color: rgba(134, 134, 139, 0.5);
+      letter-spacing: 0.02em;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 480px) {
+      .title {
+        font-size: 1.875rem;
+      }
+
+      .description {
+        font-size: 1rem;
+      }
+
+      .stats {
+        gap: 1.5rem;
+      }
+
+      .stat-number {
+        font-size: 1.375rem;
+      }
+
+      .capture-form {
+        flex-direction: column;
+        border-radius: 8px;
+      }
+
+      .capture-form input[type="email"] {
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+      }
+
+      .capture-form button {
+        border-radius: 0 0 8px 8px;
+        padding: 0.875rem;
+      }
+    }
+
+    /* ---- ANIMATIONS ---- */
+    .main-inner > * {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .main-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .main-inner > *:nth-child(2) { animation-delay: 0.2s; }
+    .main-inner > *:nth-child(3) { animation-delay: 0.35s; }
+    .main-inner > *:nth-child(4) { animation-delay: 0.5s; }
+    .main-inner > *:nth-child(5) { animation-delay: 0.65s; }
+    .main-inner > *:nth-child(6) { animation-delay: 0.8s; }
+    .main-inner > *:nth-child(7) { animation-delay: 0.95s; }
+    .main-inner > *:nth-child(8) { animation-delay: 1.1s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="header-wordmark">Lifestyle OS</a>
+    <nav class="header-nav">
+      <a href="about.html">About</a>
+      <a href="assessment.html" class="active">Assessment</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <div class="main-inner">
+
+      <div class="subsystem-ring">
+        <span class="ring-dot" style="background: var(--recovery)"></span>
+        <span class="ring-dot" style="background: var(--metabolic)"></span>
+        <span class="ring-dot" style="background: var(--physical)"></span>
+        <span class="ring-dot" style="background: var(--cognitive)"></span>
+        <span class="ring-dot" style="background: var(--time)"></span>
+        <span class="ring-dot" style="background: var(--financial)"></span>
+        <span class="ring-dot" style="background: var(--relational)"></span>
+        <span class="ring-dot" style="background: var(--strategic)"></span>
+      </div>
+
+      <span class="label">Coming Soon</span>
+
+      <h1 class="title">The Diagnostic</h1>
+
+      <p class="description">
+        157 weighted questions across 8 subsystems and 39 dimensions. Not a personality quiz. A systems diagnostic that finds the actual point of failure in your operating system.
+      </p>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number">8</span>
+          <span class="stat-label">Subsystems</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">39</span>
+          <span class="stat-label">Dimensions</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">157</span>
+          <span class="stat-label">Questions</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="capture">
+        <span class="capture-label">Get notified when it launches</span>
+        <form class="capture-form" id="captureForm">
+          <input type="email" name="email" placeholder="Your email" required autocomplete="email">
+          <button type="submit">Notify me</button>
+        </form>
+        <p class="capture-success" id="captureSuccess">You are on the list.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span class="footer-text">Fit4 Associates Inc.</span>
+  </footer>
+
+  <script>
+    document.getElementById('captureForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      this.style.display = 'none';
+      document.getElementById('captureSuccess').classList.add('visible');
+    });
+  </script>
+
+</body>
+</html>
