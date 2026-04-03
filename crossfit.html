@@ -750,18 +750,35 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: block;
 }
 .cta-phone:hover { color: var(--red); }
-.cta-iframe-wrap {
-  max-width: 600px;
-  margin: 0 auto;
-  background: transparent;
-  padding: 0;
-  border: none;
+.cta-body {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 1rem 0 2.5rem;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.cta-iframe-wrap iframe {
-  width: 100%;
-  min-height: 780px;
-  border: none;
-  display: block;
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 2px solid var(--navy);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.btn-primary:hover {
+  background: #004a8f;
+  border-color: #004a8f;
 }
 
 /* ========== LOCATION ========== */
@@ -1248,14 +1265,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   <a href="https://crossfitotl.pushpress.com/landing/plans/plan_631911c64534db/login" target="_blank" class="btn-outline reveal">Book Drop-In</a>
 </div>
 
-<!-- ========== CTA + FORM ========== -->
+<!-- ========== CTA ========== -->
 <section class="cta-section" id="contact">
   <div class="container">
     <p class="section-label reveal">Get Started</p>
     <h2 class="section-title reveal">YOUR FIRST REP<br>STARTS HERE</h2>
-    <a href="tel:8176622788" class="cta-phone reveal">817.662.2788</a>
-    <div class="cta-iframe-wrap reveal">
-      <iframe src="https://crossfitotl.pushpress.com/open/interested" title="CrossFit OTL Consultation Form" loading="lazy"></iframe>
+    <p class="cta-body reveal">Tell us a little about yourself. We'll call you back within the hour.</p>
+    <div class="cta-actions reveal">
+      <a href="https://crossfitotl.pushpress.com/open/interested" target="_blank" class="btn-primary">Start My Consultation</a>
+      <a href="tel:8176622788" class="cta-phone">817.662.2788</a>
     </div>
   </div>
 </section>
