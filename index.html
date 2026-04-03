@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lifestyle OS</title>
+  <meta name="description" content="The diagnostic framework that reverse engineers why your life is not working the way you designed it.">
+  <meta property="og:title" content="Lifestyle OS">
+  <meta property="og:description" content="The diagnostic framework that reverse engineers why your life is not working the way you designed it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lifestyle-os.fit">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --light-grey: #F5F5F7;
+      --white: #FFFFFF;
+      --border: #D2D2D7;
+      --secondary: #86868B;
+      --dark-grey: #6E6E73;
+      --near-black: #1D1D1F;
+      --blue: #0071E3;
+      --recovery: #007AFF;
+      --metabolic: #FF9500;
+      --physical: #FF3B30;
+      --cognitive: #AF52DE;
+      --time: #5AC8FA;
+      --financial: #34C759;
+      --relational: #FF2D55;
+      --strategic: #5856D6;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--near-black);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    /* Subsystem dots — the 8 colors */
+    .subsystem-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      opacity: 0.7;
+    }
+
+    .subsystem-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    /* Wordmark */
+    .wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 3rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .wordmark .dot {
+      color: var(--white);
+    }
+
+    /* Positioning */
+    .positioning {
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    /* Divider */
+    .divider {
+      width: 40px;
+      height: 0.5px;
+      background: var(--dark-grey);
+    }
+
+    /* Email capture */
+    .capture {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .capture-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--dark-grey);
+    }
+
+    .capture-form {
+      display: flex;
+      gap: 0;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 0.5px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .capture-form input[type="email"] {
+      flex: 1;
+      padding: 0.875rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.06);
+      border: none;
+      outline: none;
+    }
+
+    .capture-form input[type="email"]::placeholder {
+      color: var(--dark-grey);
+    }
+
+    .capture-form button {
+      padding: 0.875rem 1.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      background: var(--blue);
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s ease;
+    }
+
+    .capture-form button:hover {
+      background: #0077ED;
+    }
+
+    .capture-form button:active {
+      background: #006ACD;
+    }
+
+    /* Success state */
+    .capture-success {
+      display: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--secondary);
+    }
+
+    .capture-success.visible {
+      display: block;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-text {
+      font-size: 0.6875rem;
+      font-weight: 300;
+      color: rgba(134, 134, 139, 0.5);
+      letter-spacing: 0.02em;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .wordmark {
+        font-size: 2.25rem;
+      }
+
+      .positioning {
+        font-size: 1rem;
+      }
+
+      .capture-form {
+        flex-direction: column;
+        border-radius: 8px;
+      }
+
+      .capture-form input[type="email"] {
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+      }
+
+      .capture-form button {
+        border-radius: 0 0 8px 8px;
+        padding: 0.875rem;
+      }
+    }
+
+    /* Fade-in animation */
+    .container > * {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .container > *:nth-child(1) { animation-delay: 0.1s; }
+    .container > *:nth-child(2) { animation-delay: 0.25s; }
+    .container > *:nth-child(3) { animation-delay: 0.4s; }
+    .container > *:nth-child(4) { animation-delay: 0.55s; }
+    .container > *:nth-child(5) { animation-delay: 0.7s; }
+    .container > *:nth-child(6) { animation-delay: 0.85s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+
+    <div class="subsystem-bar">
+      <span class="subsystem-dot" style="background: var(--recovery)"></span>
+      <span class="subsystem-dot" style="background: var(--metabolic)"></span>
+      <span class="subsystem-dot" style="background: var(--physical)"></span>
+      <span class="subsystem-dot" style="background: var(--cognitive)"></span>
+      <span class="subsystem-dot" style="background: var(--time)"></span>
+      <span class="subsystem-dot" style="background: var(--financial)"></span>
+      <span class="subsystem-dot" style="background: var(--relational)"></span>
+      <span class="subsystem-dot" style="background: var(--strategic)"></span>
+    </div>
+
+    <h1 class="wordmark">Lifestyle OS</h1>
+
+    <p class="positioning">
+      The diagnostic framework that reverse engineers why your life is not working the way you designed it — and builds the system that actually holds.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="capture">
+      <span class="capture-label">Be the first to know</span>
+      <form class="capture-form" id="captureForm">
+        <input type="email" name="email" placeholder="Your email" required autocomplete="email">
+        <button type="submit">Notify me</button>
+      </form>
+      <p class="capture-success" id="captureSuccess">You are on the list.</p>
+    </div>
+
+    <footer class="footer">
+      <span class="footer-text">Fit4 Associates Inc.</span>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById('captureForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Replace with your email service integration (ConvertKit, Mailchimp, GHL, etc.)
+      this.style.display = 'none';
+      document.getElementById('captureSuccess').classList.add('visible');
+    });
+  </script>
+
+</body>
+</html>
