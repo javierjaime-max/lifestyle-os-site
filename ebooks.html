@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books — Lifestyle OS</title>
+  <meta name="description" content="The Lifestyle OS book library. From the QuickStart companion to deep-dive subsystem guides and persona-specific ebooks.">
+  <meta property="og:title" content="Books — Lifestyle OS">
+  <meta property="og:description" content="The Lifestyle OS book library. Framework guides, subsystem deep dives, and persona ebooks.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lifestyle-os.fit/ebooks">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --light-grey: #F5F5F7;
+      --white: #FFFFFF;
+      --border: #D2D2D7;
+      --secondary: #86868B;
+      --dark-grey: #6E6E73;
+      --near-black: #1D1D1F;
+      --blue: #0071E3;
+      --recovery: #007AFF;
+      --metabolic: #FF9500;
+      --physical: #FF3B30;
+      --cognitive: #AF52DE;
+      --time: #5AC8FA;
+      --financial: #34C759;
+      --relational: #FF2D55;
+      --strategic: #5856D6;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--light-grey);
+      color: var(--near-black);
+      min-height: 100vh;
+    }
+
+    /* ---- HEADER ---- */
+    .site-header {
+      background: var(--near-black);
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 100;
+    }
+
+    .site-header a { text-decoration: none; }
+
+    .header-wordmark {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.25rem;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .header-nav a {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .header-nav a:hover { color: var(--white); }
+    .header-nav a.active { color: var(--white); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 110;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 1px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--near-black);
+      z-index: 105;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .mobile-menu a:hover { color: var(--white); }
+    .mobile-menu a.active { color: var(--white); }
+
+    .mobile-dots {
+      display: flex;
+      gap: 8px;
+      margin-top: 1rem;
+    }
+
+    .mobile-dots .pulse-dot { width: 6px; height: 6px; }
+
+    .pulse-dot {
+      border-radius: 50%;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    .pulse-dot:nth-child(1) { animation-delay: 0s; }
+    .pulse-dot:nth-child(2) { animation-delay: 0.3s; }
+    .pulse-dot:nth-child(3) { animation-delay: 0.6s; }
+    .pulse-dot:nth-child(4) { animation-delay: 0.9s; }
+    .pulse-dot:nth-child(5) { animation-delay: 1.2s; }
+    .pulse-dot:nth-child(6) { animation-delay: 1.5s; }
+    .pulse-dot:nth-child(7) { animation-delay: 1.8s; }
+    .pulse-dot:nth-child(8) { animation-delay: 2.1s; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.9; transform: scale(1.3); }
+    }
+
+    @media (max-width: 600px) {
+      .hamburger { display: flex; }
+      .header-nav { display: none; }
+    }
+
+    /* ---- HERO (dark world) ---- */
+    .hero {
+      background: var(--near-black);
+      padding: 4rem 2rem 5rem;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-dots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-dots .pulse-dot {
+      width: 8px;
+      height: 8px;
+    }
+
+    .hero-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--dark-grey);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 2.5rem;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ---- CONTENT (light world) ---- */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .tier {
+      margin-bottom: 4rem;
+    }
+
+    .tier:last-child {
+      margin-bottom: 0;
+    }
+
+    .tier-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .tier-title {
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: var(--near-black);
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+
+    .tier-desc {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--dark-grey);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---- BOOK CARDS ---- */
+    .book-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .book-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .book-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--white);
+    }
+
+    .book-info {
+      flex: 1;
+    }
+
+    .book-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--near-black);
+      margin-bottom: 0.375rem;
+    }
+
+    .book-subtitle {
+      font-size: 0.8125rem;
+      font-weight: 400;
+      color: var(--secondary);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .book-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .badge-available {
+      background: rgba(52, 199, 89, 0.1);
+      color: var(--financial);
+    }
+
+    .badge-coming {
+      background: rgba(134, 134, 139, 0.1);
+      color: var(--secondary);
+    }
+
+    /* ---- SUBSYSTEM BOOK GRID ---- */
+    .subsystem-books {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .sub-book {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.125rem;
+    }
+
+    .sub-book-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--near-black);
+      margin-bottom: 0.25rem;
+    }
+
+    .sub-book-desc {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--secondary);
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---- PERSONA CARDS ---- */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .persona-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.125rem;
+      text-align: center;
+    }
+
+    .persona-gen {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary);
+      margin-bottom: 0.25rem;
+    }
+
+    .persona-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--near-black);
+      margin-bottom: 0.375rem;
+    }
+
+    .persona-desc {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    /* ---- CTA STRIP ---- */
+    .cta-strip {
+      background: var(--near-black);
+      padding: 3.5rem 2rem;
+      text-align: center;
+    }
+
+    .cta-inner {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .cta-text {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.875rem 2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      background: var(--blue);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .cta-button:hover { background: #0077ED; }
+
+    /* ---- FOOTER ---- */
+    .site-footer {
+      background: var(--near-black);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-text {
+      font-size: 0.6875rem;
+      font-weight: 300;
+      color: rgba(134, 134, 139, 0.5);
+      letter-spacing: 0.02em;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 600px) {
+      .hero-title { font-size: 1.875rem; }
+      .subsystem-books { grid-template-columns: 1fr; }
+      .persona-grid { grid-template-columns: 1fr; }
+      .book-card { flex-direction: column; }
+    }
+
+    /* ---- ANIMATIONS ---- */
+    .hero-inner > * {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.35s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.5s; }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <a href="index.html" class="header-wordmark">Lifestyle OS</a>
+    <nav class="header-nav">
+      <a href="about.html">About</a>
+      <a href="assessment.html">Assessment</a>
+      <a href="ebooks.html" class="active">Books</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="assessment.html">Assessment</a>
+    <a href="ebooks.html" class="active">Books</a>
+    <div class="mobile-dots">
+      <span class="pulse-dot" style="background: var(--recovery)"></span>
+      <span class="pulse-dot" style="background: var(--metabolic)"></span>
+      <span class="pulse-dot" style="background: var(--physical)"></span>
+      <span class="pulse-dot" style="background: var(--cognitive)"></span>
+      <span class="pulse-dot" style="background: var(--time)"></span>
+      <span class="pulse-dot" style="background: var(--financial)"></span>
+      <span class="pulse-dot" style="background: var(--relational)"></span>
+      <span class="pulse-dot" style="background: var(--strategic)"></span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-dots">
+        <span class="pulse-dot" style="background: var(--recovery); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--metabolic); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--physical); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--cognitive); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--time); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--financial); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--relational); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--strategic); width:8px; height:8px"></span>
+      </div>
+      <p class="hero-label">The Library</p>
+      <h1 class="hero-title">Read the system before<br>you try to change it</h1>
+      <p class="hero-sub">
+        Three tiers of books. One framework. Start with the QuickStart, go deep into your weakest subsystem, or find the pattern that matches your life.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- TIER 1: INTRO -->
+    <div class="tier">
+      <p class="tier-label">Tier 1 — Entry</p>
+      <h2 class="tier-title">The introduction</h2>
+      <p class="tier-desc">
+        Start here. These books introduce the framework, the language, and the diagnostic lens. No subsystem expertise required.
+      </p>
+
+      <div class="book-card">
+        <div class="book-icon" style="background: var(--strategic)">Q</div>
+        <div class="book-info">
+          <div class="book-title">QuickStart</div>
+          <div class="book-subtitle">The assessment companion. Walks you through the 8 subsystems, explains the scoring, and prepares you for the diagnostic. The first thing you read.</div>
+          <span class="book-badge badge-available">Available</span>
+        </div>
+      </div>
+
+      <div class="book-card" style="margin-top: 12px;">
+        <div class="book-icon" style="background: var(--near-black); border: 1px solid var(--dark-grey);">S</div>
+        <div class="book-info">
+          <div class="book-title">The Source Code</div>
+          <div class="book-subtitle">The full book. You are running an operating system you did not choose, built for a world that no longer exists. The presenting problem is never the actual problem. This book shows you the cascade, names the real constraint, and gives you the mechanical path forward.</div>
+          <span class="book-badge badge-available">Available</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 2: DEEP DIVE -->
+    <div class="tier">
+      <p class="tier-label">Tier 2 — Deep Dive</p>
+      <h2 class="tier-title">One book per subsystem. Eight books total.</h2>
+      <p class="tier-desc">
+        Each book covers one subsystem end to end — its dimensions, rubrics, prescriptions, and cascade relationships. Go deep on the system that is actually constraining you.
+      </p>
+
+      <div class="subsystem-books">
+        <div class="sub-book" style="border-left-color: var(--recovery)">
+          <div class="sub-book-name">Recovery Systems</div>
+          <div class="sub-book-desc">Sleep, stress regulation, active recovery, rest</div>
+          <span class="book-badge badge-coming">Coming soon</span>
+        </div>
+        <div class="sub-book" style="border-left-color: var(--metabolic)">
+          <div class="sub-book-name">Metabolic Function</div>
+          <div class="sub-book-desc">Nutrition, hydration, supplementation, monitoring</div>
+          <span class="book-badge badge-coming">Coming soon</span>
+        </div>
+        <div class="sub-book" style="border-left-color: var(--physical)">
+          <div class="sub-book-name">Physical Capacity</div>
+          <div class="sub-book-desc">Strength, cardiovascular, mobility, training</div>
+          <span class="book-badge badge-coming">Coming soon</span>
+        </div>
+        <div class="sub-book" style="border-left-color: var(--cognitive)">
+          <div class="sub-book-name">Cognitive Performance</div>
+          <div class="sub-book-desc">Focus, decisions, learning, state management</div>
+          <span class="book-badge badge-coming">Coming soon</span>
+        </div>
+        <div class="sub-book" style="border-left-color: var(--time)">
+          <div class="sub-book-name">Temporal Management</div>
+          <div class="sub-book-desc">Schedule, time awareness, priority execution</div>
+          <span class="book-badge badge-coming">Coming soon</span>
+        </div>
+        <div class="sub-book" style="border-left-color: var(--financial)">
+          <div class="sub-book-name">Financial Capacity</div>
+          <div class="sub-book-desc">Income, cash flow, stability, wealth building</div>
+          <span class="book-badge badge-coming">Coming soon</span>
+        </div>
+        <div class="sub-book" style="border-left-color: var(--relational)">
+          <div class="sub-book-name">Relational Dynamics</div>
+          <div class="sub-book-desc">Partnership, parenting, social infrastructure</div>
+          <span class="book-badge badge-coming">Coming soon</span>
+        </div>
+        <div class="sub-book" style="border-left-color: var(--strategic)">
+          <div class="sub-book-name">Strategic Alignment</div>
+          <div class="sub-book-desc">Direction, goals, execution, review, legacy</div>
+          <span class="book-badge badge-coming">Coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIER 3: PERSONA -->
+    <div class="tier">
+      <p class="tier-label">Tier 3 — Persona</p>
+      <h2 class="tier-title">Find your pattern. Read your book.</h2>
+      <p class="tier-desc">
+        Each persona book maps a specific generational pain pattern to the framework. The pain you present with, the cascade that created it, and the prescription calibrated to your band. Content speaks to the pattern, not the label.
+      </p>
+
+      <div class="persona-grid">
+        <div class="persona-card">
+          <div class="persona-gen">Boomer</div>
+          <div class="persona-name">The Provider</div>
+          <div class="persona-desc">Built everything for everyone else. Never built the system for themselves.</div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-gen">Gen X</div>
+          <div class="persona-name">The Self-Made</div>
+          <div class="persona-desc">Figured it out alone. Running on willpower the firmware cannot sustain.</div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-gen">Millennial</div>
+          <div class="persona-name">The Optimizer</div>
+          <div class="persona-desc">Has every tool, every protocol, every app. Still gapped where it counts.</div>
+        </div>
+        <div class="persona-card">
+          <div class="persona-gen">Gen Z</div>
+          <div class="persona-name">The Aware</div>
+          <div class="persona-desc">Sees the problem clearly. Has not yet built the system to solve it.</div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 1.25rem;">
+        <span class="book-badge badge-coming">All persona books coming soon</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip">
+    <div class="cta-inner">
+      <p class="cta-text">
+        Get notified when new books drop and the diagnostic goes live.
+      </p>
+      <a href="index.html" class="cta-button">Join the waitlist</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-text">Fit4 Associates Inc.</span>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', function() {
+      this.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
