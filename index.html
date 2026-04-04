@@ -116,11 +116,40 @@
       padding: 8rem 2rem 5rem;
       position: relative; overflow: hidden;
       background: var(--near-black);
+      background-image:
+        linear-gradient(to bottom, rgba(29,29,31,0.65) 0%, rgba(29,29,31,0.85) 60%, rgba(29,29,31,0.98) 100%),
+        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
     }
 
     .hero-bg {
       position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(88,86,214,0.12) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(88,86,214,0.10) 0%, transparent 70%);
+    }
+
+    /* ── PHOTO BREAKS ── */
+    .photo-break {
+      width: 100%; height: 50vh; min-height: 320px;
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .photo-break img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; display: block;
+    }
+    .photo-break-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(29,29,31,0.5), rgba(29,29,31,0.7));
+    }
+    .photo-break-content {
+      position: relative; z-index: 1; text-align: center;
+      max-width: 560px; padding: 2rem;
+    }
+    .photo-break-quote {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic; font-size: clamp(1.25rem, 3vw, 1.75rem);
+      color: rgba(255,255,255,0.85); line-height: 1.4;
     }
 
     .hero-content { max-width: 680px; position: relative; z-index: 1; }
@@ -376,9 +405,14 @@
 
     /* ── CTA SECTION ── */
     .cta-section {
-      background: var(--near-black);
       padding: 7rem 2rem;
       text-align: center;
+      position: relative;
+      background:
+        linear-gradient(to bottom, rgba(29,29,31,0.75), rgba(29,29,31,0.88)),
+        url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?w=1600&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
     }
     .cta-section h2 {
       font-family: 'DM Serif Display', serif;
@@ -588,6 +622,15 @@
   </div>
 </section>
 
+<!-- PHOTO BREAK 1 -->
+<section class="photo-break">
+  <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?w=1600&q=80&auto=format&fit=crop" alt="" loading="lazy">
+  <div class="photo-break-overlay"></div>
+  <div class="photo-break-content">
+    <p class="photo-break-quote">The problem is never just the problem. The presenting symptom always traces back to a different root cause.</p>
+  </div>
+</section>
+
 <!-- THE 8 SUBSYSTEMS -->
 <section class="section-light on-light">
   <div class="inner">
@@ -715,6 +758,15 @@
     <div style="margin-top:2.5rem;text-align:center;">
       <a href="https://app.lifestyle-os.fit" class="btn-primary">Run the Diagnostic — Free</a>
     </div>
+  </div>
+</section>
+
+<!-- PHOTO BREAK 2 -->
+<section class="photo-break">
+  <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1600&q=80&auto=format&fit=crop" alt="" loading="lazy">
+  <div class="photo-break-overlay"></div>
+  <div class="photo-break-content">
+    <p class="photo-break-quote">Your body does not give extra credit for what is working well. It responds to what is not.</p>
   </div>
 </section>
 
