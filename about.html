@@ -280,19 +280,17 @@
     }
 
     .subsystem-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
+      width: 32px;
+      height: 32px;
+      border-radius: 7px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-    }
-
-    .subsystem-icon svg {
-      width: 14px;
-      height: 14px;
-      fill: var(--white);
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--white);
     }
 
     .subsystem-name {
@@ -557,9 +555,7 @@
       <div class="subsystem-grid">
         <div class="subsystem-card" style="border-left-color: var(--recovery)">
           <div class="subsystem-card-header">
-            <div class="subsystem-icon" style="background: var(--recovery)">
-              <svg viewBox="0 0 24 24"><path d="M17.66 7.93 12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31A7.98 7.98 0 0 0 12 21.58c2.05 0 4.1-.78 5.66-2.34 3.12-3.12 3.12-8.19 0-11.31z"/></svg>
-            </div>
+            <div class="subsystem-icon" style="background: var(--recovery)">R</div>
             <span class="subsystem-name">Recovery</span>
           </div>
           <span class="subsystem-role">Sleep, stress regulation, restoration</span>
@@ -567,9 +563,7 @@
 
         <div class="subsystem-card" style="border-left-color: var(--metabolic)">
           <div class="subsystem-card-header">
-            <div class="subsystem-icon" style="background: var(--metabolic)">
-              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-14h2v6h-2zm0 8h2v2h-2z"/></svg>
-            </div>
+            <div class="subsystem-icon" style="background: var(--metabolic)">M</div>
             <span class="subsystem-name">Metabolic</span>
           </div>
           <span class="subsystem-role">Nutrition, hydration, fuel systems</span>
@@ -577,9 +571,7 @@
 
         <div class="subsystem-card" style="border-left-color: var(--physical)">
           <div class="subsystem-card-header">
-            <div class="subsystem-icon" style="background: var(--physical)">
-              <svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9 1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3A7.03 7.03 0 0 0 18.69 13v-2a4.97 4.97 0 0 1-3.8-1.8l-1-1.2c-.4-.5-1-.8-1.6-.8-.2 0-.3 0-.5.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg>
-            </div>
+            <div class="subsystem-icon" style="background: var(--physical)">P</div>
             <span class="subsystem-name">Physical</span>
           </div>
           <span class="subsystem-role">Strength, cardio, mobility, training</span>
@@ -587,9 +579,7 @@
 
         <div class="subsystem-card" style="border-left-color: var(--cognitive)">
           <div class="subsystem-card-header">
-            <div class="subsystem-icon" style="background: var(--cognitive)">
-              <svg viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9c0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-2.31C18.16 18.67 21 15.17 21 11a9 9 0 0 0-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
-            </div>
+            <div class="subsystem-icon" style="background: var(--cognitive)">C</div>
             <span class="subsystem-name">Cognitive</span>
           </div>
           <span class="subsystem-role">Focus, decisions, learning, state</span>
@@ -597,9 +587,7 @@
 
         <div class="subsystem-card" style="border-left-color: var(--time)">
           <div class="subsystem-card-header">
-            <div class="subsystem-icon" style="background: var(--time)">
-              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-            </div>
+            <div class="subsystem-icon" style="background: var(--time)">T</div>
             <span class="subsystem-name">Temporal</span>
           </div>
           <span class="subsystem-role">Schedule, priorities, protection</span>
@@ -607,9 +595,7 @@
 
         <div class="subsystem-card" style="border-left-color: var(--financial)">
           <div class="subsystem-card-header">
-            <div class="subsystem-icon" style="background: var(--financial)">
-              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L10 14v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-            </div>
+            <div class="subsystem-icon" style="background: var(--financial)">F</div>
             <span class="subsystem-name">Financial</span>
           </div>
           <span class="subsystem-role">Income, cash flow, wealth building</span>
@@ -617,9 +603,7 @@
 
         <div class="subsystem-card" style="border-left-color: var(--relational)">
           <div class="subsystem-card-header">
-            <div class="subsystem-icon" style="background: var(--relational)">
-              <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-            </div>
+            <div class="subsystem-icon" style="background: var(--relational)">R</div>
             <span class="subsystem-name">Relational</span>
           </div>
           <span class="subsystem-role">Partnership, family, social systems</span>
@@ -627,9 +611,7 @@
 
         <div class="subsystem-card" style="border-left-color: var(--strategic)">
           <div class="subsystem-card-header">
-            <div class="subsystem-icon" style="background: var(--strategic)">
-              <svg viewBox="0 0 24 24"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
-            </div>
+            <div class="subsystem-icon" style="background: var(--strategic)">S</div>
             <span class="subsystem-name">Strategic</span>
           </div>
           <span class="subsystem-role">Direction, goals, execution, legacy</span>
