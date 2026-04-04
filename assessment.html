@@ -322,15 +322,23 @@
       background: #0077ED;
     }
 
-    .capture-success {
-      display: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--secondary);
+    .cta-button {
+      display: inline-block;
+      padding: 0.9375rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      background: var(--blue);
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
     }
 
-    .capture-success.visible {
-      display: block;
+    .cta-button:hover {
+      background: #0077ED;
+      transform: scale(1.02);
     }
 
     /* ---- FOOTER ---- */
@@ -451,7 +459,7 @@
         <span class="ring-dot" style="background: var(--strategic)"></span>
       </div>
 
-      <span class="label">Coming Soon</span>
+      <span class="label">Now Live</span>
 
       <h1 class="title">The Diagnostic</h1>
 
@@ -477,12 +485,7 @@
       <div class="divider"></div>
 
       <div class="capture">
-        <span class="capture-label">Get notified when it launches</span>
-        <form class="capture-form" id="captureForm">
-          <input type="email" name="email" placeholder="Your email" required autocomplete="email">
-          <button type="submit">Notify me</button>
-        </form>
-        <p class="capture-success" id="captureSuccess">You are on the list.</p>
+        <a href="https://app.lifestyle-os.fit" class="cta-button">Run the Diagnostic</a>
       </div>
 
     </div>
@@ -493,12 +496,6 @@
   </footer>
 
   <script>
-    document.getElementById('captureForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('captureSuccess').classList.add('visible');
-    });
-
     // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
