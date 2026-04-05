@@ -759,9 +759,26 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-right { display: none; }
-      .hero-left { padding: 9rem 2rem 5rem; align-items: center; text-align: center; }
+      .hero {
+        grid-template-columns: 1fr;
+        position: relative;
+      }
+      /* Photo becomes full-bleed background on mobile */
+      .hero-right {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .hero-right::before {
+        background: linear-gradient(180deg, rgba(29,29,31,0.85) 0%, rgba(29,29,31,0.7) 60%, rgba(29,29,31,0.92) 100%);
+      }
+      .hero-left {
+        position: relative;
+        z-index: 1;
+        padding: 9rem 2rem 5rem;
+        align-items: center;
+        text-align: center;
+      }
       .hero-headline { font-size: 2.5rem; }
       .hero-sub { max-width: 100%; }
       .btn-primary { align-self: center; }
