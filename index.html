@@ -17,24 +17,24 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --canvas: #F5F5F7;
-      --white: #FFFFFF;
-      --border: #D2D2D7;
-      --secondary: #86868B;
-      --muted: #6E6E73;
+      --canvas:     #F5F5F7;
+      --white:      #FFFFFF;
+      --border:     #D2D2D7;
+      --secondary:  #86868B;
+      --muted:      #6E6E73;
       --near-black: #1D1D1F;
-      --blue: #0071E3;
-      --recovery: #007AFF;
-      --metabolic: #FF9500;
-      --physical: #FF3B30;
-      --cognitive: #AF52DE;
-      --time: #5AC8FA;
-      --financial: #34C759;
+      --blue:       #0071E3;
+      --recovery:   #007AFF;
+      --metabolic:  #FF9500;
+      --physical:   #FF3B30;
+      --cognitive:  #AF52DE;
+      --time:       #5AC8FA;
+      --financial:  #34C759;
       --relational: #FF2D55;
-      --strategic: #5856D6;
+      --strategic:  #5856D6;
     }
 
-    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -42,20 +42,22 @@
       color: var(--white);
     }
 
-    /* ---- HEADER ---- */
+    a { text-decoration: none; }
+
+    /* ─── HEADER ─── */
     .site-header {
       position: fixed;
       top: 0; left: 0; right: 0;
       padding: 1.25rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       z-index: 100;
       background: rgba(29, 29, 31, 0.88);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
     }
-
-    .site-header a { text-decoration: none; }
 
     .header-wordmark {
       font-family: 'DM Serif Display', serif;
@@ -64,37 +66,44 @@
       letter-spacing: -0.02em;
     }
 
-    .header-nav { display: flex; gap: 1.5rem; align-items: center; }
+    .header-nav {
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+    }
 
     .header-nav a {
       font-size: 0.8125rem;
+      font-weight: 400;
       color: var(--secondary);
-      text-decoration: none;
       transition: color 0.2s ease;
     }
+
     .header-nav a:hover { color: var(--white); }
 
     .header-cta {
       font-size: 0.8125rem;
       font-weight: 500;
-      color: var(--white);
+      color: var(--white) !important;
       background: var(--blue);
       padding: 0.5rem 1.125rem;
       border-radius: 6px;
-      text-decoration: none;
       transition: background 0.2s ease;
     }
 
-    .header-cta:hover { background: #0077ED; color: var(--white) !important; }
+    .header-cta:hover { background: #0077ED; }
 
+    /* Hamburger */
     .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 4px; background: none; border: none; z-index: 110;
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 110;
     }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     .hamburger span {
       display: block;
@@ -109,10 +118,11 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+    /* Mobile menu */
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background: var(--near-black);
       z-index: 105;
       flex-direction: column;
@@ -127,25 +137,24 @@
       font-family: 'DM Serif Display', serif;
       font-size: 1.5rem;
       color: var(--secondary);
-      text-decoration: none;
       transition: color 0.2s ease;
     }
 
     .mobile-menu a:hover { color: var(--white); }
 
     .mobile-dots { display: flex; gap: 8px; margin-top: 1rem; }
-    .mobile-dots .pulse-dot { width: 6px; height: 6px; }
 
     @media (max-width: 640px) {
       .hamburger { display: flex; }
       .header-nav { display: none; }
     }
 
-    /* ---- PULSE DOTS ---- */
+    /* ─── PULSE DOTS ─── */
     .pulse-dot {
       border-radius: 50%;
-      animation: pulse 2.4s ease-in-out infinite;
+      animation: pulseDot 2.4s ease-in-out infinite;
     }
+
     .pulse-dot:nth-child(1) { animation-delay: 0s; }
     .pulse-dot:nth-child(2) { animation-delay: 0.3s; }
     .pulse-dot:nth-child(3) { animation-delay: 0.6s; }
@@ -154,20 +163,22 @@
     .pulse-dot:nth-child(6) { animation-delay: 1.5s; }
     .pulse-dot:nth-child(7) { animation-delay: 1.8s; }
     .pulse-dot:nth-child(8) { animation-delay: 2.1s; }
-    @keyframes pulse {
+
+    @keyframes pulseDot {
       0%, 100% { opacity: 0.3; transform: scale(1); }
-      50% { opacity: 0.9; transform: scale(1.3); }
+      50%       { opacity: 0.9; transform: scale(1.35); }
     }
 
-    /* ---- HERO ---- */
+    /* ─── HERO ─── */
     .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 8rem 2rem 5rem;
+      padding: 9rem 2rem 6rem;
       text-align: center;
+      background: var(--near-black);
     }
 
     .hero-inner {
@@ -184,31 +195,29 @@
       justify-content: center;
     }
 
-    .dots-row .pulse-dot { width: 8px; height: 8px; }
-
     .hero-headline {
       font-family: 'DM Serif Display', serif;
-      font-size: 3rem;
+      font-size: 3.25rem;
       font-weight: 400;
       line-height: 1.1;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       color: var(--white);
     }
 
     .hero-headline em {
       font-style: italic;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.5);
     }
 
     .hero-sub {
       font-size: 1.125rem;
       font-weight: 300;
       color: var(--secondary);
-      line-height: 1.7;
+      line-height: 1.75;
       max-width: 480px;
     }
 
-    .hero-cta {
+    .btn-primary {
       display: inline-block;
       padding: 1rem 2.5rem;
       font-family: 'Inter', sans-serif;
@@ -218,88 +227,80 @@
       color: var(--white);
       background: var(--blue);
       border-radius: 8px;
-      text-decoration: none;
       transition: background 0.2s ease, transform 0.15s ease;
     }
 
-    .hero-cta:hover {
+    .btn-primary:hover {
       background: #0077ED;
       transform: translateY(-1px);
     }
 
-    .hero-note {
+    .micro-note {
       font-size: 0.75rem;
       font-weight: 300;
-      color: var(--dark-grey);
+      color: var(--muted);
       letter-spacing: 0.02em;
     }
 
-    /* ---- SECTION BASE ---- */
-    .section-dark {
-      background: var(--near-black);
-      padding: 5rem 2rem;
+    /* ─── SECTION BASE ─── */
+    .sec {
+      padding: 5.5rem 2rem;
     }
 
-    .section-light {
-      background: var(--light-grey);
-      padding: 5rem 2rem;
-      color: var(--near-black);
-    }
+    .sec--dark  { background: var(--near-black); }
+    .sec--grey  { background: var(--canvas); }
+    .sec--white { background: var(--white); }
 
-    .section-inner {
+    .sec-inner {
       max-width: 680px;
       margin: 0 auto;
     }
 
-    .section-label {
+    .sec-label {
       font-size: 0.6875rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--secondary);
-      margin-bottom: 1rem;
+      margin-bottom: 0.875rem;
     }
 
-    .section-title-dark {
+    .sec-label--dark  { color: var(--muted); }
+    .sec-label--light { color: var(--secondary); }
+
+    .sec-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
+      font-size: 2.125rem;
       font-weight: 400;
-      color: var(--white);
-      line-height: 1.2;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
     }
 
-    .section-title-light {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--near-black);
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
+    .sec-title--dark  { color: var(--white); }
+    .sec-title--light { color: var(--near-black); }
 
-    .section-body {
+    .sec-body {
       font-size: 1rem;
       font-weight: 300;
-      line-height: 1.8;
-      color: var(--secondary);
+      line-height: 1.82;
     }
 
-    .section-body-dark { color: var(--secondary); }
-    .section-body-light { color: var(--dark-grey); }
+    .sec-body--dark  { color: var(--secondary); }
+    .sec-body--light { color: var(--muted); }
 
-    .section-body p + p { margin-top: 1rem; }
+    .sec-body p + p { margin-top: 1rem; }
 
-    /* ---- PROBLEM SECTION ---- */
-    .problem-quote {
+    /* ─── PULL QUOTE ─── */
+    .pull-quote {
       border-left: 3px solid var(--cognitive);
       padding: 1.25rem 1.5rem;
       margin: 2.5rem 0;
-      background: rgba(175, 82, 222, 0.04);
+      background: rgba(175, 82, 222, 0.05);
       border-radius: 0 8px 8px 0;
     }
 
-    .problem-quote p {
+    .pull-quote p {
       font-family: 'DM Serif Display', serif;
       font-style: italic;
       font-size: 1.125rem;
@@ -307,7 +308,7 @@
       line-height: 1.55;
     }
 
-    /* ---- AREAS GRID ---- */
+    /* ─── AREAS GRID ─── */
     .areas-intro {
       margin-bottom: 2rem;
     }
@@ -316,6 +317,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
+      margin-top: 2rem;
     }
 
     .area-card {
@@ -324,50 +326,53 @@
       border-left: 4px solid transparent;
       border-radius: 10px;
       padding: 1rem 1.125rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .area-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-    }
-
-    .area-card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-      margin-bottom: 0.375rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
 
     .area-icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 7px;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      font-size: 0.875rem;
-      color: var(--white);
     }
+
+    .area-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .area-text { flex: 1; }
 
     .area-name {
       font-family: 'DM Serif Display', serif;
       font-size: 0.9375rem;
       color: var(--near-black);
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
     }
 
     .area-role {
       font-size: 0.75rem;
+      font-weight: 300;
       color: var(--secondary);
       line-height: 1.5;
     }
 
-    /* ---- HOW IT WORKS ---- */
+    /* ─── HOW IT WORKS ─── */
     .steps {
       display: flex;
       flex-direction: column;
-      gap: 0;
       margin-top: 2.5rem;
     }
 
@@ -375,59 +380,49 @@
       display: flex;
       gap: 1.5rem;
       align-items: flex-start;
-      padding: 1.5rem 0;
-      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+      padding: 1.75rem 0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
     }
 
     .step:last-child { border-bottom: none; }
 
     .step-number {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.75rem;
-      color: rgba(255,255,255,0.15);
+      font-size: 2rem;
+      color: rgba(255,255,255,0.12);
       line-height: 1;
       flex-shrink: 0;
       width: 2rem;
       text-align: right;
     }
 
-    .step-content { flex: 1; }
-
     .step-title {
       font-family: 'DM Serif Display', serif;
       font-size: 1.125rem;
       color: var(--white);
-      margin-bottom: 0.375rem;
+      margin-bottom: 0.4rem;
     }
 
     .step-desc {
       font-size: 0.875rem;
       font-weight: 300;
       color: var(--secondary);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
-    /* ---- HUMAN SECTION ---- */
-    .human-section {
-      background: var(--white);
-      padding: 5rem 2rem;
-    }
-
-    .human-inner {
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
+    /* ─── HUMAN SECTION ─── */
     .founder-block {
       display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
-      margin-bottom: 2.5rem;
+      gap: 1.25rem;
+      align-items: center;
+      margin-bottom: 2.25rem;
+      padding-bottom: 2.25rem;
+      border-bottom: 0.5px solid var(--border);
     }
 
     .founder-avatar {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 50%;
       background: var(--near-black);
       display: flex;
@@ -435,34 +430,33 @@
       justify-content: center;
       flex-shrink: 0;
       font-family: 'DM Serif Display', serif;
-      font-size: 1.125rem;
+      font-size: 1.25rem;
       color: var(--white);
-    }
-
-    .founder-meta {
-      padding-top: 0.375rem;
+      letter-spacing: -0.01em;
     }
 
     .founder-name {
       font-family: 'DM Serif Display', serif;
-      font-size: 1rem;
+      font-size: 1.0625rem;
       color: var(--near-black);
-      margin-bottom: 0.125rem;
+      margin-bottom: 0.2rem;
     }
 
     .founder-role {
       font-size: 0.75rem;
+      font-weight: 300;
       color: var(--secondary);
+      line-height: 1.5;
     }
 
     .founder-story {
       font-size: 0.9375rem;
       font-weight: 300;
-      color: var(--dark-grey);
-      line-height: 1.8;
+      color: var(--muted);
+      line-height: 1.85;
     }
 
-    .founder-story p + p { margin-top: 1rem; }
+    .founder-story p + p { margin-top: 1.125rem; }
 
     .story-divider {
       width: 40px;
@@ -473,7 +467,7 @@
 
     .story-quote {
       border-left: 3px solid var(--strategic);
-      padding: 1rem 1.25rem;
+      padding: 1.125rem 1.375rem;
       background: rgba(88, 86, 214, 0.04);
       border-radius: 0 8px 8px 0;
     }
@@ -481,15 +475,15 @@
     .story-quote p {
       font-family: 'DM Serif Display', serif;
       font-style: italic;
-      font-size: 1.0625rem;
+      font-size: 1rem;
       color: var(--near-black);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
-    /* ---- FINAL CTA ---- */
+    /* ─── FINAL CTA ─── */
     .final-cta {
       background: var(--near-black);
-      padding: 6rem 2rem;
+      padding: 7rem 2rem;
       text-align: center;
     }
 
@@ -504,22 +498,24 @@
 
     .final-cta-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 2.25rem;
+      font-size: 2.375rem;
       font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
       color: var(--white);
-      line-height: 1.2;
     }
 
     .final-cta-sub {
       font-size: 1rem;
       font-weight: 300;
       color: var(--secondary);
-      line-height: 1.7;
+      line-height: 1.75;
+      max-width: 400px;
     }
 
-    /* ---- BOOKS BRIDGE ---- */
+    /* ─── BOOKS BRIDGE ─── */
     .books-bridge {
-      background: var(--light-grey);
+      background: var(--canvas);
       padding: 4rem 2rem;
     }
 
@@ -532,8 +528,6 @@
       gap: 2rem;
     }
 
-    .books-bridge-text {}
-
     .books-bridge-title {
       font-family: 'DM Serif Display', serif;
       font-size: 1.375rem;
@@ -544,32 +538,31 @@
     .books-bridge-desc {
       font-size: 0.875rem;
       font-weight: 300;
-      color: var(--dark-grey);
+      color: var(--muted);
       line-height: 1.65;
     }
 
-    .books-link {
+    .btn-ghost {
       white-space: nowrap;
       font-size: 0.8125rem;
       font-weight: 500;
       color: var(--near-black);
-      text-decoration: none;
       border: 1px solid var(--border);
       padding: 0.75rem 1.5rem;
       border-radius: 8px;
-      transition: border-color 0.2s ease, background 0.2s ease;
       flex-shrink: 0;
+      transition: border-color 0.2s ease, background 0.2s ease;
     }
 
-    .books-link:hover {
+    .btn-ghost:hover {
       border-color: var(--near-black);
       background: rgba(0,0,0,0.04);
     }
 
-    /* ---- FOOTER ---- */
+    /* ─── FOOTER ─── */
     .site-footer {
       background: var(--near-black);
-      padding: 2rem 2rem;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -584,27 +577,25 @@
       letter-spacing: 0.02em;
     }
 
-    .footer-gym-link {
+    .footer-link {
       font-size: 0.6875rem;
       color: var(--secondary);
-      text-decoration: none;
       transition: color 0.2s ease;
     }
-    .btn-ghost:hover { color: var(--white); }
 
-    .footer-gym-link:hover { color: var(--white); }
+    .footer-link:hover { color: var(--white); }
 
-    /* ---- RESPONSIVE ---- */
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 640px) {
-      .hero-headline { font-size: 2.125rem; }
-      .section-title-dark, .section-title-light { font-size: 1.625rem; }
+      .hero-headline { font-size: 2.25rem; }
+      .sec-title { font-size: 1.75rem; }
+      .final-cta-title { font-size: 1.875rem; }
       .areas-grid { grid-template-columns: 1fr; }
       .books-bridge-inner { flex-direction: column; align-items: flex-start; }
-      .final-cta-title { font-size: 1.75rem; }
-      .founder-block { flex-direction: column; gap: 1rem; }
+      .founder-block { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
 
-    /* ---- ANIMATIONS ---- */
+    /* ─── HERO ANIMATION ─── */
     .hero-inner > * {
       opacity: 0;
       transform: translateY(14px);
@@ -642,30 +633,30 @@
     <a href="ebooks.html">Books</a>
     <a href="https://app.lifestyle-os.fit">Start free →</a>
     <div class="mobile-dots">
-      <span class="pulse-dot" style="background: var(--recovery)"></span>
-      <span class="pulse-dot" style="background: var(--metabolic)"></span>
-      <span class="pulse-dot" style="background: var(--physical)"></span>
-      <span class="pulse-dot" style="background: var(--cognitive)"></span>
-      <span class="pulse-dot" style="background: var(--time)"></span>
-      <span class="pulse-dot" style="background: var(--financial)"></span>
-      <span class="pulse-dot" style="background: var(--relational)"></span>
-      <span class="pulse-dot" style="background: var(--strategic)"></span>
+      <span class="pulse-dot" style="width:6px;height:6px;background:var(--recovery)"></span>
+      <span class="pulse-dot" style="width:6px;height:6px;background:var(--metabolic)"></span>
+      <span class="pulse-dot" style="width:6px;height:6px;background:var(--physical)"></span>
+      <span class="pulse-dot" style="width:6px;height:6px;background:var(--cognitive)"></span>
+      <span class="pulse-dot" style="width:6px;height:6px;background:var(--time)"></span>
+      <span class="pulse-dot" style="width:6px;height:6px;background:var(--financial)"></span>
+      <span class="pulse-dot" style="width:6px;height:6px;background:var(--relational)"></span>
+      <span class="pulse-dot" style="width:6px;height:6px;background:var(--strategic)"></span>
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- ═══ HERO ═══ -->
   <section class="hero">
     <div class="hero-inner">
 
       <div class="dots-row">
-        <span class="pulse-dot" style="background: var(--recovery); width:8px; height:8px"></span>
-        <span class="pulse-dot" style="background: var(--metabolic); width:8px; height:8px"></span>
-        <span class="pulse-dot" style="background: var(--physical); width:8px; height:8px"></span>
-        <span class="pulse-dot" style="background: var(--cognitive); width:8px; height:8px"></span>
-        <span class="pulse-dot" style="background: var(--time); width:8px; height:8px"></span>
-        <span class="pulse-dot" style="background: var(--financial); width:8px; height:8px"></span>
-        <span class="pulse-dot" style="background: var(--relational); width:8px; height:8px"></span>
-        <span class="pulse-dot" style="background: var(--strategic); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="width:8px;height:8px;background:var(--recovery)"></span>
+        <span class="pulse-dot" style="width:8px;height:8px;background:var(--metabolic)"></span>
+        <span class="pulse-dot" style="width:8px;height:8px;background:var(--physical)"></span>
+        <span class="pulse-dot" style="width:8px;height:8px;background:var(--cognitive)"></span>
+        <span class="pulse-dot" style="width:8px;height:8px;background:var(--time)"></span>
+        <span class="pulse-dot" style="width:8px;height:8px;background:var(--financial)"></span>
+        <span class="pulse-dot" style="width:8px;height:8px;background:var(--relational)"></span>
+        <span class="pulse-dot" style="width:8px;height:8px;background:var(--strategic)"></span>
       </div>
 
       <h1 class="hero-headline">
@@ -677,157 +668,175 @@
         Not a discipline problem. Not a motivation problem. Something deeper is running the show — and it has been running it for years. The free assessment finds it.
       </p>
 
-      <a href="https://app.lifestyle-os.fit" class="hero-cta">Take the free assessment</a>
+      <a href="https://app.lifestyle-os.fit" class="btn-primary">Take the free assessment</a>
 
-      <p class="hero-note">Free. 5 minutes. No account required to start.</p>
+      <p class="micro-note">Free. 5 minutes. No account required to start.</p>
 
     </div>
   </section>
 
-  <!-- THE PROBLEM -->
-  <section class="section-light">
-    <div class="section-inner">
-      <p class="section-label">The Problem</p>
-      <h2 class="section-title-light">The problem is never where you think it is.</h2>
+  <!-- ═══ THE PROBLEM ═══ -->
+  <section class="sec sec--grey">
+    <div class="sec-inner">
+      <p class="sec-label sec-label--light">The Problem</p>
+      <h2 class="sec-title sec-title--light">The problem is never where you think it is.</h2>
 
-      <div class="section-body section-body-light">
-        <p>
-          You fix your sleep and your energy is still flat. You clean up your food and the weight does not move. You work harder and the income still does not compound. You do everything the books say and the results still do not hold.
-        </p>
-        <p>
-          That is not failure. That is a diagnostic problem. The thing you are working on is the victim. Something upstream is the culprit — and you have been treating the symptom.
-        </p>
+      <div class="sec-body sec-body--light">
+        <p>You fix your sleep and your energy is still flat. You clean up your food and the weight does not move. You work harder and the income still does not compound. You do everything the books say and the results still do not hold.</p>
+        <p>That is not failure. That is a diagnostic problem. The thing you are working on is the victim. Something upstream is the culprit — and you have been treating the symptom.</p>
       </div>
 
-      <div class="problem-quote">
+      <div class="pull-quote">
         <p>The presenting problem is never the actual problem. Find the culprit and the victim solves itself.</p>
       </div>
 
-      <div class="section-body section-body-light">
-        <p>
-          Lifestyle OS maps eight areas of your life and finds where the breakdown actually starts. Not where you feel it. Where it comes from.
-        </p>
+      <div class="sec-body sec-body--light">
+        <p>Lifestyle OS maps eight areas of your life and finds where the breakdown actually starts. Not where you feel it. Where it comes from.</p>
       </div>
     </div>
   </section>
 
-  <!-- THE 8 AREAS -->
-  <section style="background: var(--white); padding: 5rem 2rem;">
-    <div class="section-inner">
-      <p class="section-label">Eight Areas</p>
-      <h2 class="section-title-light">Every part of your life runs together.</h2>
+  <!-- ═══ EIGHT AREAS ═══ -->
+  <section class="sec sec--white">
+    <div class="sec-inner">
+      <p class="sec-label sec-label--light">Eight Areas</p>
+      <h2 class="sec-title sec-title--light">Every part of your life runs together.</h2>
 
-      <div class="areas-intro section-body section-body-light">
-        <p>
-          When one area breaks down, it pulls on the others. Bad sleep tanks your focus. Bad focus tanks your decisions. Bad decisions tank your money, your relationships, your sense of direction. The whole thing is connected — which means fixing one thing in the right place changes everything else.
-        </p>
+      <div class="sec-body sec-body--light areas-intro">
+        <p>When one area breaks down, it pulls on the others. Bad sleep tanks your focus. Bad focus tanks your decisions. Bad decisions tank your money, your relationships, your sense of direction. The whole thing is connected — which means fixing one thing in the right place changes everything else.</p>
       </div>
 
       <div class="areas-grid">
 
         <div class="area-card" style="border-left-color: var(--recovery)">
-          <div class="area-card-header">
-            <div class="area-icon" style="background: var(--recovery)">R</div>
-            <span class="area-name">Sleep & Recovery</span>
+          <div class="area-icon" style="background: var(--recovery)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
           </div>
-          <span class="area-role">The foundation everything else rests on</span>
+          <div class="area-text">
+            <div class="area-name">Sleep &amp; Recovery</div>
+            <div class="area-role">The foundation everything else rests on</div>
+          </div>
         </div>
 
         <div class="area-card" style="border-left-color: var(--metabolic)">
-          <div class="area-card-header">
-            <div class="area-icon" style="background: var(--metabolic)">N</div>
-            <span class="area-name">Food & Energy</span>
+          <div class="area-icon" style="background: var(--metabolic)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
           </div>
-          <span class="area-role">What you put in determines what comes out</span>
+          <div class="area-text">
+            <div class="area-name">Food &amp; Energy</div>
+            <div class="area-role">What you put in determines what comes out</div>
+          </div>
         </div>
 
         <div class="area-card" style="border-left-color: var(--physical)">
-          <div class="area-card-header">
-            <div class="area-icon" style="background: var(--physical)">P</div>
-            <span class="area-name">Strength & Fitness</span>
+          <div class="area-icon" style="background: var(--physical)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
           </div>
-          <span class="area-role">Your body's capacity to meet what life demands</span>
+          <div class="area-text">
+            <div class="area-name">Strength &amp; Fitness</div>
+            <div class="area-role">Your body's capacity to meet what life demands</div>
+          </div>
         </div>
 
         <div class="area-card" style="border-left-color: var(--cognitive)">
-          <div class="area-card-header">
-            <div class="area-icon" style="background: var(--cognitive)">F</div>
-            <span class="area-name">Focus & Mind</span>
+          <div class="area-icon" style="background: var(--cognitive)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+            </svg>
           </div>
-          <span class="area-role">How clearly you think and how well you decide</span>
+          <div class="area-text">
+            <div class="area-name">Focus &amp; Mind</div>
+            <div class="area-role">How clearly you think and how well you decide</div>
+          </div>
         </div>
 
         <div class="area-card" style="border-left-color: var(--time)">
-          <div class="area-card-header">
-            <div class="area-icon" style="background: var(--time)">T</div>
-            <span class="area-name">Time</span>
+          <div class="area-icon" style="background: var(--time)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
           </div>
-          <span class="area-role">Where your hours actually go versus where you think they go</span>
+          <div class="area-text">
+            <div class="area-name">Time</div>
+            <div class="area-role">Where your hours actually go versus where you think they go</div>
+          </div>
         </div>
 
         <div class="area-card" style="border-left-color: var(--financial)">
-          <div class="area-card-header">
-            <div class="area-icon" style="background: var(--financial)">$</div>
-            <span class="area-name">Money</span>
+          <div class="area-icon" style="background: var(--financial)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+            </svg>
           </div>
-          <span class="area-role">Income, cash flow, and whether it is actually building</span>
+          <div class="area-text">
+            <div class="area-name">Money</div>
+            <div class="area-role">Income, cash flow, and whether it is actually building</div>
+          </div>
         </div>
 
         <div class="area-card" style="border-left-color: var(--relational)">
-          <div class="area-card-header">
-            <div class="area-icon" style="background: var(--relational)">R</div>
-            <span class="area-name">Relationships</span>
+          <div class="area-icon" style="background: var(--relational)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
           </div>
-          <span class="area-role">The people closest to you and the health of those bonds</span>
+          <div class="area-text">
+            <div class="area-name">Relationships</div>
+            <div class="area-role">The people closest to you and the health of those bonds</div>
+          </div>
         </div>
 
         <div class="area-card" style="border-left-color: var(--strategic)">
-          <div class="area-card-header">
-            <div class="area-icon" style="background: var(--strategic)">D</div>
-            <span class="area-name">Direction</span>
+          <div class="area-icon" style="background: var(--strategic)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
           </div>
-          <span class="area-role">Whether you know where you are going — and are actually moving there</span>
+          <div class="area-text">
+            <div class="area-name">Direction</div>
+            <div class="area-role">Whether you know where you are going — and are actually moving there</div>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section-dark">
-    <div class="section-inner">
-      <p class="section-label">How It Works</p>
-      <h2 class="section-title-dark">Three steps. One honest look.</h2>
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="sec sec--dark">
+    <div class="sec-inner">
+      <p class="sec-label sec-label--dark">How It Works</p>
+      <h2 class="sec-title sec-title--dark">Three steps. One honest look.</h2>
 
       <div class="steps">
 
         <div class="step">
           <span class="step-number">1</span>
-          <div class="step-content">
+          <div>
             <div class="step-title">Take the free assessment</div>
-            <div class="step-desc">
-              24 questions. Five minutes. Covers all eight areas of your life. No tricks, no upsells mid-flow. You answer honestly and you get an honest picture back.
-            </div>
+            <div class="step-desc">24 questions. Five minutes. Covers all eight areas of your life. No tricks, no upsells mid-flow. You answer honestly and you get an honest picture back.</div>
           </div>
         </div>
 
         <div class="step">
           <span class="step-number">2</span>
-          <div class="step-content">
+          <div>
             <div class="step-title">See where you actually are</div>
-            <div class="step-desc">
-              Not where you want to be. Not where you tell people you are. Where you actually are — across every area, with the gaps named. The score is not a judgment. It is a starting point.
-            </div>
+            <div class="step-desc">Not where you want to be. Not where you tell people you are. Where you actually are — across every area, with the gaps named. The score is not a judgment. It is a starting point.</div>
           </div>
         </div>
 
         <div class="step">
           <span class="step-number">3</span>
-          <div class="step-content">
+          <div>
             <div class="step-title">Get what to do next</div>
-            <div class="step-desc">
-              Built for where you are right now — not the person who already has everything figured out. The next step you can actually take. Not the optimal step. The right step.
-            </div>
+            <div class="step-desc">Built for where you are right now — not the person who already has everything figured out. The next step you can actually take. Not the optimal step. The right step.</div>
           </div>
         </div>
 
@@ -835,28 +844,22 @@
     </div>
   </section>
 
-  <!-- HUMAN SECTION -->
-  <section class="human-section">
-    <div class="human-inner">
+  <!-- ═══ HUMAN SECTION ═══ -->
+  <section class="sec sec--white">
+    <div class="sec-inner">
 
       <div class="founder-block">
         <div class="founder-avatar">J</div>
-        <div class="founder-meta">
+        <div>
           <div class="founder-name">Javier Jaime</div>
           <div class="founder-role">CrossFit coach · 12-year athlete · Lifestyle OS founder</div>
         </div>
       </div>
 
       <div class="founder-story">
-        <p>
-          I have watched hundreds of people do everything right and still not get the result. People who trained hard, ate well, worked long hours, showed up for their families. Everything the right way. And still — something was not working.
-        </p>
-        <p>
-          It took years of watching those patterns to understand what was actually happening. The problem was never where they thought it was. The person who could not lose weight was not eating wrong — they were sleeping three hours less than their body needed and the cortisol was running everything. The person whose income had plateaued was not working the wrong strategy — their direction had gone quiet and the whole system had lost its engine.
-        </p>
-        <p>
-          The presenting problem is always downstream of the real one. Lifestyle OS is the system I built to find where the real one actually lives.
-        </p>
+        <p>I have watched hundreds of people do everything right and still not get the result. People who trained hard, ate well, worked long hours, showed up for their families. Everything the right way. And still — something was not working.</p>
+        <p>It took years of watching those patterns to understand what was actually happening. The problem was never where they thought it was. The person who could not lose weight was not eating wrong — they were sleeping three hours less than their body needed and the cortisol was running everything. The person whose income had plateaued was not working the wrong strategy — their direction had gone quiet and the whole system had lost its engine.</p>
+        <p>The presenting problem is always downstream of the real one. Lifestyle OS is the system I built to find where the real one actually lives.</p>
       </div>
 
       <div class="story-divider"></div>
@@ -868,55 +871,53 @@
     </div>
   </section>
 
-  <!-- FINAL CTA -->
+  <!-- ═══ FINAL CTA ═══ -->
   <section class="final-cta">
     <div class="final-cta-inner">
 
       <div class="dots-row">
-        <span class="pulse-dot" style="background: var(--recovery); width:7px; height:7px"></span>
-        <span class="pulse-dot" style="background: var(--metabolic); width:7px; height:7px"></span>
-        <span class="pulse-dot" style="background: var(--physical); width:7px; height:7px"></span>
-        <span class="pulse-dot" style="background: var(--cognitive); width:7px; height:7px"></span>
-        <span class="pulse-dot" style="background: var(--time); width:7px; height:7px"></span>
-        <span class="pulse-dot" style="background: var(--financial); width:7px; height:7px"></span>
-        <span class="pulse-dot" style="background: var(--relational); width:7px; height:7px"></span>
-        <span class="pulse-dot" style="background: var(--strategic); width:7px; height:7px"></span>
+        <span class="pulse-dot" style="width:7px;height:7px;background:var(--recovery)"></span>
+        <span class="pulse-dot" style="width:7px;height:7px;background:var(--metabolic)"></span>
+        <span class="pulse-dot" style="width:7px;height:7px;background:var(--physical)"></span>
+        <span class="pulse-dot" style="width:7px;height:7px;background:var(--cognitive)"></span>
+        <span class="pulse-dot" style="width:7px;height:7px;background:var(--time)"></span>
+        <span class="pulse-dot" style="width:7px;height:7px;background:var(--financial)"></span>
+        <span class="pulse-dot" style="width:7px;height:7px;background:var(--relational)"></span>
+        <span class="pulse-dot" style="width:7px;height:7px;background:var(--strategic)"></span>
       </div>
 
       <h2 class="final-cta-title">The assessment is free.<br>It will tell you something<br>you have been trying to name.</h2>
 
-      <p class="final-cta-sub">
-        Five minutes. Honest questions. A real picture of where each area of your life actually stands — and what to do first.
-      </p>
+      <p class="final-cta-sub">Five minutes. Honest questions. A real picture of where each area of your life actually stands — and what to do first.</p>
 
-      <a href="https://app.lifestyle-os.fit" class="hero-cta">Take the free assessment</a>
+      <a href="https://app.lifestyle-os.fit" class="btn-primary">Take the free assessment</a>
 
-      <p class="hero-note">No credit card. No commitment. Start now.</p>
+      <p class="micro-note">No credit card. No commitment. Start now.</p>
 
     </div>
   </section>
 
-  <!-- BOOKS BRIDGE -->
+  <!-- ═══ BOOKS BRIDGE ═══ -->
   <section class="books-bridge">
     <div class="books-bridge-inner">
-      <div class="books-bridge-text">
+      <div>
         <div class="books-bridge-title">Want to go deeper?</div>
         <p class="books-bridge-desc">The full framework in writing — from the foundational book to deep dives on each area of your life.</p>
       </div>
-      <a href="ebooks.html" class="books-link">Browse the books →</a>
+      <a href="ebooks.html" class="btn-ghost">Browse the books →</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ═══ FOOTER ═══ -->
   <footer class="site-footer">
     <span class="footer-text">Fit4 Associates Inc. — lifestyle-os.fit</span>
-    <a href="https://crossfit-otl.com" target="_blank" rel="noopener" class="footer-gym-link">Also train with us at CrossFit OTL →</a>
+    <a href="https://crossfit-otl.com" target="_blank" rel="noopener" class="footer-link">Also train with us at CrossFit OTL →</a>
   </footer>
 
   <script>
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function () {
       this.classList.toggle('open');
       mobileMenu.classList.toggle('open');
     });
