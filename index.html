@@ -53,9 +53,9 @@
       align-items: center;
       justify-content: space-between;
       z-index: 100;
-      background: rgba(29, 29, 31, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(29, 29, 31, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 0.5px solid rgba(255,255,255,0.07);
     }
 
@@ -66,15 +66,10 @@
       letter-spacing: -0.02em;
     }
 
-    .header-nav {
-      display: flex;
-      gap: 1.75rem;
-      align-items: center;
-    }
+    .header-nav { display: flex; gap: 1.75rem; align-items: center; }
 
     .header-nav a {
       font-size: 0.8125rem;
-      font-weight: 400;
       color: var(--secondary);
       transition: color 0.2s ease;
     }
@@ -93,7 +88,6 @@
 
     .header-cta:hover { background: #0077ED; }
 
-    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -118,7 +112,6 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Mobile menu */
     .mobile-menu {
       display: none;
       position: fixed;
@@ -152,9 +145,9 @@
     /* ─── PULSE DOTS ─── */
     .pulse-dot {
       border-radius: 50%;
+      display: inline-block;
       animation: pulseDot 2.4s ease-in-out infinite;
     }
-
     .pulse-dot:nth-child(1) { animation-delay: 0s; }
     .pulse-dot:nth-child(2) { animation-delay: 0.3s; }
     .pulse-dot:nth-child(3) { animation-delay: 0.6s; }
@@ -163,7 +156,6 @@
     .pulse-dot:nth-child(6) { animation-delay: 1.5s; }
     .pulse-dot:nth-child(7) { animation-delay: 1.8s; }
     .pulse-dot:nth-child(8) { animation-delay: 2.1s; }
-
     @keyframes pulseDot {
       0%, 100% { opacity: 0.3; transform: scale(1); }
       50%       { opacity: 0.9; transform: scale(1.35); }
@@ -176,44 +168,92 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 9rem 2rem 6rem;
+      padding: 9rem 2rem 5rem;
       text-align: center;
       background: var(--near-black);
     }
 
     .hero-inner {
-      max-width: 640px;
+      max-width: 680px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      gap: 2.25rem;
     }
 
-    .dots-row {
+    /* ── SYSTEM BAR ── */
+    .system-bar {
       display: flex;
-      gap: 10px;
+      width: 100%;
+      max-width: 640px;
+      border-radius: 14px;
+      overflow: hidden;
+      height: 88px;
+      box-shadow: 0 0 0 0.5px rgba(255,255,255,0.1), 0 16px 48px rgba(0,0,0,0.5);
+    }
+
+    .sys-seg {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 5px;
+      position: relative;
+      overflow: hidden;
+      transition: flex 0.3s ease;
+      cursor: default;
+    }
+
+    .sys-seg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 60%);
+      pointer-events: none;
+    }
+
+    .sys-seg-badge {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.95);
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sys-seg-label {
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.65);
+      white-space: nowrap;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-headline {
       font-family: 'DM Serif Display', serif;
-      font-size: 3.25rem;
+      font-size: 3.375rem;
       font-weight: 400;
-      line-height: 1.1;
+      line-height: 1.08;
       letter-spacing: -0.025em;
       color: var(--white);
     }
 
     .hero-headline em {
       font-style: italic;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.45);
     }
 
     .hero-sub {
       font-size: 1.125rem;
       font-weight: 300;
       color: var(--secondary);
-      line-height: 1.75;
+      line-height: 1.78;
       max-width: 480px;
     }
 
@@ -230,10 +270,7 @@
       transition: background 0.2s ease, transform 0.15s ease;
     }
 
-    .btn-primary:hover {
-      background: #0077ED;
-      transform: translateY(-1px);
-    }
+    .btn-primary:hover { background: #0077ED; transform: translateY(-1px); }
 
     .micro-note {
       font-size: 0.75rem;
@@ -242,17 +279,14 @@
       letter-spacing: 0.02em;
     }
 
-    /* ─── SECTION BASE ─── */
-    .sec {
-      padding: 5.5rem 2rem;
-    }
-
+    /* ─── SECTIONS ─── */
+    .sec { padding: 5.5rem 2rem; }
     .sec--dark  { background: var(--near-black); }
     .sec--grey  { background: var(--canvas); }
     .sec--white { background: var(--white); }
 
     .sec-inner {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
@@ -261,7 +295,6 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: var(--secondary);
       margin-bottom: 0.875rem;
     }
 
@@ -270,9 +303,9 @@
 
     .sec-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 2.125rem;
+      font-size: 2.25rem;
       font-weight: 400;
-      line-height: 1.18;
+      line-height: 1.16;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
     }
@@ -283,20 +316,19 @@
     .sec-body {
       font-size: 1rem;
       font-weight: 300;
-      line-height: 1.82;
+      line-height: 1.85;
     }
 
     .sec-body--dark  { color: var(--secondary); }
     .sec-body--light { color: var(--muted); }
-
-    .sec-body p + p { margin-top: 1rem; }
+    .sec-body p + p  { margin-top: 1rem; }
 
     /* ─── PULL QUOTE ─── */
     .pull-quote {
       border-left: 3px solid var(--cognitive);
       padding: 1.25rem 1.5rem;
-      margin: 2.5rem 0;
-      background: rgba(175, 82, 222, 0.05);
+      margin: 2.75rem 0;
+      background: rgba(175,82,222,0.05);
       border-radius: 0 8px 8px 0;
     }
 
@@ -310,49 +342,89 @@
 
     /* ─── AREAS GRID ─── */
     .areas-intro {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .areas-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
-      margin-top: 2rem;
     }
 
     .area-card {
       background: var(--white);
+      border-radius: 14px;
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-left: 4px solid transparent;
-      border-radius: 10px;
-      padding: 1rem 1.125rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
       display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      flex-direction: column;
     }
 
     .area-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
     }
 
-    .area-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+    .area-card-top {
+      height: 90px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 0 1rem 0.875rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .area-card-top::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .area-card-top::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(150deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+    }
+
+    .area-letter {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.25);
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .area-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: rgba(0,0,0,0.18);
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
       font-family: 'DM Serif Display', serif;
-      font-size: 15px;
-      font-weight: 400;
+      font-size: 1.0625rem;
       color: var(--white);
-      line-height: 1;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset;
     }
 
-    .area-text { flex: 1; }
+    .area-card-body {
+      padding: 0.875rem 1rem 1rem;
+      background: var(--white);
+      flex: 1;
+    }
 
     .area-name {
       font-family: 'DM Serif Display', serif;
@@ -363,10 +435,10 @@
     }
 
     .area-role {
-      font-size: 0.75rem;
+      font-size: 0.6875rem;
       font-weight: 300;
       color: var(--secondary);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     /* ─── HOW IT WORKS ─── */
@@ -374,43 +446,139 @@
       display: flex;
       flex-direction: column;
       margin-top: 2.5rem;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 28px;
+      bottom: 28px;
+      width: 0.5px;
+      background: rgba(255,255,255,0.08);
     }
 
     .step {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.75rem;
       align-items: flex-start;
       padding: 1.75rem 0;
-      border-bottom: 0.5px solid rgba(255,255,255,0.07);
     }
 
-    .step:last-child { border-bottom: none; }
+    .step + .step {
+      border-top: 0.5px solid rgba(255,255,255,0.06);
+    }
+
+    .step-num-wrap {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 0.5px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
 
     .step-number {
       font-family: 'DM Serif Display', serif;
-      font-size: 2rem;
-      color: rgba(255,255,255,0.12);
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.4);
       line-height: 1;
-      flex-shrink: 0;
-      width: 2rem;
-      text-align: right;
     }
 
     .step-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.125rem;
+      font-size: 1.1875rem;
       color: var(--white);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
     .step-desc {
       font-size: 0.875rem;
       font-weight: 300;
       color: var(--secondary);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    /* ─── HUMAN SECTION ─── */
+    /* ─── SCORE PREVIEW ─── */
+    .score-preview {
+      margin-top: 3.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+
+    .score-preview-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .score-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .score-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .score-row-badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.6875rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .score-bar-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .score-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      opacity: 0.85;
+    }
+
+    .score-val {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--muted);
+      width: 22px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .score-preview-note {
+      margin-top: 1rem;
+      font-size: 0.6875rem;
+      font-weight: 300;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ─── HUMAN ─── */
     .founder-block {
       display: flex;
       gap: 1.25rem;
@@ -432,7 +600,6 @@
       font-family: 'DM Serif Display', serif;
       font-size: 1.25rem;
       color: var(--white);
-      letter-spacing: -0.01em;
     }
 
     .founder-name {
@@ -453,7 +620,7 @@
       font-size: 0.9375rem;
       font-weight: 300;
       color: var(--muted);
-      line-height: 1.85;
+      line-height: 1.88;
     }
 
     .founder-story p + p { margin-top: 1.125rem; }
@@ -468,7 +635,7 @@
     .story-quote {
       border-left: 3px solid var(--strategic);
       padding: 1.125rem 1.375rem;
-      background: rgba(88, 86, 214, 0.04);
+      background: rgba(88,86,214,0.04);
       border-radius: 0 8px 8px 0;
     }
 
@@ -477,7 +644,7 @@
       font-style: italic;
       font-size: 1rem;
       color: var(--near-black);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     /* ─── FINAL CTA ─── */
@@ -498,9 +665,9 @@
 
     .final-cta-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 2.375rem;
+      font-size: 2.5rem;
       font-weight: 400;
-      line-height: 1.18;
+      line-height: 1.16;
       letter-spacing: -0.02em;
       color: var(--white);
     }
@@ -509,7 +676,7 @@
       font-size: 1rem;
       font-weight: 300;
       color: var(--secondary);
-      line-height: 1.75;
+      line-height: 1.78;
       max-width: 400px;
     }
 
@@ -520,7 +687,7 @@
     }
 
     .books-bridge-inner {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -554,10 +721,7 @@
       transition: border-color 0.2s ease, background 0.2s ease;
     }
 
-    .btn-ghost:hover {
-      border-color: var(--near-black);
-      background: rgba(0,0,0,0.04);
-    }
+    .btn-ghost:hover { border-color: var(--near-black); background: rgba(0,0,0,0.04); }
 
     /* ─── FOOTER ─── */
     .site-footer {
@@ -586,25 +750,35 @@
     .footer-link:hover { color: var(--white); }
 
     /* ─── RESPONSIVE ─── */
+    @media (max-width: 780px) {
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 640px) {
-      .hero-headline { font-size: 2.25rem; }
-      .sec-title { font-size: 1.75rem; }
-      .final-cta-title { font-size: 1.875rem; }
-      .areas-grid { grid-template-columns: 1fr; }
+      .hero-headline { font-size: 2.375rem; }
+      .sec-title { font-size: 1.875rem; }
+      .final-cta-title { font-size: 2rem; }
+      .system-bar { height: 72px; }
+      .sys-seg-label { display: none; }
+      .areas-grid { grid-template-columns: repeat(2, 1fr); }
       .books-bridge-inner { flex-direction: column; align-items: flex-start; }
       .founder-block { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+
+    @media (max-width: 420px) {
+      .areas-grid { grid-template-columns: 1fr 1fr; }
     }
 
     /* ─── HERO ANIMATION ─── */
     .hero-inner > * {
       opacity: 0;
-      transform: translateY(14px);
-      animation: fadeUp 0.65s ease forwards;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s ease forwards;
     }
     .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
-    .hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
-    .hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
-    .hero-inner > *:nth-child(4) { animation-delay: 0.55s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.28s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.44s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.58s; }
     .hero-inner > *:nth-child(5) { animation-delay: 0.7s; }
 
     @keyframes fadeUp {
@@ -648,15 +822,40 @@
   <section class="hero">
     <div class="hero-inner">
 
-      <div class="dots-row">
-        <span class="pulse-dot" style="width:8px;height:8px;background:var(--recovery)"></span>
-        <span class="pulse-dot" style="width:8px;height:8px;background:var(--metabolic)"></span>
-        <span class="pulse-dot" style="width:8px;height:8px;background:var(--physical)"></span>
-        <span class="pulse-dot" style="width:8px;height:8px;background:var(--cognitive)"></span>
-        <span class="pulse-dot" style="width:8px;height:8px;background:var(--time)"></span>
-        <span class="pulse-dot" style="width:8px;height:8px;background:var(--financial)"></span>
-        <span class="pulse-dot" style="width:8px;height:8px;background:var(--relational)"></span>
-        <span class="pulse-dot" style="width:8px;height:8px;background:var(--strategic)"></span>
+      <!-- SYSTEM BAR — the 8 areas of life as one visual -->
+      <div class="system-bar">
+        <div class="sys-seg" style="background: var(--recovery)">
+          <span class="sys-seg-badge">R</span>
+          <span class="sys-seg-label">Sleep</span>
+        </div>
+        <div class="sys-seg" style="background: var(--metabolic)">
+          <span class="sys-seg-badge">M</span>
+          <span class="sys-seg-label">Food</span>
+        </div>
+        <div class="sys-seg" style="background: var(--physical)">
+          <span class="sys-seg-badge">P</span>
+          <span class="sys-seg-label">Body</span>
+        </div>
+        <div class="sys-seg" style="background: var(--cognitive)">
+          <span class="sys-seg-badge">C</span>
+          <span class="sys-seg-label">Mind</span>
+        </div>
+        <div class="sys-seg" style="background: var(--time)">
+          <span class="sys-seg-badge">T</span>
+          <span class="sys-seg-label">Time</span>
+        </div>
+        <div class="sys-seg" style="background: var(--financial)">
+          <span class="sys-seg-badge">F</span>
+          <span class="sys-seg-label">Money</span>
+        </div>
+        <div class="sys-seg" style="background: var(--relational)">
+          <span class="sys-seg-badge">R</span>
+          <span class="sys-seg-label">People</span>
+        </div>
+        <div class="sys-seg" style="background: var(--strategic)">
+          <span class="sys-seg-badge">S</span>
+          <span class="sys-seg-label">Direction</span>
+        </div>
       </div>
 
       <h1 class="hero-headline">
@@ -708,65 +907,89 @@
 
       <div class="areas-grid">
 
-        <div class="area-card" style="border-left-color: var(--recovery)">
-          <div class="area-icon" style="background: var(--recovery)">R</div>
-          <div class="area-text">
+        <div class="area-card">
+          <div class="area-card-top" style="background: var(--recovery)">
+            <span class="area-letter">R</span>
+            <div class="area-badge">R</div>
+          </div>
+          <div class="area-card-body">
             <div class="area-name">Sleep &amp; Recovery</div>
             <div class="area-role">The foundation everything else rests on</div>
           </div>
         </div>
 
-        <div class="area-card" style="border-left-color: var(--metabolic)">
-          <div class="area-icon" style="background: var(--metabolic)">M</div>
-          <div class="area-text">
+        <div class="area-card">
+          <div class="area-card-top" style="background: var(--metabolic)">
+            <span class="area-letter">M</span>
+            <div class="area-badge">M</div>
+          </div>
+          <div class="area-card-body">
             <div class="area-name">Food &amp; Energy</div>
             <div class="area-role">What you put in determines what comes out</div>
           </div>
         </div>
 
-        <div class="area-card" style="border-left-color: var(--physical)">
-          <div class="area-icon" style="background: var(--physical)">P</div>
-          <div class="area-text">
+        <div class="area-card">
+          <div class="area-card-top" style="background: var(--physical)">
+            <span class="area-letter">P</span>
+            <div class="area-badge">P</div>
+          </div>
+          <div class="area-card-body">
             <div class="area-name">Strength &amp; Fitness</div>
             <div class="area-role">Your body's capacity to meet what life demands</div>
           </div>
         </div>
 
-        <div class="area-card" style="border-left-color: var(--cognitive)">
-          <div class="area-icon" style="background: var(--cognitive)">C</div>
-          <div class="area-text">
+        <div class="area-card">
+          <div class="area-card-top" style="background: var(--cognitive)">
+            <span class="area-letter">C</span>
+            <div class="area-badge">C</div>
+          </div>
+          <div class="area-card-body">
             <div class="area-name">Focus &amp; Mind</div>
             <div class="area-role">How clearly you think and how well you decide</div>
           </div>
         </div>
 
-        <div class="area-card" style="border-left-color: var(--time)">
-          <div class="area-icon" style="background: var(--time)">T</div>
-          <div class="area-text">
+        <div class="area-card">
+          <div class="area-card-top" style="background: var(--time)">
+            <span class="area-letter">T</span>
+            <div class="area-badge">T</div>
+          </div>
+          <div class="area-card-body">
             <div class="area-name">Time</div>
             <div class="area-role">Where your hours actually go versus where you think they go</div>
           </div>
         </div>
 
-        <div class="area-card" style="border-left-color: var(--financial)">
-          <div class="area-icon" style="background: var(--financial)">F</div>
-          <div class="area-text">
+        <div class="area-card">
+          <div class="area-card-top" style="background: var(--financial)">
+            <span class="area-letter">F</span>
+            <div class="area-badge">F</div>
+          </div>
+          <div class="area-card-body">
             <div class="area-name">Money</div>
             <div class="area-role">Income, cash flow, and whether it is actually building</div>
           </div>
         </div>
 
-        <div class="area-card" style="border-left-color: var(--relational)">
-          <div class="area-icon" style="background: var(--relational)">R</div>
-          <div class="area-text">
+        <div class="area-card">
+          <div class="area-card-top" style="background: var(--relational)">
+            <span class="area-letter">R</span>
+            <div class="area-badge">R</div>
+          </div>
+          <div class="area-card-body">
             <div class="area-name">Relationships</div>
             <div class="area-role">The people closest to you and the health of those bonds</div>
           </div>
         </div>
 
-        <div class="area-card" style="border-left-color: var(--strategic)">
-          <div class="area-icon" style="background: var(--strategic)">S</div>
-          <div class="area-text">
+        <div class="area-card">
+          <div class="area-card-top" style="background: var(--strategic)">
+            <span class="area-letter">S</span>
+            <div class="area-badge">S</div>
+          </div>
+          <div class="area-card-body">
             <div class="area-name">Direction</div>
             <div class="area-role">Whether you know where you are going — and are actually moving there</div>
           </div>
@@ -785,7 +1008,9 @@
       <div class="steps">
 
         <div class="step">
-          <span class="step-number">1</span>
+          <div class="step-num-wrap">
+            <span class="step-number">1</span>
+          </div>
           <div>
             <div class="step-title">Take the free assessment</div>
             <div class="step-desc">24 questions. Five minutes. Covers all eight areas of your life. No tricks, no upsells mid-flow. You answer honestly and you get an honest picture back.</div>
@@ -793,15 +1018,19 @@
         </div>
 
         <div class="step">
-          <span class="step-number">2</span>
+          <div class="step-num-wrap">
+            <span class="step-number">2</span>
+          </div>
           <div>
             <div class="step-title">See where you actually are</div>
-            <div class="step-desc">Not where you want to be. Not where you tell people you are. Where you actually are — across every area, with the gaps named. The score is not a judgment. It is a starting point.</div>
+            <div class="step-desc">Not where you want to be. Not where you tell people you are. Where you actually are — across every area, with the gaps named clearly.</div>
           </div>
         </div>
 
         <div class="step">
-          <span class="step-number">3</span>
+          <div class="step-num-wrap">
+            <span class="step-number">3</span>
+          </div>
           <div>
             <div class="step-title">Get what to do next</div>
             <div class="step-desc">Built for where you are right now — not the person who already has everything figured out. The next step you can actually take. Not the optimal step. The right step.</div>
@@ -809,10 +1038,59 @@
         </div>
 
       </div>
+
+      <!-- SCORE PREVIEW — shows what the output looks like -->
+      <div class="score-preview">
+        <div class="score-preview-label">What your results look like</div>
+        <div class="score-bars">
+          <div class="score-row">
+            <div class="score-row-badge" style="background: var(--recovery)">R</div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:38%;background:var(--recovery)"></div></div>
+            <span class="score-val">3.8</span>
+          </div>
+          <div class="score-row">
+            <div class="score-row-badge" style="background: var(--metabolic)">M</div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:55%;background:var(--metabolic)"></div></div>
+            <span class="score-val">5.5</span>
+          </div>
+          <div class="score-row">
+            <div class="score-row-badge" style="background: var(--physical)">P</div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:62%;background:var(--physical)"></div></div>
+            <span class="score-val">6.2</span>
+          </div>
+          <div class="score-row">
+            <div class="score-row-badge" style="background: var(--cognitive)">C</div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:44%;background:var(--cognitive)"></div></div>
+            <span class="score-val">4.4</span>
+          </div>
+          <div class="score-row">
+            <div class="score-row-badge" style="background: var(--time)">T</div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:31%;background:var(--time)"></div></div>
+            <span class="score-val">3.1</span>
+          </div>
+          <div class="score-row">
+            <div class="score-row-badge" style="background: var(--financial)">F</div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:58%;background:var(--financial)"></div></div>
+            <span class="score-val">5.8</span>
+          </div>
+          <div class="score-row">
+            <div class="score-row-badge" style="background: var(--relational)">R</div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:67%;background:var(--relational)"></div></div>
+            <span class="score-val">6.7</span>
+          </div>
+          <div class="score-row">
+            <div class="score-row-badge" style="background: var(--strategic)">S</div>
+            <div class="score-bar-track"><div class="score-bar-fill" style="width:28%;background:var(--strategic)"></div></div>
+            <span class="score-val">2.8</span>
+          </div>
+        </div>
+        <div class="score-preview-note">Example scores — yours will be different. The gaps are where the work starts.</div>
+      </div>
+
     </div>
   </section>
 
-  <!-- ═══ HUMAN SECTION ═══ -->
+  <!-- ═══ HUMAN ═══ -->
   <section class="sec sec--white">
     <div class="sec-inner">
 
@@ -843,7 +1121,7 @@
   <section class="final-cta">
     <div class="final-cta-inner">
 
-      <div class="dots-row">
+      <div style="display:flex;gap:9px;justify-content:center">
         <span class="pulse-dot" style="width:7px;height:7px;background:var(--recovery)"></span>
         <span class="pulse-dot" style="width:7px;height:7px;background:var(--metabolic)"></span>
         <span class="pulse-dot" style="width:7px;height:7px;background:var(--physical)"></span>
