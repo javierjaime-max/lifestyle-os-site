@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lifestyle OS</title>
-  <meta name="description" content="The diagnostic framework that reverse engineers why your life is not working the way you designed it.">
+  <title>Lifestyle OS — Find out what is actually running your life</title>
+  <meta name="description" content="You have done the work. The results are not matching the effort. The free Lifestyle OS assessment finds out why.">
   <meta property="og:title" content="Lifestyle OS">
-  <meta property="og:description" content="The diagnostic framework that reverse engineers why your life is not working the way you designed it.">
+  <meta property="og:description" content="You have done the work. The results are not matching the effort. Find out why — free assessment.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lifestyle-os.fit">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
       --light-grey: #F5F5F7;
@@ -37,76 +33,62 @@
       --strategic: #5856D6;
     }
 
-    html {
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--near-black);
       color: var(--white);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 640px;
-      width: 100%;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2.5rem;
     }
 
     /* ---- HEADER ---- */
     .site-header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       padding: 1.25rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       z-index: 100;
+      background: rgba(29, 29, 31, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
     }
 
     .site-header a { text-decoration: none; }
 
     .header-wordmark {
       font-family: 'DM Serif Display', serif;
-      font-weight: 400;
       font-size: 1.25rem;
       color: var(--white);
       letter-spacing: -0.02em;
     }
 
-    .header-nav {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
+    .header-nav { display: flex; gap: 1.5rem; align-items: center; }
 
     .header-nav a {
       font-size: 0.8125rem;
-      font-weight: 400;
       color: var(--secondary);
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
     .header-nav a:hover { color: var(--white); }
-    .header-nav a.active { color: var(--white); }
 
-    /* Hamburger */
+    .header-cta {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--white);
+      background: var(--blue);
+      padding: 0.5rem 1.125rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .header-cta:hover { background: #0077ED; color: var(--white) !important; }
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -127,26 +109,14 @@
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
-    .hamburger.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .hamburger.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Mobile menu overlay */
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: var(--near-black);
       z-index: 105;
       flex-direction: column;
@@ -155,9 +125,7 @@
       gap: 2rem;
     }
 
-    .mobile-menu.open {
-      display: flex;
-    }
+    .mobile-menu.open { display: flex; }
 
     .mobile-menu a {
       font-family: 'DM Serif Display', serif;
@@ -168,38 +136,20 @@
     }
 
     .mobile-menu a:hover { color: var(--white); }
-    .mobile-menu a.active { color: var(--white); }
 
-    .mobile-dots {
-      display: flex;
-      gap: 8px;
-      margin-top: 1rem;
-    }
+    .mobile-dots { display: flex; gap: 8px; margin-top: 1rem; }
+    .mobile-dots .pulse-dot { width: 6px; height: 6px; }
 
-    .mobile-dots .pulse-dot {
-      width: 6px;
-      height: 6px;
-    }
-
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .hamburger { display: flex; }
       .header-nav { display: none; }
     }
 
-    /* Subsystem dots — the 8 colors (pulsing) */
-    .subsystem-bar {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
-
+    /* ---- PULSE DOTS ---- */
     .pulse-dot {
-      width: 8px;
-      height: 8px;
       border-radius: 50%;
       animation: pulse 2.4s ease-in-out infinite;
     }
-
     .pulse-dot:nth-child(1) { animation-delay: 0s; }
     .pulse-dot:nth-child(2) { animation-delay: 0.3s; }
     .pulse-dot:nth-child(3) { animation-delay: 0.6s; }
@@ -208,198 +158,469 @@
     .pulse-dot:nth-child(6) { animation-delay: 1.5s; }
     .pulse-dot:nth-child(7) { animation-delay: 1.8s; }
     .pulse-dot:nth-child(8) { animation-delay: 2.1s; }
-
     @keyframes pulse {
       0%, 100% { opacity: 0.3; transform: scale(1); }
       50% { opacity: 0.9; transform: scale(1.3); }
     }
 
-    .subsystem-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-    }
-
-    /* Wordmark */
-    .wordmark {
-      font-family: 'DM Serif Display', serif;
-      font-weight: 400;
-      font-size: 3rem;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      line-height: 1.1;
-    }
-
-    .wordmark .dot {
-      color: var(--white);
-    }
-
-    /* Positioning */
-    .positioning {
-      font-size: 1.125rem;
-      font-weight: 300;
-      color: var(--secondary);
-      line-height: 1.65;
-      max-width: 480px;
-    }
-
-    /* Divider */
-    .divider {
-      width: 40px;
-      height: 0.5px;
-      background: var(--dark-grey);
-    }
-
-    /* Email capture */
-    .capture {
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1rem;
-      width: 100%;
+      justify-content: center;
+      padding: 8rem 2rem 5rem;
+      text-align: center;
     }
 
-    .capture-label {
+    .hero-inner {
+      max-width: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .dots-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .dots-row .pulse-dot { width: 8px; height: 8px; }
+
+    .hero-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      background: var(--blue);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .hero-cta:hover {
+      background: #0077ED;
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--dark-grey);
+      letter-spacing: 0.02em;
+    }
+
+    /* ---- SECTION BASE ---- */
+    .section-dark {
+      background: var(--near-black);
+      padding: 5rem 2rem;
+    }
+
+    .section-light {
+      background: var(--light-grey);
+      padding: 5rem 2rem;
+      color: var(--near-black);
+    }
+
+    .section-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .section-label {
       font-size: 0.6875rem;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--dark-grey);
+      letter-spacing: 0.12em;
+      color: var(--secondary);
+      margin-bottom: 1rem;
     }
 
-    .capture-form {
-      display: flex;
-      gap: 0;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 0.5px solid rgba(255, 255, 255, 0.12);
-    }
-
-    .capture-form input[type="email"] {
-      flex: 1;
-      padding: 0.875rem 1rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.875rem;
+    .section-title-dark {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
       font-weight: 400;
       color: var(--white);
-      background: rgba(255, 255, 255, 0.06);
-      border: none;
-      outline: none;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
     }
 
-    .capture-form input[type="email"]::placeholder {
-      color: var(--dark-grey);
-    }
-
-    .capture-form button {
-      padding: 0.875rem 1.5rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      background: var(--blue);
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.2s ease;
-    }
-
-    .capture-form button:hover {
-      background: #0077ED;
-    }
-
-    .capture-form button:active {
-      background: #006ACD;
-    }
-
-    /* Success state */
-    .capture-success {
-      display: none;
-      font-size: 0.875rem;
+    .section-title-light {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
       font-weight: 400;
+      color: var(--near-black);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
       color: var(--secondary);
     }
 
-    .capture-success.visible {
-      display: block;
+    .section-body-dark { color: var(--secondary); }
+    .section-body-light { color: var(--dark-grey); }
+
+    .section-body p + p { margin-top: 1rem; }
+
+    /* ---- PROBLEM SECTION ---- */
+    .problem-quote {
+      border-left: 3px solid var(--cognitive);
+      padding: 1.25rem 1.5rem;
+      margin: 2.5rem 0;
+      background: rgba(175, 82, 222, 0.04);
+      border-radius: 0 8px 8px 0;
     }
 
-    /* Footer */
-    .footer {
-      margin-top: 1.5rem;
+    .problem-quote p {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.125rem;
+      color: var(--near-black);
+      line-height: 1.55;
+    }
+
+    /* ---- AREAS GRID ---- */
+    .areas-intro {
+      margin-bottom: 2rem;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .area-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid transparent;
+      border-radius: 10px;
+      padding: 1rem 1.125rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .area-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+
+    .area-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      margin-bottom: 0.375rem;
+    }
+
+    .area-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.875rem;
+      color: var(--white);
+    }
+
+    .area-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.9375rem;
+      color: var(--near-black);
+    }
+
+    .area-role {
+      font-size: 0.75rem;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    /* ---- HOW IT WORKS ---- */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 2.5rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.06);
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.75rem;
+      color: rgba(255,255,255,0.15);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: right;
+    }
+
+    .step-content { flex: 1; }
+
+    .step-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.125rem;
+      color: var(--white);
+      margin-bottom: 0.375rem;
+    }
+
+    .step-desc {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: 1.65;
+    }
+
+    /* ---- HUMAN SECTION ---- */
+    .human-section {
+      background: var(--white);
+      padding: 5rem 2rem;
+    }
+
+    .human-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .founder-block {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    .founder-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--near-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.125rem;
+      color: var(--white);
+    }
+
+    .founder-meta {
+      padding-top: 0.375rem;
+    }
+
+    .founder-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--near-black);
+      margin-bottom: 0.125rem;
+    }
+
+    .founder-role {
+      font-size: 0.75rem;
+      color: var(--secondary);
+    }
+
+    .founder-story {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--dark-grey);
+      line-height: 1.8;
+    }
+
+    .founder-story p + p { margin-top: 1rem; }
+
+    .story-divider {
+      width: 40px;
+      height: 0.5px;
+      background: var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .story-quote {
+      border-left: 3px solid var(--strategic);
+      padding: 1rem 1.25rem;
+      background: rgba(88, 86, 214, 0.04);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .story-quote p {
+      font-family: 'DM Serif Display', serif;
+      font-style: italic;
+      font-size: 1.0625rem;
+      color: var(--near-black);
+      line-height: 1.55;
+    }
+
+    /* ---- FINAL CTA ---- */
+    .final-cta {
+      background: var(--near-black);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .final-cta-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .final-cta-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.25rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .final-cta-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--secondary);
+      line-height: 1.7;
+    }
+
+    /* ---- BOOKS BRIDGE ---- */
+    .books-bridge {
+      background: var(--light-grey);
+      padding: 4rem 2rem;
+    }
+
+    .books-bridge-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .books-bridge-text {}
+
+    .books-bridge-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.375rem;
+      color: var(--near-black);
+      margin-bottom: 0.5rem;
+    }
+
+    .books-bridge-desc {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--dark-grey);
+      line-height: 1.65;
+    }
+
+    .books-link {
+      white-space: nowrap;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--near-black);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .books-link:hover {
+      border-color: var(--near-black);
+      background: rgba(0,0,0,0.04);
+    }
+
+    /* ---- FOOTER ---- */
+    .site-footer {
+      background: var(--near-black);
+      padding: 2rem 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.5rem;
+      border-top: 0.5px solid rgba(255,255,255,0.06);
     }
 
     .footer-text {
       font-size: 0.6875rem;
       font-weight: 300;
-      color: rgba(134, 134, 139, 0.5);
+      color: rgba(134,134,139,0.5);
       letter-spacing: 0.02em;
     }
 
     .footer-gym-link {
       font-size: 0.6875rem;
-      font-weight: 400;
       color: var(--secondary);
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
-    .footer-gym-link:hover {
-      color: var(--white);
+    .footer-gym-link:hover { color: var(--white); }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 640px) {
+      .hero-headline { font-size: 2.125rem; }
+      .section-title-dark, .section-title-light { font-size: 1.625rem; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .books-bridge-inner { flex-direction: column; align-items: flex-start; }
+      .final-cta-title { font-size: 1.75rem; }
+      .founder-block { flex-direction: column; gap: 1rem; }
     }
 
-    /* Responsive */
-    @media (max-width: 480px) {
-      .wordmark {
-        font-size: 2.25rem;
-      }
-
-      .positioning {
-        font-size: 1rem;
-      }
-
-      .capture-form {
-        flex-direction: column;
-        border-radius: 8px;
-      }
-
-      .capture-form input[type="email"] {
-        border-radius: 8px 8px 0 0;
-        text-align: center;
-      }
-
-      .capture-form button {
-        border-radius: 0 0 8px 8px;
-        padding: 0.875rem;
-      }
-    }
-
-    /* Fade-in animation */
-    .container > * {
+    /* ---- ANIMATIONS ---- */
+    .hero-inner > * {
       opacity: 0;
-      transform: translateY(12px);
-      animation: fadeUp 0.6s ease forwards;
+      transform: translateY(14px);
+      animation: fadeUp 0.65s ease forwards;
     }
-
-    .container > *:nth-child(1) { animation-delay: 0.1s; }
-    .container > *:nth-child(2) { animation-delay: 0.25s; }
-    .container > *:nth-child(3) { animation-delay: 0.4s; }
-    .container > *:nth-child(4) { animation-delay: 0.55s; }
-    .container > *:nth-child(5) { animation-delay: 0.7s; }
-    .container > *:nth-child(6) { animation-delay: 0.85s; }
+    .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.4s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.55s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.7s; }
 
     @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -409,9 +630,9 @@
   <header class="site-header">
     <a href="index.html" class="header-wordmark">Lifestyle OS</a>
     <nav class="header-nav">
-      <a href="about.html">About</a>
       <a href="assessment.html">Assessment</a>
       <a href="ebooks.html">Books</a>
+      <a href="https://app.lifestyle-os.fit" class="header-cta">Start free →</a>
     </nav>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -420,9 +641,9 @@
 
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
-    <a href="about.html">About</a>
     <a href="assessment.html">Assessment</a>
     <a href="ebooks.html">Books</a>
+    <a href="https://app.lifestyle-os.fit">Start free →</a>
     <div class="mobile-dots">
       <span class="pulse-dot" style="background: var(--recovery)"></span>
       <span class="pulse-dot" style="background: var(--metabolic)"></span>
@@ -435,53 +656,267 @@
     </div>
   </div>
 
-  <main class="container">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
 
-    <div class="subsystem-bar">
-      <span class="pulse-dot" style="background: var(--recovery)"></span>
-      <span class="pulse-dot" style="background: var(--metabolic)"></span>
-      <span class="pulse-dot" style="background: var(--physical)"></span>
-      <span class="pulse-dot" style="background: var(--cognitive)"></span>
-      <span class="pulse-dot" style="background: var(--time)"></span>
-      <span class="pulse-dot" style="background: var(--financial)"></span>
-      <span class="pulse-dot" style="background: var(--relational)"></span>
-      <span class="pulse-dot" style="background: var(--strategic)"></span>
+      <div class="dots-row">
+        <span class="pulse-dot" style="background: var(--recovery); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--metabolic); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--physical); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--cognitive); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--time); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--financial); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--relational); width:8px; height:8px"></span>
+        <span class="pulse-dot" style="background: var(--strategic); width:8px; height:8px"></span>
+      </div>
+
+      <h1 class="hero-headline">
+        You have done the work.<br>
+        <em>The results are not matching.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Not a discipline problem. Not a motivation problem. Something deeper is running the show — and it has been running it for years. The free assessment finds it.
+      </p>
+
+      <a href="https://app.lifestyle-os.fit" class="hero-cta">Take the free assessment</a>
+
+      <p class="hero-note">Free. 5 minutes. No account required to start.</p>
+
     </div>
+  </section>
 
-    <h1 class="wordmark">Lifestyle OS</h1>
+  <!-- THE PROBLEM -->
+  <section class="section-light">
+    <div class="section-inner">
+      <p class="section-label">The Problem</p>
+      <h2 class="section-title-light">The problem is never where you think it is.</h2>
 
-    <p class="positioning">
-      The diagnostic framework that reverse engineers why your life is not working the way you designed it — and builds the system that actually holds.
-    </p>
+      <div class="section-body section-body-light">
+        <p>
+          You fix your sleep and your energy is still flat. You clean up your food and the weight does not move. You work harder and the income still does not compound. You do everything the books say and the results still do not hold.
+        </p>
+        <p>
+          That is not failure. That is a diagnostic problem. The thing you are working on is the victim. Something upstream is the culprit — and you have been treating the symptom.
+        </p>
+      </div>
 
-    <div class="divider"></div>
+      <div class="problem-quote">
+        <p>The presenting problem is never the actual problem. Find the culprit and the victim solves itself.</p>
+      </div>
 
-    <div class="capture">
-      <span class="capture-label">Be the first to know</span>
-      <form class="capture-form" id="captureForm">
-        <input type="email" name="email" placeholder="Your email" required autocomplete="email">
-        <button type="submit">Notify me</button>
-      </form>
-      <p class="capture-success" id="captureSuccess">You are on the list.</p>
+      <div class="section-body section-body-light">
+        <p>
+          Lifestyle OS maps eight areas of your life and finds where the breakdown actually starts. Not where you feel it. Where it comes from.
+        </p>
+      </div>
     </div>
+  </section>
 
-    <footer class="footer">
-      <a href="about.html" class="footer-gym-link">About the framework →</a>
-      <a href="assessment.html" class="footer-gym-link">The diagnostic →</a>
-      <span class="footer-text">Fit4 Associates Inc.</span>
-      <a href="https://crossfit-otl.com" target="_blank" rel="noopener" class="footer-gym-link">Also train with us at CrossFit OTL →</a>
-    </footer>
+  <!-- THE 8 AREAS -->
+  <section style="background: var(--white); padding: 5rem 2rem;">
+    <div class="section-inner">
+      <p class="section-label">Eight Areas</p>
+      <h2 class="section-title-light">Every part of your life runs together.</h2>
 
-  </main>
+      <div class="areas-intro section-body section-body-light">
+        <p>
+          When one area breaks down, it pulls on the others. Bad sleep tanks your focus. Bad focus tanks your decisions. Bad decisions tank your money, your relationships, your sense of direction. The whole thing is connected — which means fixing one thing in the right place changes everything else.
+        </p>
+      </div>
+
+      <div class="areas-grid">
+
+        <div class="area-card" style="border-left-color: var(--recovery)">
+          <div class="area-card-header">
+            <div class="area-icon" style="background: var(--recovery)">R</div>
+            <span class="area-name">Sleep & Recovery</span>
+          </div>
+          <span class="area-role">The foundation everything else rests on</span>
+        </div>
+
+        <div class="area-card" style="border-left-color: var(--metabolic)">
+          <div class="area-card-header">
+            <div class="area-icon" style="background: var(--metabolic)">N</div>
+            <span class="area-name">Food & Energy</span>
+          </div>
+          <span class="area-role">What you put in determines what comes out</span>
+        </div>
+
+        <div class="area-card" style="border-left-color: var(--physical)">
+          <div class="area-card-header">
+            <div class="area-icon" style="background: var(--physical)">P</div>
+            <span class="area-name">Strength & Fitness</span>
+          </div>
+          <span class="area-role">Your body's capacity to meet what life demands</span>
+        </div>
+
+        <div class="area-card" style="border-left-color: var(--cognitive)">
+          <div class="area-card-header">
+            <div class="area-icon" style="background: var(--cognitive)">F</div>
+            <span class="area-name">Focus & Mind</span>
+          </div>
+          <span class="area-role">How clearly you think and how well you decide</span>
+        </div>
+
+        <div class="area-card" style="border-left-color: var(--time)">
+          <div class="area-card-header">
+            <div class="area-icon" style="background: var(--time)">T</div>
+            <span class="area-name">Time</span>
+          </div>
+          <span class="area-role">Where your hours actually go versus where you think they go</span>
+        </div>
+
+        <div class="area-card" style="border-left-color: var(--financial)">
+          <div class="area-card-header">
+            <div class="area-icon" style="background: var(--financial)">$</div>
+            <span class="area-name">Money</span>
+          </div>
+          <span class="area-role">Income, cash flow, and whether it is actually building</span>
+        </div>
+
+        <div class="area-card" style="border-left-color: var(--relational)">
+          <div class="area-card-header">
+            <div class="area-icon" style="background: var(--relational)">R</div>
+            <span class="area-name">Relationships</span>
+          </div>
+          <span class="area-role">The people closest to you and the health of those bonds</span>
+        </div>
+
+        <div class="area-card" style="border-left-color: var(--strategic)">
+          <div class="area-card-header">
+            <div class="area-icon" style="background: var(--strategic)">D</div>
+            <span class="area-name">Direction</span>
+          </div>
+          <span class="area-role">Whether you know where you are going — and are actually moving there</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section-dark">
+    <div class="section-inner">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title-dark">Three steps. One honest look.</h2>
+
+      <div class="steps">
+
+        <div class="step">
+          <span class="step-number">1</span>
+          <div class="step-content">
+            <div class="step-title">Take the free assessment</div>
+            <div class="step-desc">
+              24 questions. Five minutes. Covers all eight areas of your life. No tricks, no upsells mid-flow. You answer honestly and you get an honest picture back.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">2</span>
+          <div class="step-content">
+            <div class="step-title">See where you actually are</div>
+            <div class="step-desc">
+              Not where you want to be. Not where you tell people you are. Where you actually are — across every area, with the gaps named. The score is not a judgment. It is a starting point.
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <span class="step-number">3</span>
+          <div class="step-content">
+            <div class="step-title">Get what to do next</div>
+            <div class="step-desc">
+              Built for where you are right now — not the person who already has everything figured out. The next step you can actually take. Not the optimal step. The right step.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HUMAN SECTION -->
+  <section class="human-section">
+    <div class="human-inner">
+
+      <div class="founder-block">
+        <div class="founder-avatar">J</div>
+        <div class="founder-meta">
+          <div class="founder-name">Javier Jaime</div>
+          <div class="founder-role">CrossFit coach · 12-year athlete · Lifestyle OS founder</div>
+        </div>
+      </div>
+
+      <div class="founder-story">
+        <p>
+          I have watched hundreds of people do everything right and still not get the result. People who trained hard, ate well, worked long hours, showed up for their families. Everything the right way. And still — something was not working.
+        </p>
+        <p>
+          It took years of watching those patterns to understand what was actually happening. The problem was never where they thought it was. The person who could not lose weight was not eating wrong — they were sleeping three hours less than their body needed and the cortisol was running everything. The person whose income had plateaued was not working the wrong strategy — their direction had gone quiet and the whole system had lost its engine.
+        </p>
+        <p>
+          The presenting problem is always downstream of the real one. Lifestyle OS is the system I built to find where the real one actually lives.
+        </p>
+      </div>
+
+      <div class="story-divider"></div>
+
+      <div class="story-quote">
+        <p>He had been training for fifteen years. The strength was there. The discipline was there. But something was draining faster than he could fill it. When we mapped his system, Direction was running on empty. He had not named a real goal in four years. Everything else was compensating for a command layer that had gone quiet.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="final-cta-inner">
+
+      <div class="dots-row">
+        <span class="pulse-dot" style="background: var(--recovery); width:7px; height:7px"></span>
+        <span class="pulse-dot" style="background: var(--metabolic); width:7px; height:7px"></span>
+        <span class="pulse-dot" style="background: var(--physical); width:7px; height:7px"></span>
+        <span class="pulse-dot" style="background: var(--cognitive); width:7px; height:7px"></span>
+        <span class="pulse-dot" style="background: var(--time); width:7px; height:7px"></span>
+        <span class="pulse-dot" style="background: var(--financial); width:7px; height:7px"></span>
+        <span class="pulse-dot" style="background: var(--relational); width:7px; height:7px"></span>
+        <span class="pulse-dot" style="background: var(--strategic); width:7px; height:7px"></span>
+      </div>
+
+      <h2 class="final-cta-title">The assessment is free.<br>It will tell you something<br>you have been trying to name.</h2>
+
+      <p class="final-cta-sub">
+        Five minutes. Honest questions. A real picture of where each area of your life actually stands — and what to do first.
+      </p>
+
+      <a href="https://app.lifestyle-os.fit" class="hero-cta">Take the free assessment</a>
+
+      <p class="hero-note">No credit card. No commitment. Start now.</p>
+
+    </div>
+  </section>
+
+  <!-- BOOKS BRIDGE -->
+  <section class="books-bridge">
+    <div class="books-bridge-inner">
+      <div class="books-bridge-text">
+        <div class="books-bridge-title">Want to go deeper?</div>
+        <p class="books-bridge-desc">The full framework in writing — from the foundational book to deep dives on each area of your life.</p>
+      </div>
+      <a href="ebooks.html" class="books-link">Browse the books →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-text">Fit4 Associates Inc. — lifestyle-os.fit</span>
+    <a href="https://crossfit-otl.com" target="_blank" rel="noopener" class="footer-gym-link">Also train with us at CrossFit OTL →</a>
+  </footer>
 
   <script>
-    document.getElementById('captureForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('captureSuccess').classList.add('visible');
-    });
-
-    // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', function() {
