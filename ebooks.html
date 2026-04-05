@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Books — Lifestyle OS</title>
-  <meta name="description" content="The Lifestyle OS book library. From the QuickStart companion to deep-dive subsystem guides and persona-specific ebooks.">
+  <meta name="description" content="The Lifestyle OS book library. From the QuickStart companion to deep-dive guides for each area and persona-specific ebooks.">
   <meta property="og:title" content="Books — Lifestyle OS">
-  <meta property="og:description" content="The Lifestyle OS book library. Framework guides, subsystem deep dives, and persona ebooks.">
+  <meta property="og:description" content="The Lifestyle OS book library. Guides, deep dives for each area, and persona ebooks.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lifestyle-os.fit/ebooks">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -466,6 +467,54 @@
       letter-spacing: 0.02em;
     }
 
+    /* ---- TIER SELECTION (SamCart radio pattern) ---- */
+    .tier-option {
+      display: flex; align-items: center; gap: 10px;
+      padding: 12px 14px; border-radius: 10px; text-decoration: none;
+      border: 1.5px solid var(--border); background: #fff; cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .tier-option:hover { border-color: var(--near-black); }
+    .tier-option-selected { border-color: var(--blue); background: rgba(0,113,227,0.03); }
+    .tier-option-bundle { border-color: var(--border); }
+    .tier-radio { font-size: 1rem; color: var(--blue); flex-shrink: 0; width: 20px; text-align: center; }
+    .tier-label-text { font-size: 0.875rem; font-weight: 500; color: var(--near-black); }
+    .tier-price { margin-left: auto; font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--near-black); }
+    .tier-bundle-content { flex: 1; }
+    .tier-bundle-desc { font-size: 0.6875rem; font-weight: 300; color: var(--secondary); display: block; margin-top: 2px; }
+    .tier-save-badge {
+      display: inline-block; font-size: 0.5625rem; font-weight: 600;
+      letter-spacing: 0.08em; color: #1E7E34; background: rgba(52,199,89,0.1);
+      padding: 2px 6px; border-radius: 3px;
+    }
+    .tier-price-bundle { margin-left: auto; font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--near-black); white-space: nowrap; }
+    .tier-price-original { font-size: 0.8125rem; color: var(--secondary); text-decoration: line-through; margin-right: 4px; font-family: 'Inter', sans-serif; }
+
+    /* ---- BUY BUTTONS ---- */
+    .book-buy-btn {
+      display: inline-block; padding: 8px 18px; border-radius: 980px;
+      background: var(--blue); color: #fff; font-size: 0.8125rem; font-weight: 500;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .book-buy-btn:hover { opacity: 0.85; }
+
+    .book-buy-btn-sm {
+      display: inline-block; padding: 5px 12px; border-radius: 6px;
+      background: var(--near-black); color: #fff; font-size: 0.75rem; font-weight: 500;
+      text-decoration: none; transition: opacity 0.2s; margin-top: 6px;
+    }
+    .book-buy-btn-sm:hover { opacity: 0.8; }
+
+    .bundle-cta {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 20px; margin-top: 16px; border-radius: 12px;
+      background: var(--near-black); text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .bundle-cta:hover { opacity: 0.9; }
+    .bundle-cta-label { font-size: 1rem; font-weight: 500; color: #fff; }
+    .bundle-cta-savings { font-size: 0.75rem; font-weight: 300; color: var(--financial); margin-top: 4px; }
+
     /* ---- RESPONSIVE ---- */
     @media (max-width: 600px) {
       .hero-title { font-size: 1.875rem; }
@@ -525,7 +574,7 @@
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO — Full Package as primary offer -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-dots">
@@ -546,6 +595,32 @@
     </div>
   </section>
 
+  <!-- FULL PACKAGE HERO OFFER -->
+  <section style="background: var(--near-black); padding: 3.5rem 2rem;">
+    <div style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem; align-items: center; text-align: center;">
+      <!-- Offer details -->
+      <div style="max-width: 480px;">
+        <span style="display: inline-block; background: rgba(52,199,89,0.15); color: var(--financial); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 12px;">Best Value</span>
+        <h2 style="font-family: 'DM Serif Display', serif; font-size: 1.75rem; color: #FFFFFF; margin-bottom: 8px;">The Full Package</h2>
+        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px;">
+          <span style="font-family: 'DM Serif Display', serif; font-size: 2.25rem; color: #FFFFFF;">$99</span>
+          <span style="font-family: 'Inter', sans-serif; font-size: 1rem; color: rgba(255,255,255,0.35); text-decoration: line-through;">$140</span>
+          <span style="font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; color: var(--financial);">Save $41</span>
+        </div>
+        <div style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 20px;">
+          The Deeper Diagnostic<br>
+          Lifestyle Operating System book<br>
+          All 8 Deep Dive books — one per area<br>
+          <strong style="color: rgba(255,255,255,0.8); font-weight: 500;">Everything. Nothing left out.</strong>
+        </div>
+        <a href="https://buy.stripe.com/6oU5kEbJV9pI9JUc1O1sQ0c" style="display: block; text-align: center; padding: 14px 24px; border-radius: 10px; background: #FFFFFF; color: var(--near-black); font-family: 'Inter', sans-serif; font-size: 0.9375rem; font-weight: 600; text-decoration: none; margin-bottom: 12px;">Get the Full Package — $99</a>
+        <div style="text-align: center; font-family: 'Inter', sans-serif; font-size: 0.6875rem; color: rgba(255,255,255,0.3);">
+          Secure checkout via Stripe &middot; Instant digital delivery
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTENT -->
   <main class="content">
 
@@ -554,15 +629,15 @@
       <p class="tier-label">Tier 1 — Entry</p>
       <h2 class="tier-title">The introduction</h2>
       <p class="tier-desc">
-        Start here. These books introduce the framework, the language, and the diagnostic lens. No subsystem expertise required.
+        Start here. These books give you the language and the way of seeing. No background needed.
       </p>
 
       <div class="book-card">
         <div class="book-icon" style="background: var(--strategic)">Q</div>
         <div class="book-info">
           <div class="book-title">QuickStart</div>
-          <div class="book-subtitle">The assessment companion. Walks you through the 8 subsystems, explains the scoring, and prepares you for the diagnostic. The first thing you read.</div>
-          <span class="book-badge badge-available">Available</span>
+          <div class="book-subtitle">The assessment companion. Walks you through the 8 areas, explains the scoring, and gets you ready. The first thing you read.</div>
+          <span class="book-badge badge-available">Free with diagnostic</span>
         </div>
       </div>
 
@@ -570,8 +645,27 @@
         <div class="book-icon" style="background: var(--near-black); border: 1px solid var(--dark-grey); font-size: 0.85rem;">LOS</div>
         <div class="book-info">
           <div class="book-title">Lifestyle Operating System</div>
-          <div class="book-subtitle">The full book. You are running an operating system you did not choose, built for a world that no longer exists. The presenting problem is never the actual problem. This book shows you the cascade, names the real constraint, and gives you the mechanical path forward.</div>
-          <span class="book-badge badge-available">Available</span>
+          <div class="book-subtitle">The full book. You are running a life you did not design, built on patterns you did not choose. The presenting problem is never the actual problem. This book shows you the chain from root cause to what you feel — and gives you the path forward.</div>
+
+          <!-- Tier selection — SamCart pattern -->
+          <div style="margin-top: 14px; display: flex; flex-direction: column; gap: 8px;">
+            <a href="https://buy.stripe.com/eVq6oI01d59s5tEd5S1sQ01" class="tier-option tier-option-selected">
+              <span class="tier-radio">●</span>
+              <span class="tier-label-text">Just this book</span>
+              <span class="tier-price">$19</span>
+            </a>
+            <a href="https://buy.stripe.com/6oU5kEbJV9pI9JUc1O1sQ0c" class="tier-option tier-option-bundle">
+              <span class="tier-radio">○</span>
+              <div class="tier-bundle-content">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span class="tier-label-text">The Full Package</span>
+                  <span class="tier-save-badge">SAVE $41</span>
+                </div>
+                <span class="tier-bundle-desc">This book + Diagnostic + all 8 Deep Dives</span>
+              </div>
+              <span class="tier-price-bundle"><span class="tier-price-original">$140</span> $99</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -579,9 +673,9 @@
     <!-- TIER 2: DEEP DIVE -->
     <div class="tier">
       <p class="tier-label">Tier 2 — Deep Dive</p>
-      <h2 class="tier-title">One book per subsystem. Eight books total.</h2>
+      <h2 class="tier-title">One book per area. Eight books total.</h2>
       <p class="tier-desc">
-        Each book covers one subsystem end to end — its dimensions, rubrics, prescriptions, and cascade relationships. Go deep on the system that is actually constraining you.
+        Each book covers one area end to end — its scores, its levels, what to do about it, and how it connects to everything else. Go deep on the area that is actually holding you back.
       </p>
 
       <div class="subsystem-books">
@@ -589,50 +683,56 @@
           <div class="sub-book-icon" style="background: var(--recovery);">R</div>
           <div class="sub-book-name">Recovery Systems</div>
           <div class="sub-book-desc">Sleep, stress regulation, active recovery, rest</div>
-          <span class="book-badge badge-coming">Coming soon</span>
+          <a href="https://buy.stripe.com/9B6fZi7tFeK26xI2re1sQ02" class="book-buy-btn-sm">$14</a>
         </div>
         <div class="sub-book" style="border-left-color: var(--metabolic)">
           <div class="sub-book-icon" style="background: var(--metabolic);">M</div>
           <div class="sub-book-name">Metabolic Function</div>
           <div class="sub-book-desc">Nutrition, hydration, supplementation, monitoring</div>
-          <span class="book-badge badge-coming">Coming soon</span>
+          <a href="https://buy.stripe.com/5kQfZig0b9pI4pA0j61sQ03" class="book-buy-btn-sm">$14</a>
         </div>
         <div class="sub-book" style="border-left-color: var(--physical)">
           <div class="sub-book-icon" style="background: var(--physical);">P</div>
           <div class="sub-book-name">Physical Capacity</div>
           <div class="sub-book-desc">Strength, cardiovascular, mobility, training</div>
-          <span class="book-badge badge-coming">Coming soon</span>
+          <a href="https://buy.stripe.com/fZufZiaFRdFY5tEaXK1sQ04" class="book-buy-btn-sm">$14</a>
         </div>
         <div class="sub-book" style="border-left-color: var(--cognitive)">
           <div class="sub-book-icon" style="background: var(--cognitive);">C</div>
           <div class="sub-book-name">Cognitive Performance</div>
           <div class="sub-book-desc">Focus, decisions, learning, state management</div>
-          <span class="book-badge badge-coming">Coming soon</span>
+          <a href="https://buy.stripe.com/28E5kE8xJatM4pA3vi1sQ05" class="book-buy-btn-sm">$14</a>
         </div>
         <div class="sub-book" style="border-left-color: var(--time)">
           <div class="sub-book-icon" style="background: var(--time);">T</div>
           <div class="sub-book-name">Temporal Management</div>
           <div class="sub-book-desc">Schedule, time awareness, priority execution</div>
-          <span class="book-badge badge-coming">Coming soon</span>
+          <a href="https://buy.stripe.com/7sYeVe8xJ0Tc1do5Dq1sQ06" class="book-buy-btn-sm">$14</a>
         </div>
         <div class="sub-book" style="border-left-color: var(--financial)">
           <div class="sub-book-icon" style="background: var(--financial);">F</div>
           <div class="sub-book-name">Financial Capacity</div>
           <div class="sub-book-desc">Income, cash flow, stability, wealth building</div>
-          <span class="book-badge badge-coming">Coming soon</span>
+          <a href="https://buy.stripe.com/14AeVe9BN8lEbS21na1sQ07" class="book-buy-btn-sm">$14</a>
         </div>
         <div class="sub-book" style="border-left-color: var(--relational)">
           <div class="sub-book-icon" style="background: var(--relational);">R</div>
           <div class="sub-book-name">Relational Dynamics</div>
-          <div class="sub-book-desc">Partnership, parenting, social infrastructure</div>
-          <span class="book-badge badge-coming">Coming soon</span>
+          <div class="sub-book-desc">Partnership, parenting, social world</div>
+          <a href="https://buy.stripe.com/4gMaEY29lbxQ7BM8PC1sQ08" class="book-buy-btn-sm">$14</a>
         </div>
         <div class="sub-book" style="border-left-color: var(--strategic)">
           <div class="sub-book-icon" style="background: var(--strategic);">S</div>
           <div class="sub-book-name">Strategic Alignment</div>
           <div class="sub-book-desc">Direction, goals, execution, review, legacy</div>
-          <span class="book-badge badge-coming">Coming soon</span>
+          <a href="https://buy.stripe.com/bJeeVedS3bxQcW67Ly1sQ09" class="book-buy-btn-sm">$14</a>
         </div>
+
+        <!-- Bundle CTA -->
+        <a href="https://buy.stripe.com/3cIbJ201deK22hsfe01sQ0a" class="bundle-cta">
+          <span class="bundle-cta-label">Get all 8 Deep Dives — $79</span>
+          <span class="bundle-cta-savings">Save $33 vs buying individually</span>
+        </a>
       </div>
     </div>
 
@@ -641,7 +741,7 @@
       <p class="tier-label">Tier 3 — Persona</p>
       <h2 class="tier-title">Find your pattern. Read your book.</h2>
       <p class="tier-desc">
-        Each persona book maps a specific generational pain pattern to the framework. The pain you present with, the cascade that created it, and the prescription calibrated to your band. Content speaks to the pattern, not the label.
+        Each persona book starts with what you recognize in your own life — not what generation you belong to. The pain you showed up with, how it got this way, and what to do next based on where you actually are.
       </p>
 
       <div class="persona-grid">
@@ -653,7 +753,7 @@
         <div class="persona-card">
           <div class="persona-gen">Gen X</div>
           <div class="persona-name">The Self-Made</div>
-          <div class="persona-desc">Figured it out alone. Running on willpower the firmware cannot sustain.</div>
+          <div class="persona-desc">Figured it out alone. Running on willpower your body cannot sustain.</div>
         </div>
         <div class="persona-card">
           <div class="persona-gen">Millennial</div>
@@ -668,7 +768,25 @@
       </div>
 
       <div style="text-align: center; margin-top: 1.25rem;">
-        <span class="book-badge badge-coming">All persona books coming soon</span>
+        <span class="book-badge badge-coming">Persona books coming soon</span>
+      </div>
+    </div>
+
+    <!-- REPEATED BUNDLE CTA — second touchpoint after all content -->
+    <div style="margin-top: 3rem; padding: 2.5rem; background: var(--near-black); border-radius: 16px; text-align: center;">
+      <span style="display: inline-block; background: rgba(52,199,89,0.15); color: var(--financial); font-size: 0.625rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; margin-bottom: 10px;">Best Value</span>
+      <h2 style="font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: #FFFFFF; margin-bottom: 6px;">Get everything Lifestyle OS offers</h2>
+      <p style="font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 300; color: rgba(255,255,255,0.5); margin-bottom: 16px; line-height: 1.6;">
+        Deeper Diagnostic + Lifestyle Operating System + all 8 Deep Dives
+      </p>
+      <div style="display: flex; align-items: baseline; justify-content: center; gap: 10px; margin-bottom: 20px;">
+        <span style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: #FFFFFF;">$99</span>
+        <span style="font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: rgba(255,255,255,0.3); text-decoration: line-through;">$140</span>
+        <span style="font-family: 'Inter', sans-serif; font-size: 0.8125rem; font-weight: 600; color: var(--financial);">Save $41</span>
+      </div>
+      <a href="https://buy.stripe.com/6oU5kEbJV9pI9JUc1O1sQ0c" style="display: inline-block; padding: 14px 40px; border-radius: 10px; background: #FFFFFF; color: var(--near-black); font-family: 'Inter', sans-serif; font-size: 0.9375rem; font-weight: 600; text-decoration: none;">Get the Full Package — $99</a>
+      <div style="margin-top: 12px; font-family: 'Inter', sans-serif; font-size: 0.6875rem; color: rgba(255,255,255,0.25);">
+        Secure checkout via Stripe &middot; Instant digital delivery
       </div>
     </div>
 

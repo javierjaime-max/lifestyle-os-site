@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lifestyle OS — Find out what is actually running your life</title>
   <meta name="description" content="You have done the work. The results are not matching the effort. The free Lifestyle OS assessment finds out why.">
@@ -16,11 +17,11 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --light-grey: #F5F5F7;
+      --canvas: #F5F5F7;
       --white: #FFFFFF;
       --border: #D2D2D7;
       --secondary: #86868B;
-      --dark-grey: #6E6E73;
+      --muted: #6E6E73;
       --near-black: #1D1D1F;
       --blue: #0071E3;
       --recovery: #007AFF;
@@ -46,9 +47,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       padding: 1.25rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      display: flex; align-items: center; justify-content: space-between;
       z-index: 100;
       background: rgba(29, 29, 31, 0.88);
       backdrop-filter: blur(12px);
@@ -73,7 +72,6 @@
       text-decoration: none;
       transition: color 0.2s ease;
     }
-
     .header-nav a:hover { color: var(--white); }
 
     .header-cta {
@@ -90,15 +88,13 @@
     .header-cta:hover { background: #0077ED; color: var(--white) !important; }
 
     .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-      z-index: 110;
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none; z-index: 110;
     }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 1px; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     .hamburger span {
       display: block;
@@ -594,6 +590,7 @@
       text-decoration: none;
       transition: color 0.2s ease;
     }
+    .btn-ghost:hover { color: var(--white); }
 
     .footer-gym-link:hover { color: var(--white); }
 

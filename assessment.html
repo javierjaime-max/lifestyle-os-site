@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assessment — Lifestyle OS</title>
   <meta name="description" content="The free Lifestyle OS assessment. 24 questions across 8 areas of your life. Find out what is actually running the show.">
@@ -322,15 +323,23 @@
       background: #0077ED;
     }
 
-    .capture-success {
-      display: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--secondary);
+    .cta-button {
+      display: inline-block;
+      padding: 0.9375rem 2.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      background: var(--blue);
+      border-radius: 980px;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
     }
 
-    .capture-success.visible {
-      display: block;
+    .cta-button:hover {
+      background: #0077ED;
+      transform: scale(1.02);
     }
 
     /* ---- FOOTER ---- */
@@ -488,12 +497,6 @@
   </footer>
 
   <script>
-    document.getElementById('captureForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.style.display = 'none';
-      document.getElementById('captureSuccess').classList.add('visible');
-    });
-
     // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
