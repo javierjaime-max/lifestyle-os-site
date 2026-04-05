@@ -177,25 +177,59 @@
     }
 
     .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9rem 3rem 5rem 1rem;
+    }
+
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .lifestyle-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .lifestyle-icon {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.875rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.95);
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
     }
 
-    .hero-right img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    /* dark-to-transparent gradient blends photo into hero bg */
-    .hero-right::before {
+    .lifestyle-icon::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, var(--near-black) 0%, rgba(29,29,31,0.3) 35%, rgba(29,29,31,0) 70%);
-      z-index: 1;
+      background: linear-gradient(155deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 55%);
+      pointer-events: none;
+    }
+
+    .lifestyle-icon-label {
+      font-size: 0.5rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      white-space: nowrap;
     }
 
     /* system bar */
@@ -817,11 +851,49 @@
     </div>
 
     <div class="hero-right">
-      <img
-        src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80"
-        alt=""
-        loading="eager"
-      >
+      <div class="lifestyle-grid">
+
+        <div class="lifestyle-badge">
+          <div class="lifestyle-icon" style="background:var(--recovery)">R</div>
+          <span class="lifestyle-icon-label">Sleep</span>
+        </div>
+
+        <div class="lifestyle-badge">
+          <div class="lifestyle-icon" style="background:var(--metabolic)">M</div>
+          <span class="lifestyle-icon-label">Food</span>
+        </div>
+
+        <div class="lifestyle-badge">
+          <div class="lifestyle-icon" style="background:var(--physical)">P</div>
+          <span class="lifestyle-icon-label">Physical</span>
+        </div>
+
+        <div class="lifestyle-badge">
+          <div class="lifestyle-icon" style="background:var(--cognitive)">C</div>
+          <span class="lifestyle-icon-label">Mind</span>
+        </div>
+
+        <div class="lifestyle-badge">
+          <div class="lifestyle-icon" style="background:var(--time)">T</div>
+          <span class="lifestyle-icon-label">Time</span>
+        </div>
+
+        <div class="lifestyle-badge">
+          <div class="lifestyle-icon" style="background:var(--financial)">F</div>
+          <span class="lifestyle-icon-label">Money</span>
+        </div>
+
+        <div class="lifestyle-badge">
+          <div class="lifestyle-icon" style="background:var(--relational)">R</div>
+          <span class="lifestyle-icon-label">People</span>
+        </div>
+
+        <div class="lifestyle-badge">
+          <div class="lifestyle-icon" style="background:var(--strategic)">S</div>
+          <span class="lifestyle-icon-label">Direction</span>
+        </div>
+
+      </div>
     </div>
 
   </section>
@@ -829,34 +901,20 @@
   <!-- ═══ THE PROBLEM ═══ -->
   <section class="sec sec--grey">
     <div class="sec-inner">
-      <div class="problem-layout">
+      <p class="sec-label sec-label--light">The Problem</p>
+      <h2 class="sec-title sec-title--light">The problem is never where you think it is.</h2>
 
-        <div class="problem-photo">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
-            alt=""
-            loading="lazy"
-          >
-        </div>
+      <div class="sec-body sec-body--light">
+        <p>You fix your sleep and your energy is still flat. You work harder and the income still does not compound. You show up better in your relationship and it still feels like something is missing. You set the goal and three months later you are back where you started.</p>
+        <p>That is not failure. That is a diagnostic problem. The thing you are working on is the victim. Something upstream is the culprit — and you have been treating the symptom.</p>
+      </div>
 
-        <div>
-          <p class="sec-label sec-label--light">The Problem</p>
-          <h2 class="sec-title sec-title--light">The problem is never where you think it is.</h2>
+      <div class="pull-quote">
+        <p>The presenting problem is never the actual problem. Find the culprit and the victim solves itself.</p>
+      </div>
 
-          <div class="sec-body sec-body--light">
-            <p>You fix your sleep and your energy is still flat. You work harder and the income still does not compound. You show up better in your relationship and it still feels like something is missing. You set the goal and three months later you are back where you started.</p>
-            <p>That is not failure. That is a diagnostic problem. The thing you are working on is the victim. Something upstream is the culprit — and you have been treating the symptom.</p>
-          </div>
-
-          <div class="pull-quote">
-            <p>The presenting problem is never the actual problem. Find the culprit and the victim solves itself.</p>
-          </div>
-
-          <div class="sec-body sec-body--light">
-            <p>Lifestyle OS maps eight areas of your life and finds where the breakdown actually starts. Not where you feel it. Where it comes from.</p>
-          </div>
-        </div>
-
+      <div class="sec-body sec-body--light">
+        <p>Lifestyle OS maps eight areas of your life and finds where the breakdown actually starts. Not where you feel it. Where it comes from.</p>
       </div>
     </div>
   </section>
@@ -1020,8 +1078,8 @@
 
         <div class="human-photo">
           <img
-            src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80"
-            alt=""
+            src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=800&q=80"
+            alt="A family together"
             loading="lazy"
           >
         </div>
