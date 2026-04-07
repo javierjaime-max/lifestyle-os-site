@@ -1,5 +1,12 @@
 # CLAUDE.md — lifestyle-os-site
 
+## Ecosystem: Lifestyle OS
+This repo is part of the **Lifestyle OS ecosystem**. Before editing consumer-facing text, read:
+- **Ecosystem governance:** `L·OS/CLAUDE.md`
+- **Voice Manual:** `L·OS/los-library/08_brand_and_site/LOS_Consumer_Voice_Manual.md`
+
+Connected components: diagnostic app (`lifestyleosapp`), ebooks (`L·OS/los-library/03_ebooks/`), social content. Voice and brand rules are shared across ALL of these.
+
 ## What This Is
 The Lifestyle OS marketing website. Static HTML. Deployed to `lifestyle-os.fit` via Vercel, auto-deploying from `javierjaime-max/lifestyle-os-site` on GitHub.
 
