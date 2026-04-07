@@ -830,145 +830,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ─── LEAD CAPTURE MODAL ─── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.72);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-    .modal-overlay.open { display: flex; }
-
-    .modal-card {
-      background: var(--near-black);
-      border: 0.5px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      max-width: 420px;
-      width: 100%;
-      position: relative;
-      animation: fadeUp 0.35s ease forwards;
-    }
-
-    .modal-dots { display: flex; gap: 7px; margin-bottom: 1.5rem; }
-
-    .modal-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.625rem;
-      line-height: 1.2;
-      color: var(--white);
-      margin-bottom: 0.625rem;
-      letter-spacing: -0.02em;
-    }
-
-    .modal-sub {
-      font-size: 0.875rem;
-      font-weight: 300;
-      color: var(--secondary);
-      line-height: 1.65;
-      margin-bottom: 1.75rem;
-    }
-
-    .modal-form { display: flex; flex-direction: column; gap: 0.875rem; }
-
-    .modal-field {
-      display: flex;
-      flex-direction: column;
-      gap: 0.375rem;
-    }
-
-    .modal-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--secondary);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .modal-input {
-      background: rgba(255,255,255,0.06);
-      border: 0.5px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      padding: 0.75rem 1rem;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9375rem;
-      font-weight: 300;
-      color: var(--white);
-      outline: none;
-      transition: border-color 0.2s ease;
-    }
-
-    .modal-input::placeholder { color: var(--muted); }
-    .modal-input:focus { border-color: rgba(255,255,255,0.3); }
-
-    .modal-submit {
-      margin-top: 0.375rem;
-      padding: 0.875rem;
-      background: var(--blue);
-      border: none;
-      border-radius: 8px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--white);
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .modal-submit:hover { background: #0077ED; }
-
-    .modal-legal {
-      margin-top: 0.875rem;
-      font-size: 0.6875rem;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem; right: 1rem;
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-size: 1.25rem;
-      cursor: pointer;
-      line-height: 1;
-      padding: 0.25rem 0.5rem;
-      transition: color 0.2s ease;
-    }
-    .modal-close:hover { color: var(--white); }
-
-    .modal-success {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      text-align: center;
-      padding: 1rem 0;
-    }
-    .modal-success.show { display: flex; }
-    .modal-success-icon {
-      font-size: 2.5rem;
-      line-height: 1;
-    }
-    .modal-success-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.375rem;
-      color: var(--white);
-    }
-    .modal-success-sub {
-      font-size: 0.875rem;
-      font-weight: 300;
-      color: var(--secondary);
-      line-height: 1.65;
-    }
   </style>
 </head>
 <body>
@@ -980,7 +841,7 @@
       <a href="assessment.html">Assessment</a>
       <a href="ebooks.html">Books</a>
       <a href="coaching.html">Coaching</a>
-      <a href="#" class="header-cta js-open-modal">Start free →</a>
+      <a href="https://app.lifestyle-os.fit" class="header-cta">Start free →</a>
     </nav>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -992,7 +853,7 @@
     <a href="assessment.html">Assessment</a>
     <a href="ebooks.html">Books</a>
     <a href="coaching.html">Coaching</a>
-    <a href="#" class="js-open-modal">Start free →</a>
+    <a href="https://app.lifestyle-os.fit">Start free →</a>
     <div class="mobile-dots">
       <span class="pulse-dot" style="width:6px;height:6px;background:var(--recovery)"></span>
       <span class="pulse-dot" style="width:6px;height:6px;background:var(--metabolic)"></span>
@@ -1030,7 +891,7 @@
         Your lifestyle is not a workout plan. It is everything — how you sleep, how your money compounds, whether your relationships are holding, whether you know where you are going. The Lifestyle OS assessment maps all eight areas of your life and finds the one that is running the rest.
       </p>
 
-      <a href="#" class="btn-primary js-open-modal">Take the free assessment</a>
+      <a href="https://app.lifestyle-os.fit" class="btn-primary">Take the free assessment</a>
 
       <p class="micro-note">Free. 5 minutes. A quick account keeps your results safe.</p>
 
@@ -1267,7 +1128,7 @@
       </div>
       <h2 class="final-cta-title">The assessment is free.<br>It will tell you something<br>you have been trying to name.</h2>
       <p class="final-cta-sub">Five minutes. Honest questions. A real picture of where each area of your life actually stands — and what to do first.</p>
-      <a href="#" class="btn-primary-center js-open-modal">Take the free assessment</a>
+      <a href="https://app.lifestyle-os.fit" class="btn-primary-center">Take the free assessment</a>
       <p class="micro-note">Free. Your results are saved to your account.</p>
     </div>
   </section>
@@ -1290,49 +1151,6 @@
     <p class="footer-disclaimer">Lifestyle OS is a self-assessment and lifestyle framework for personal awareness and development. It is not a medical program, licensed therapy, or clinical service. The assessment, reports, and coaching offered through this platform are not a substitute for professional medical, psychological, or financial advice. If you are experiencing a health crisis or mental health emergency, please contact a qualified professional or emergency services. Results are for informational purposes only and reflect self-reported data.</p>
   </footer>
 
-  <!-- ═══ LEAD CAPTURE MODAL ═══ -->
-  <div class="modal-overlay" id="leadModal" role="dialog" aria-modal="true" aria-label="Start your free assessment">
-    <div class="modal-card">
-      <button class="modal-close" id="modalClose" aria-label="Close">&#215;</button>
-
-      <div class="modal-dots">
-        <span class="pulse-dot" style="width:6px;height:6px;background:var(--recovery)"></span>
-        <span class="pulse-dot" style="width:6px;height:6px;background:var(--metabolic)"></span>
-        <span class="pulse-dot" style="width:6px;height:6px;background:var(--physical)"></span>
-        <span class="pulse-dot" style="width:6px;height:6px;background:var(--cognitive)"></span>
-        <span class="pulse-dot" style="width:6px;height:6px;background:var(--time)"></span>
-        <span class="pulse-dot" style="width:6px;height:6px;background:var(--financial)"></span>
-        <span class="pulse-dot" style="width:6px;height:6px;background:var(--relational)"></span>
-        <span class="pulse-dot" style="width:6px;height:6px;background:var(--strategic)"></span>
-      </div>
-
-      <div id="modalFormWrap">
-        <h2 class="modal-title">Where would you like your results sent?</h2>
-        <p class="modal-sub">Your assessment is free. We create an account so your results are waiting for you — and so we can send you what we publish next.</p>
-
-        <form class="modal-form" id="leadForm" novalidate>
-          <div class="modal-field">
-            <label class="modal-label" for="leadName">First name</label>
-            <input class="modal-input" type="text" id="leadName" name="first_name" placeholder="Your first name" autocomplete="given-name" required>
-          </div>
-          <div class="modal-field">
-            <label class="modal-label" for="leadEmail">Email</label>
-            <input class="modal-input" type="email" id="leadEmail" name="email" placeholder="you@example.com" autocomplete="email" required>
-          </div>
-          <button class="modal-submit" type="submit">Take the free assessment →</button>
-        </form>
-
-        <p class="modal-legal">No spam. No selling your information. Unsubscribe any time.</p>
-      </div>
-
-      <div class="modal-success" id="modalSuccess">
-        <div class="modal-success-icon">✓</div>
-        <div class="modal-success-title">You're in. Taking you to the assessment.</div>
-        <p class="modal-success-sub">Check your inbox after — your results will be there.</p>
-      </div>
-    </div>
-  </div>
-
   <script>
     // Hamburger
     const hamburger = document.getElementById('hamburger');
@@ -1340,56 +1158,6 @@
     hamburger.addEventListener('click', function () {
       this.classList.toggle('open');
       mobileMenu.classList.toggle('open');
-    });
-
-    // Modal
-    const modal = document.getElementById('leadModal');
-    const modalClose = document.getElementById('modalClose');
-    const leadForm = document.getElementById('leadForm');
-    const modalFormWrap = document.getElementById('modalFormWrap');
-    const modalSuccess = document.getElementById('modalSuccess');
-
-    function openModal(e) {
-      if (e) e.preventDefault();
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => document.getElementById('leadName').focus(), 100);
-    }
-
-    function closeModal() {
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.js-open-modal').forEach(function (el) {
-      el.addEventListener('click', openModal);
-    });
-
-    modalClose.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', function (e) {
-      if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    leadForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = document.getElementById('leadName').value.trim();
-      const email = document.getElementById('leadEmail').value.trim();
-      if (!name || !email) return;
-
-      // Show success state
-      modalFormWrap.style.display = 'none';
-      modalSuccess.classList.add('show');
-
-      // Redirect to app after brief pause
-      setTimeout(function () {
-        const params = new URLSearchParams({ name: name, email: email });
-        window.location.href = 'https://app.lifestyle-os.fit/signup?' + params.toString();
-      }, 1800);
     });
   </script>
 
