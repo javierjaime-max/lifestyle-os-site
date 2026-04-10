@@ -222,6 +222,14 @@
       color: rgba(255,255,255,0.42);
     }
 
+    .headline-accent {
+      font-style: italic;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--strategic) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
     .hero-sub {
       font-size: 1.0625rem;
       font-weight: 300;
@@ -286,6 +294,25 @@
       margin: 1rem auto 0;
       position: relative;
       z-index: 1;
+    }
+
+    .hero-visual::before {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 60%;
+      background: radial-gradient(ellipse at center,
+        rgba(0, 122, 255, 0.18) 0%,
+        rgba(175, 82, 222, 0.12) 30%,
+        rgba(88, 86, 214, 0.08) 55%,
+        transparent 75%
+      );
+      filter: blur(28px);
+      z-index: -1;
+      pointer-events: none;
     }
 
     .app-frame {
@@ -854,7 +881,7 @@
 
       <h1 class="hero-headline">
         Since the day you were born,<br>your life has been running a system.<br>
-        <em>This is the first time<br>anyone has mapped it.</em>
+        <em>This is the first time<br>anyone has <span class="headline-accent">mapped it.</span></em>
       </h1>
 
       <p class="hero-sub">
