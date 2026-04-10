@@ -5,9 +5,9 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lifestyle OS — Find out what is actually running your life</title>
-  <meta name="description" content="You have done the work. The results are not matching the effort. The free Lifestyle OS assessment finds out why.">
+  <meta name="description" content="You are not broken. You are running the wrong operating system. The free Lifestyle OS assessment maps all eight areas of your life and finds what is actually driving the rest.">
   <meta property="og:title" content="Lifestyle OS">
-  <meta property="og:description" content="Eight areas of your life — all running together, all affecting each other. Find out which one is running the rest.">
+  <meta property="og:description" content="Eight areas. One system. The free Lifestyle OS assessment finds the area that is running the rest.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lifestyle-os.fit">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,149 +160,36 @@
       50%       { opacity: 0.9; transform: scale(1.35); }
     }
 
-    /* ─── HERO — split layout ─── */
+    /* ─── HERO — centered ─── */
     .hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 9rem 2rem 5rem;
       background: var(--near-black);
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 9rem 3.5rem 5rem 4rem;
-      gap: 2rem;
-    }
-
-    .hero-right {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-right img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-
-    .hero-right::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, var(--near-black) 0%, rgba(29,29,31,0.15) 40%, rgba(29,29,31,0) 70%);
-      z-index: 1;
-    }
-
-    .lifestyle-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      width: 100%;
-      max-width: 340px;
-    }
-
-    .lifestyle-badge {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .lifestyle-icon {
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.875rem;
-      font-weight: 400;
-      color: rgba(255,255,255,0.95);
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
-    }
-
-    .lifestyle-icon::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(155deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 55%);
-      pointer-events: none;
-    }
-
-    .lifestyle-icon-label {
-      font-size: 0.5rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: rgba(255,255,255,0.4);
       text-align: center;
-      white-space: nowrap;
     }
 
-    /* system bar */
-    .system-bar {
-      display: flex;
-      width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      height: 80px;
-      box-shadow: 0 0 0 0.5px rgba(255,255,255,0.1), 0 12px 40px rgba(0,0,0,0.5);
-    }
-
-    .sys-seg {
-      flex: 1;
+    .hero-content {
+      max-width: 660px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 4px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sys-seg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 60%);
-      pointer-events: none;
-    }
-
-    .sys-seg-badge {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.0625rem;
-      color: rgba(255,255,255,0.95);
-      line-height: 1;
-      position: relative;
-      z-index: 1;
-    }
-
-    .sys-seg-label {
-      font-size: 0.4375rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: rgba(255,255,255,0.6);
-      white-space: nowrap;
-      position: relative;
-      z-index: 1;
+      gap: 1.75rem;
     }
 
     .dots-row {
       display: flex;
       gap: 9px;
+      justify-content: center;
     }
 
     .hero-headline {
       font-family: 'DM Serif Display', serif;
-      font-size: 3rem;
+      font-size: 3.25rem;
       font-weight: 400;
       line-height: 1.08;
       letter-spacing: -0.025em;
@@ -311,15 +198,23 @@
 
     .hero-headline em {
       font-style: italic;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.42);
     }
 
     .hero-sub {
-      font-size: 1rem;
+      font-size: 1.0625rem;
       font-weight: 300;
       color: var(--secondary);
-      line-height: 1.8;
-      max-width: 420px;
+      line-height: 1.75;
+      max-width: 500px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.875rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .btn-primary {
@@ -332,17 +227,197 @@
       color: var(--white);
       background: var(--blue);
       border-radius: 8px;
-      align-self: flex-start;
       transition: background 0.2s ease, transform 0.15s ease;
     }
 
     .btn-primary:hover { background: #0077ED; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.6);
+      border: 0.5px solid rgba(255,255,255,0.18);
+      border-radius: 8px;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.4);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
 
     .micro-note {
       font-size: 0.75rem;
       font-weight: 300;
       color: var(--muted);
       letter-spacing: 0.02em;
+    }
+
+    /* ─── APP FRAME ─── */
+    .hero-visual {
+      width: 100%;
+      max-width: 700px;
+      margin: 1rem auto 0;
+    }
+
+    .app-frame {
+      background: #1a1a1c;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 0.5px rgba(255,255,255,0.05);
+      text-align: left;
+    }
+
+    .app-frame-bar {
+      background: #242426;
+      padding: 0.75rem 1.125rem;
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+      border-bottom: 0.5px solid rgba(255,255,255,0.07);
+    }
+
+    .app-frame-dots { display: flex; gap: 6px; }
+
+    .app-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .app-frame-url {
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.25);
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    .app-frame-content { padding: 1.5rem 1.75rem 1.75rem; }
+
+    .app-result-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .app-result-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .app-result-sub {
+      font-size: 0.6875rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    .app-legend {
+      display: flex;
+      gap: 1.125rem;
+      font-size: 0.6875rem;
+      color: var(--muted);
+      align-items: center;
+    }
+
+    .app-legend-item { display: flex; align-items: center; gap: 0.375rem; }
+
+    .score-bars { display: flex; flex-direction: column; gap: 9px; }
+
+    .score-row { display: flex; align-items: center; gap: 0.75rem; }
+
+    .score-row-badge {
+      width: 22px; height: 22px;
+      border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 0.625rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .score-label {
+      font-size: 0.625rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+      width: 60px;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .score-bar-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .score-bar-fill { height: 100%; border-radius: 2px; opacity: 0.85; position: absolute; top: 0; left: 0; }
+
+    .score-bar-demand {
+      position: absolute;
+      top: -3px;
+      width: 1.5px;
+      height: 10px;
+      background: rgba(255,255,255,0.35);
+      transform: translateX(-50%);
+    }
+
+    .score-val {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      width: 28px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .score-val--deficit { color: #FF3B30; }
+    .score-val--surplus { color: #34C759; }
+    .score-val--neutral { color: var(--muted); }
+
+    .app-finding {
+      margin-top: 1.25rem;
+      padding: 1rem 1.125rem;
+      background: rgba(88,86,214,0.08);
+      border: 0.5px solid rgba(88,86,214,0.25);
+      border-radius: 10px;
+    }
+
+    .app-finding-label {
+      font-size: 0.625rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--strategic);
+      margin-bottom: 0.375rem;
+    }
+
+    .app-finding-text {
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+    }
+
+    .app-frame-note {
+      margin-top: 1.25rem;
+      font-size: 0.6875rem;
+      font-weight: 300;
+      color: var(--muted);
+      font-style: italic;
+      text-align: center;
     }
 
     /* ─── SECTIONS ─── */
@@ -385,29 +460,6 @@
     .sec-body--dark  { color: var(--secondary); }
     .sec-body--light { color: var(--muted); }
     .sec-body p + p  { margin-top: 1rem; }
-
-    /* ─── PROBLEM — photo + text ─── */
-    .problem-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .problem-photo {
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 3/4;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.12);
-    }
-
-    .problem-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
 
     .pull-quote {
       border-left: 3px solid var(--cognitive);
@@ -554,102 +606,7 @@
       line-height: 1.75;
     }
 
-    /* ─── SCORE PREVIEW ─── */
-    .score-preview {
-      margin-top: 3.5rem;
-      background: rgba(255,255,255,0.04);
-      border: 0.5px solid rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 1.75rem;
-    }
-
-    .score-preview-label {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .score-bars { display: flex; flex-direction: column; gap: 10px; }
-
-    .score-row { display: flex; align-items: center; gap: 0.75rem; }
-
-    .score-row-badge {
-      width: 24px; height: 24px;
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'DM Serif Display', serif;
-      font-size: 0.6875rem;
-      color: var(--white);
-      flex-shrink: 0;
-    }
-
-    .score-bar-track {
-      flex: 1;
-      height: 4px;
-      background: rgba(255,255,255,0.07);
-      border-radius: 2px;
-      position: relative;
-    }
-
-    .score-bar-fill { height: 100%; border-radius: 2px; opacity: 0.85; position: absolute; top: 0; left: 0; }
-
-    .score-bar-demand {
-      position: absolute;
-      top: -3px;
-      width: 1.5px;
-      height: 10px;
-      background: rgba(255,255,255,0.35);
-      transform: translateX(-50%);
-    }
-
-    .score-val {
-      font-size: 0.6875rem;
-      font-weight: 500;
-      width: 28px;
-      text-align: right;
-      flex-shrink: 0;
-    }
-
-    .score-val--deficit { color: #FF3B30; }
-    .score-val--surplus { color: #34C759; }
-    .score-val--neutral { color: var(--muted); }
-
-    .score-preview-note {
-      margin-top: 1rem;
-      font-size: 0.6875rem;
-      font-weight: 300;
-      color: var(--muted);
-      font-style: italic;
-    }
-
-    /* ─── HUMAN — photo + text ─── */
-    .human-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .human-photo {
-      border-radius: 16px;
-      overflow: hidden;
-      aspect-ratio: 4/5;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 6rem;
-    }
-
-    .human-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
+    /* ─── FOUNDER ─── */
     .founder-block {
       display: flex;
       gap: 1.25rem;
@@ -771,60 +728,38 @@
     .footer-disclaimer { font-size: 0.625rem; font-weight: 300; color: rgba(134,134,139,0.4); line-height: 1.65; max-width: 680px; text-align: center; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 0.5px solid rgba(255,255,255,0.04); }
 
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        position: relative;
-      }
-      /* Photo becomes full-bleed background on mobile */
-      .hero-right {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-      }
-      .hero-right::before {
-        background: linear-gradient(180deg, rgba(29,29,31,0.85) 0%, rgba(29,29,31,0.7) 60%, rgba(29,29,31,0.92) 100%);
-      }
-      .hero-left {
-        position: relative;
-        z-index: 1;
-        padding: 9rem 2rem 5rem;
-        align-items: center;
-        text-align: center;
-      }
-      .hero-headline { font-size: 2.5rem; }
-      .hero-sub { max-width: 100%; }
-      .btn-primary { align-self: center; }
-      .dots-row { justify-content: center; }
-      .problem-layout { grid-template-columns: 1fr; }
-      .problem-photo { aspect-ratio: 16/9; }
-      .human-layout { grid-template-columns: 1fr; }
-      .human-photo { position: static; aspect-ratio: 16/9; }
-    }
-
     @media (max-width: 780px) {
+      .hero-headline { font-size: 2.5rem; }
       .areas-grid { grid-template-columns: repeat(2, 1fr); }
+      .score-label { display: none; }
     }
 
     @media (max-width: 640px) {
       .sec-title { font-size: 1.875rem; }
       .final-cta-title { font-size: 2rem; }
       .books-bridge-inner { flex-direction: column; align-items: flex-start; }
-      .sys-seg-label { display: none; }
+      .hero-headline { font-size: 2.125rem; }
+      .hero-ctas { flex-direction: column; align-items: stretch; text-align: center; }
     }
 
     /* ─── HERO ANIMATION ─── */
-    .hero-left > * {
+    .hero-content > * {
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.7s ease forwards;
     }
-    .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-    .hero-left > *:nth-child(2) { animation-delay: 0.25s; }
-    .hero-left > *:nth-child(3) { animation-delay: 0.4s; }
-    .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
-    .hero-left > *:nth-child(5) { animation-delay: 0.68s; }
-    .hero-left > *:nth-child(6) { animation-delay: 0.8s; }
+    .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.25s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.4s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.55s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.68s; }
+
+    .hero-visual {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.9s ease forwards;
+      animation-delay: 0.75s;
+    }
 
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
@@ -866,10 +801,10 @@
     </div>
   </div>
 
-  <!-- ═══ HERO — split layout ═══ -->
+  <!-- ═══ HERO ═══ -->
   <section class="hero">
 
-    <div class="hero-left">
+    <div class="hero-content">
 
       <div class="dots-row">
         <span class="pulse-dot" style="width:8px;height:8px;background:var(--recovery)"></span>
@@ -883,26 +818,66 @@
       </div>
 
       <h1 class="hero-headline">
-        You have done the work.<br>
-        <em>The results are not matching.</em>
+        You are not broken.<br>
+        <em>You are running the wrong<br>operating system.</em>
       </h1>
 
       <p class="hero-sub">
-        Your lifestyle is not a workout plan. It is everything — how you sleep, how your money compounds, whether your relationships are holding, whether you know where you are going. The Lifestyle OS assessment maps all eight areas of your life and finds the one that is running the rest.
+        Eight areas of your life are running together right now — all connected, all pulling on each other. The Lifestyle OS assessment finds the one that is actually running the rest.
       </p>
 
-      <a href="https://app.lifestyle-os.fit" class="btn-primary">Take the free assessment</a>
+      <div class="hero-ctas">
+        <a href="https://app.lifestyle-os.fit" class="btn-primary">Take the free assessment</a>
+        <a href="ebooks.html" class="btn-secondary">Browse the books</a>
+      </div>
 
-      <p class="micro-note">Free. 5 minutes. A quick account keeps your results safe.</p>
+      <p class="micro-note">Free. Five minutes. Your results are saved to your account.</p>
 
     </div>
 
-    <div class="hero-right">
-      <img
-        src="https://images.unsplash.com/photo-1496275068113-fff8c90750d1?auto=format&fit=crop&w=1200&q=85"
-        alt="Family — parents and children"
-        loading="eager"
-      >
+    <div class="hero-visual">
+      <div class="app-frame">
+        <div class="app-frame-bar">
+          <div class="app-frame-dots">
+            <span class="app-dot" style="background:#FF5F57"></span>
+            <span class="app-dot" style="background:#FEBC2E"></span>
+            <span class="app-dot" style="background:#28C840"></span>
+          </div>
+          <span class="app-frame-url">app.lifestyle-os.fit — Your Assessment Results</span>
+        </div>
+        <div class="app-frame-content">
+          <div class="app-result-header">
+            <div>
+              <div class="app-result-title">Where you actually stand</div>
+              <div class="app-result-sub">Eight areas · Example results — yours will be different</div>
+            </div>
+            <div class="app-legend">
+              <div class="app-legend-item">
+                <span style="width:14px;height:4px;border-radius:2px;background:var(--recovery);display:inline-block;opacity:0.85;"></span>
+                Your level
+              </div>
+              <div class="app-legend-item">
+                <span style="width:1.5px;height:10px;background:rgba(255,255,255,0.35);display:inline-block;"></span>
+                What life demands
+              </div>
+            </div>
+          </div>
+          <div class="score-bars">
+            <div class="score-row"><div class="score-row-badge" style="background:var(--recovery)">R</div><span class="score-label">Recovery</span><div class="score-bar-track"><div class="score-bar-fill" style="width:38%;background:var(--recovery)"></div><div class="score-bar-demand" style="left:65%"></div></div><span class="score-val score-val--deficit">–2.7</span></div>
+            <div class="score-row"><div class="score-row-badge" style="background:var(--metabolic)">M</div><span class="score-label">Metabolic</span><div class="score-bar-track"><div class="score-bar-fill" style="width:55%;background:var(--metabolic)"></div><div class="score-bar-demand" style="left:60%"></div></div><span class="score-val score-val--deficit">–0.5</span></div>
+            <div class="score-row"><div class="score-row-badge" style="background:var(--physical)">P</div><span class="score-label">Physical</span><div class="score-bar-track"><div class="score-bar-fill" style="width:62%;background:var(--physical)"></div><div class="score-bar-demand" style="left:50%"></div></div><span class="score-val score-val--surplus">+1.2</span></div>
+            <div class="score-row"><div class="score-row-badge" style="background:var(--cognitive)">C</div><span class="score-label">Cognitive</span><div class="score-bar-track"><div class="score-bar-fill" style="width:44%;background:var(--cognitive)"></div><div class="score-bar-demand" style="left:70%"></div></div><span class="score-val score-val--deficit">–2.6</span></div>
+            <div class="score-row"><div class="score-row-badge" style="background:var(--time)">T</div><span class="score-label">Time</span><div class="score-bar-track"><div class="score-bar-fill" style="width:31%;background:var(--time)"></div><div class="score-bar-demand" style="left:75%"></div></div><span class="score-val score-val--deficit">–4.4</span></div>
+            <div class="score-row"><div class="score-row-badge" style="background:var(--financial)">F</div><span class="score-label">Financial</span><div class="score-bar-track"><div class="score-bar-fill" style="width:58%;background:var(--financial)"></div><div class="score-bar-demand" style="left:80%"></div></div><span class="score-val score-val--deficit">–2.2</span></div>
+            <div class="score-row"><div class="score-row-badge" style="background:var(--relational)">B</div><span class="score-label">Bonds</span><div class="score-bar-track"><div class="score-bar-fill" style="width:67%;background:var(--relational)"></div><div class="score-bar-demand" style="left:65%"></div></div><span class="score-val score-val--surplus">+0.2</span></div>
+            <div class="score-row"><div class="score-row-badge" style="background:var(--strategic)">S</div><span class="score-label">Strategic</span><div class="score-bar-track"><div class="score-bar-fill" style="width:28%;background:var(--strategic)"></div><div class="score-bar-demand" style="left:72%"></div></div><span class="score-val score-val--deficit">–4.4</span></div>
+          </div>
+          <div class="app-finding">
+            <div class="app-finding-label">Primary finding</div>
+            <div class="app-finding-text">Your Strategic and Time gaps are driving this. Not because you lack direction — but because neither area has enough margin to run at what your life is currently demanding of them. This is where to focus first.</div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </section>
@@ -911,12 +886,12 @@
   <section class="sec sec--grey">
     <div class="sec-inner">
       <p class="sec-label sec-label--light">The Problem</p>
-      <h2 class="sec-title sec-title--light">There are three reasons it is not working. Most people only know one.</h2>
+      <h2 class="sec-title sec-title--light">The problem is never where you feel it.</h2>
 
       <div class="sec-body sec-body--light">
-        <p>The first: you are working on the wrong thing. The area you feel the pain is not where the breakdown started. Something else is driving it. You keep fixing the symptom and the cause keeps running untouched.</p>
-        <p>The second: you are closer to the edge than you know. Not failing yet — but the margin is gone. You will not see it coming until it has already arrived. Most people do not find out they were running on empty until something forces the conversation.</p>
-        <p>The third is the most common. You saw what someone else was doing — someone further along, more adapted — and you tried to install their version of life. Their routine. Their system. Their operating level. That is not an upgrade. That is a mismatch. An operating system built for someone at a different stage will fail in your system the same way it always has. Every time.</p>
+        <p>The area where you feel the pressure is almost never where the breakdown started. Something else is driving it. You keep addressing what hurts. The cause keeps running untouched.</p>
+        <p>Most people also do not know how close they are to the edge. Not failing — but the margin is gone. You will not see it coming until something forces the conversation. The score that looks fine is fine only until life demands more of it.</p>
+        <p>The most expensive mistake: you found someone further along and tried to install their version of life. Their routine. Their pace. Their system. That is not an upgrade. An approach built for a different stage will fail in your system every time.</p>
       </div>
 
       <div class="pull-quote">
@@ -924,11 +899,8 @@
       </div>
 
       <div class="sec-body sec-body--light">
-        <p>Here is what the algorithm looks like. Someone fatigues in their training. They assume the problem is conditioning — more cardio, more endurance work. That is the victim. The actual culprit is that they are not strong enough. A stronger person moves the same weight at a lower percentage of their capacity. Their heart rate stays lower. Their system recovers faster. Fix the strength and the conditioning problem resolves itself.</p>
-        <p>Sometimes the culprit is not even hidden. They already know they need to get stronger. But the program they find was built for someone years more advanced — more available time, more training history, no injuries. They try to install it anyway. Within weeks it collapses. Not because the goal was wrong. Because the prescription did not fit where they actually are.</p>
-        <p>And sometimes the gap is narrower than that — inside the same area entirely. Someone eats clean. They have for years. They assume that dimension is handled. But they have never run their biomarkers. They do not know which minerals their body is not absorbing. Advanced in one direction, deficient in another, inside the same area of life — with no signal because they have never looked.</p>
-        <p>Run that same pattern across your finances. Your relationships. Your sense of direction. This is not about becoming a perfectly balanced person. It is about finding where the real pressure is. Where the margin ran out. What is actually driving the output you are living with right now.</p>
-        <p>That is what the assessment maps.</p>
+        <p>The person whose income stalled was not missing a strategy. Strategic had gone quiet years earlier — the whole system lost its engine. The person whose relationship was fracturing was not a bad partner — they were running on four hours of real sleep and every emotional response was in threat state.</p>
+        <p>Run that pattern across every area of your life. The breakdown you can name is almost never the one that is actually running. That is what the assessment maps.</p>
       </div>
     </div>
   </section>
@@ -940,7 +912,7 @@
       <h2 class="sec-title sec-title--light">Every part of your life runs together.</h2>
 
       <div class="sec-body sec-body--light areas-intro">
-        <p>Sleep. Food. Physical capacity. Focus. Time. Money. Bonds. Strategic. These are not separate categories — they are one system. When one breaks down, it pulls on the others. Bad sleep tanks your decisions. Bad decisions tank your finances. Financial pressure fractures your bonds. Fractured bonds drain the strategic clarity that makes everything else worth doing.</p>
+        <p>Recovery. Metabolic. Physical. Cognitive. Time. Financial. Bonds. Strategic. These are not separate categories — they are one system. When one breaks down, it pulls on the others. Poor sleep tanks your decisions. Decisions tank your finances. Financial pressure fractures your bonds. Fractured bonds drain the Strategic clarity that makes everything else worth doing.</p>
       </div>
 
       <div class="areas-grid">
@@ -995,7 +967,7 @@
             <div class="area-badge">T</div>
           </div>
           <div class="area-card-body">
-            <div class="area-name">Time Management</div>
+            <div class="area-name">Time</div>
             <div class="area-role">Where your hours actually go versus where you think they go</div>
           </div>
         </div>
@@ -1013,7 +985,7 @@
 
         <div class="area-card">
           <div class="area-card-top" style="background:var(--relational)">
-            <span class="area-letter">R</span>
+            <span class="area-letter">B</span>
             <div class="area-badge">B</div>
           </div>
           <div class="area-card-body">
@@ -1048,68 +1020,50 @@
           <div class="step-num-wrap"><span class="step-number">1</span></div>
           <div>
             <div class="step-title">Take the free assessment</div>
-            <div class="step-desc">24 questions. Five minutes. Covers all eight areas of your life. No tricks, no upsells mid-flow. You answer honestly and you get an honest picture back.</div>
+            <div class="step-desc">24 questions. Five minutes. Covers all eight areas of your life. Answer honestly and you get an honest picture back.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num-wrap"><span class="step-number">2</span></div>
           <div>
             <div class="step-title">See where you actually are</div>
-            <div class="step-desc">Not where you want to be. Not where you tell people you are. Where you actually are — across every area, with the gaps named clearly.</div>
+            <div class="step-desc">Not where you want to be. Not where you tell people you are. Where you actually are — across every area, with the gaps named and the distance between what you have and what your life is demanding of you made visible.</div>
           </div>
         </div>
         <div class="step">
           <div class="step-num-wrap"><span class="step-number">3</span></div>
           <div>
             <div class="step-title">Get what to do next</div>
-            <div class="step-desc">Built for where you are right now — not the person who already has everything figured out. The next step you can actually take. Not the optimal step. The right step.</div>
+            <div class="step-desc">Built for where you are right now — not the person who already has everything figured out. The next move you can actually make. Not the optimal move. The right one.</div>
           </div>
         </div>
-      </div>
-
-      <div class="score-preview">
-        <div class="score-preview-label">What your results look like</div>
-        <div style="display:flex;gap:1.25rem;margin-bottom:1rem;font-size:0.6875rem;color:var(--muted);">
-          <div style="display:flex;align-items:center;gap:0.375rem;"><span style="width:14px;height:4px;border-radius:2px;background:var(--recovery);display:inline-block;opacity:0.85;"></span> Your level</div>
-          <div style="display:flex;align-items:center;gap:0.375rem;"><span style="width:1.5px;height:10px;background:rgba(255,255,255,0.35);display:inline-block;"></span> What life demands</div>
-        </div>
-        <div class="score-bars">
-          <div class="score-row"><div class="score-row-badge" style="background:var(--recovery)">R</div><div class="score-bar-track"><div class="score-bar-fill" style="width:38%;background:var(--recovery)"></div><div class="score-bar-demand" style="left:65%"></div></div><span class="score-val score-val--deficit">–2.7</span></div>
-          <div class="score-row"><div class="score-row-badge" style="background:var(--metabolic)">M</div><div class="score-bar-track"><div class="score-bar-fill" style="width:55%;background:var(--metabolic)"></div><div class="score-bar-demand" style="left:60%"></div></div><span class="score-val score-val--deficit">–0.5</span></div>
-          <div class="score-row"><div class="score-row-badge" style="background:var(--physical)">P</div><div class="score-bar-track"><div class="score-bar-fill" style="width:62%;background:var(--physical)"></div><div class="score-bar-demand" style="left:50%"></div></div><span class="score-val score-val--surplus">+1.2</span></div>
-          <div class="score-row"><div class="score-row-badge" style="background:var(--cognitive)">C</div><div class="score-bar-track"><div class="score-bar-fill" style="width:44%;background:var(--cognitive)"></div><div class="score-bar-demand" style="left:70%"></div></div><span class="score-val score-val--deficit">–2.6</span></div>
-          <div class="score-row"><div class="score-row-badge" style="background:var(--time)">T</div><div class="score-bar-track"><div class="score-bar-fill" style="width:31%;background:var(--time)"></div><div class="score-bar-demand" style="left:75%"></div></div><span class="score-val score-val--deficit">–4.4</span></div>
-          <div class="score-row"><div class="score-row-badge" style="background:var(--financial)">F</div><div class="score-bar-track"><div class="score-bar-fill" style="width:58%;background:var(--financial)"></div><div class="score-bar-demand" style="left:80%"></div></div><span class="score-val score-val--deficit">–2.2</span></div>
-          <div class="score-row"><div class="score-row-badge" style="background:var(--relational)">R</div><div class="score-bar-track"><div class="score-bar-fill" style="width:67%;background:var(--relational)"></div><div class="score-bar-demand" style="left:65%"></div></div><span class="score-val score-val--surplus">+0.2</span></div>
-          <div class="score-row"><div class="score-row-badge" style="background:var(--strategic)">S</div><div class="score-bar-track"><div class="score-bar-fill" style="width:28%;background:var(--strategic)"></div><div class="score-bar-demand" style="left:72%"></div></div><span class="score-val score-val--deficit">–4.4</span></div>
-        </div>
-        <div class="score-preview-note">Example results — yours will be different. The colored bar is where you are. The line is what your life demands. The number is the gap between them.</div>
       </div>
 
     </div>
   </section>
 
-  <!-- ═══ HUMAN ═══ -->
+  <!-- ═══ FOUNDER ═══ -->
   <section class="sec sec--white">
     <div class="sec-inner">
       <div class="founder-block">
-            <div class="founder-avatar">J</div>
-            <div>
-              <div class="founder-name">Javier Jaime</div>
-              <div class="founder-role">Mechanical engineer · enterprise executive · Lifestyle OS founder</div>
-            </div>
-          </div>
+        <div class="founder-avatar">J</div>
+        <div>
+          <div class="founder-name">Javier Jaime</div>
+          <div class="founder-role">Mechanical engineer · enterprise sales executive · Lifestyle OS founder</div>
+        </div>
+      </div>
 
-          <div class="founder-story">
-            <p>I spent 25 years watching high-performing people fall apart in slow motion. Engineers. Executives. Business owners. People doing everything right by every conventional measure — and still losing ground somewhere. The marriage quietly coming apart. The finances plateaued. The energy gone. The sense of direction missing without them ever noticing it left.</p>
-            <p>The problem was never where they thought it was. The person whose income had stalled was not missing a strategy — their direction had gone quiet years earlier and the whole system had lost its engine. The person whose relationship was fracturing was not a bad partner — they were running on four hours of real sleep and their whole emotional system was in threat mode.</p>
-            <p>Every problem has a victim and a culprit. They are almost never in the same place. Lifestyle OS is the system I built to find which one you have actually been dealing with.</p>
-          </div>
+      <div class="founder-story">
+        <p>I spent 25 years watching high-performing people fall apart in slow motion. Engineers. Executives. Business owners. People doing everything right by every conventional measure — and still losing ground somewhere. The marriage quietly coming apart. The finances plateaued. The energy gone. The sense of direction missing without them ever noticing it left.</p>
+        <p>The problem was never where they thought it was. The person whose income had stalled was not missing a strategy — Strategic had gone quiet years earlier and the whole system lost its engine. The person whose relationship was fracturing was not a bad partner — they were running on four hours of real sleep and everything was running in threat state.</p>
+        <p>Every problem has a source and a symptom. They are almost never in the same place. Lifestyle OS is the system I built to find which one you have actually been living with.</p>
+      </div>
 
-          <div class="story-divider"></div>
+      <div class="story-divider"></div>
 
-          <div class="story-quote">
-            <p>He had been training for fifteen years. The strength was there. The discipline was there. But something was draining faster than he could fill it. When we mapped his system, Direction was running on empty. He had not named a real goal in four years. Everything else was compensating for a command layer that had gone quiet.</p>
+      <div class="story-quote">
+        <p>He had been training for fifteen years. The strength was there. The discipline was there. But something was draining faster than he could fill it. When we mapped his system, Strategic was running on empty. He had not named a real goal in four years. Everything else was compensating for a command layer that had gone quiet.</p>
+      </div>
     </div>
   </section>
 
@@ -1138,7 +1092,7 @@
     <div class="books-bridge-inner">
       <div>
         <div class="books-bridge-title">Want to go deeper?</div>
-        <p class="books-bridge-desc">The full framework in writing — from the foundational book to deep dives on each area of your life.</p>
+        <p class="books-bridge-desc">The full framework in writing — from the foundational book to deep dives on each of the eight areas.</p>
       </div>
       <a href="ebooks.html" class="btn-ghost">Browse the books →</a>
     </div>
@@ -1152,7 +1106,6 @@
   </footer>
 
   <script>
-    // Hamburger
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     hamburger.addEventListener('click', function () {
