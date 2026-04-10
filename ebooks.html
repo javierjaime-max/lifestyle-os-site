@@ -175,11 +175,40 @@
       background: var(--near-black);
       padding: 4rem 2rem 5rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse at center,
+        rgba(0, 113, 227, 0.12) 0%,
+        rgba(88, 86, 214, 0.07) 40%,
+        transparent 68%
+      );
+      pointer-events: none;
+      z-index: 0;
     }
 
     .hero-inner {
       max-width: 640px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .headline-accent {
+      font-style: inherit;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--strategic) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero-dots {
@@ -272,6 +301,12 @@
       display: flex;
       gap: 1.25rem;
       align-items: flex-start;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .book-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08), 0 0 20px rgba(0,113,227,0.07);
     }
 
     .book-card:last-child {
@@ -344,6 +379,12 @@
       border-left: 4px solid var(--border);
       border-radius: 10px;
       padding: 1rem 1.125rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .sub-book:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(0,0,0,0.08), 0 0 24px var(--sub-glow, rgba(0,113,227,0.12));
     }
 
     .sub-book-img {
@@ -600,7 +641,7 @@
         <span class="pulse-dot" style="background: var(--strategic); width:8px; height:8px"></span>
       </div>
       <p class="hero-label">The Library</p>
-      <h1 class="hero-title">Read the system before<br>you try to change it</h1>
+      <h1 class="hero-title">Read the system before<br>you try to <span class="headline-accent">change it</span></h1>
       <p class="hero-sub">
         Three tiers. Start with the full framework, go deep on the area that is holding you back, or find the book written for the pattern you are living.
       </p>
@@ -611,7 +652,7 @@
   <section style="background: var(--near-black); padding: 3.5rem 2rem;">
     <div style="max-width: 860px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: center; justify-content: center;">
       <!-- Stack image -->
-      <img src="photos/books/collection-stack.jpg" alt="The Full Package — all Lifestyle OS books" style="width: 220px; height: 220px; object-fit: cover; border-radius: 12px; flex-shrink: 0; box-shadow: 0 16px 48px rgba(0,0,0,0.5);">
+      <img src="photos/books/collection-stack.jpg" alt="The Full Package — all Lifestyle OS books" style="width: 220px; height: 220px; object-fit: cover; border-radius: 12px; flex-shrink: 0; box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 60px rgba(0,113,227,0.18), 0 0 100px rgba(88,86,214,0.1);">
       <!-- Offer details -->
       <div style="max-width: 380px;">
         <span style="display: inline-block; background: rgba(52,199,89,0.15); color: var(--financial); font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; margin-bottom: 12px;">Best Value</span>
@@ -693,49 +734,49 @@
       </p>
 
       <div class="subsystem-books">
-        <div class="sub-book" style="border-left-color: var(--recovery)">
+        <div class="sub-book" style="border-left-color: var(--recovery); --sub-glow: rgba(0,122,255,0.14)">
           <img src="photos/books/recovery.jpg" alt="Sleep &amp; Recovery" class="sub-book-img">
           <div class="sub-book-name">Sleep &amp; Recovery</div>
           <div class="sub-book-desc">Sleep, stress regulation, active recovery, rest</div>
           <a href="https://app.lifestyle-os.fit/checkout?product=recovery" class="book-buy-btn-sm">$14</a>
         </div>
-        <div class="sub-book" style="border-left-color: var(--metabolic)">
+        <div class="sub-book" style="border-left-color: var(--metabolic); --sub-glow: rgba(255,149,0,0.14)">
           <img src="photos/books/metabolic.jpg" alt="Nutrition &amp; Metabolism" class="sub-book-img">
           <div class="sub-book-name">Nutrition &amp; Metabolism</div>
           <div class="sub-book-desc">Nutrition, hydration, supplementation, monitoring</div>
           <a href="https://app.lifestyle-os.fit/checkout?product=metabolic" class="book-buy-btn-sm">$14</a>
         </div>
-        <div class="sub-book" style="border-left-color: var(--physical)">
+        <div class="sub-book" style="border-left-color: var(--physical); --sub-glow: rgba(255,59,48,0.14)">
           <img src="photos/books/physical.jpg" alt="Fitness &amp; Physical Capacity" class="sub-book-img">
           <div class="sub-book-name">Fitness &amp; Physical Capacity</div>
           <div class="sub-book-desc">Strength, cardiovascular, mobility, training</div>
           <a href="https://app.lifestyle-os.fit/checkout?product=physical" class="book-buy-btn-sm">$14</a>
         </div>
-        <div class="sub-book" style="border-left-color: var(--cognitive)">
+        <div class="sub-book" style="border-left-color: var(--cognitive); --sub-glow: rgba(175,82,222,0.14)">
           <img src="photos/books/cognitive.jpg" alt="Focus &amp; Cognition" class="sub-book-img">
           <div class="sub-book-name">Focus &amp; Cognition</div>
           <div class="sub-book-desc">Focus, decisions, learning, state management</div>
           <a href="https://app.lifestyle-os.fit/checkout?product=cognitive" class="book-buy-btn-sm">$14</a>
         </div>
-        <div class="sub-book" style="border-left-color: var(--time)">
+        <div class="sub-book" style="border-left-color: var(--time); --sub-glow: rgba(90,200,250,0.14)">
           <img src="photos/books/temporal.jpg" alt="Time &amp; Schedule" class="sub-book-img">
           <div class="sub-book-name">Time &amp; Schedule</div>
           <div class="sub-book-desc">Schedule, time awareness, priority execution</div>
           <a href="https://app.lifestyle-os.fit/checkout?product=temporal" class="book-buy-btn-sm">$14</a>
         </div>
-        <div class="sub-book" style="border-left-color: var(--financial)">
+        <div class="sub-book" style="border-left-color: var(--financial); --sub-glow: rgba(52,199,89,0.14)">
           <img src="photos/books/financial.jpg" alt="Financial Foundation" class="sub-book-img">
           <div class="sub-book-name">Financial Foundation</div>
           <div class="sub-book-desc">Income, cash flow, stability, wealth building</div>
           <a href="https://app.lifestyle-os.fit/checkout?product=financial" class="book-buy-btn-sm">$14</a>
         </div>
-        <div class="sub-book" style="border-left-color: var(--relational)">
+        <div class="sub-book" style="border-left-color: var(--relational); --sub-glow: rgba(255,45,85,0.14)">
           <img src="photos/books/relational.jpg" alt="Bonds" class="sub-book-img">
           <div class="sub-book-name">Bonds</div>
           <div class="sub-book-desc">Partnership, parenting, social world</div>
           <a href="https://app.lifestyle-os.fit/checkout?product=relational" class="book-buy-btn-sm">$14</a>
         </div>
-        <div class="sub-book" style="border-left-color: var(--strategic)">
+        <div class="sub-book" style="border-left-color: var(--strategic); --sub-glow: rgba(88,86,214,0.14)">
           <img src="photos/books/strategic.jpg" alt="Strategic" class="sub-book-img">
           <div class="sub-book-name">Strategic</div>
           <div class="sub-book-desc">Direction, goals, execution, review, legacy</div>
