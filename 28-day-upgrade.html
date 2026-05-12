@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 28-Day Upgrade — Lifestyle OS</title>
+  <meta name="description" content="The 28-Day Upgrade for people who just want to feel better. 28 small experiments, one a day. The few that fit you, you keep. $28.">
+  <meta property="og:title" content="The 28-Day Upgrade — for people who just want to feel better">
+  <meta property="og:description" content="28 small experiments. One a day. By Day 28 you know which ones moved you — and they're yours to keep. $28.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lifestyle-os.fit/28-day-upgrade">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --light-grey: #F5F5F7;
+      --white: #FFFFFF;
+      --border: #D2D2D7;
+      --secondary: #86868B;
+      --dark-grey: #6E6E73;
+      --near-black: #1D1D1F;
+      --blue: #0071E3;
+      --recovery: #007AFF;
+      --metabolic: #FF9500;
+      --physical: #FF3B30;
+      --cognitive: #AF52DE;
+      --time: #5AC8FA;
+      --financial: #34C759;
+      --bonds: #FF2D55;
+      --strategic: #5856D6;
+    }
+
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--white); color: var(--near-black); min-height: 100vh; line-height: 1.55; }
+    a { text-decoration: none; }
+
+    /* ============ HEADER — minimal: wordmark + CTA only ============ */
+    .site-header {
+      background: var(--near-black); padding: 1.25rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .header-wordmark { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.25rem; color: var(--white); letter-spacing: -0.02em; }
+    .header-cta {
+      background: var(--blue); color: var(--white);
+      padding: 0.6rem 1.25rem; border-radius: 8px;
+      font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em;
+      transition: opacity 0.2s ease;
+    }
+    .header-cta:hover { opacity: 0.9; }
+
+    /* ============ HERO ============ */
+    .hero { padding: 5rem 2rem 4rem; max-width: 720px; margin: 0 auto; text-align: center; }
+    .hero-opening { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.25rem; color: var(--dark-grey); margin-bottom: 1.5rem; }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif; font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.1; letter-spacing: -0.02em; color: var(--near-black);
+      margin-bottom: 1.75rem;
+    }
+    .hero-sub {
+      font-size: 1.0625rem; color: var(--dark-grey); line-height: 1.65;
+      max-width: 580px; margin: 0 auto 2.25rem;
+    }
+    .hero-proof {
+      font-family: 'DM Serif Display', serif; font-size: 1.0625rem;
+      color: var(--near-black); line-height: 1.5; margin-bottom: 2rem;
+      max-width: 540px; margin-left: auto; margin-right: auto;
+    }
+    .cta-button {
+      display: inline-block; background: var(--blue); color: var(--white);
+      padding: 1rem 2.25rem; border-radius: 10px;
+      font-size: 1.0625rem; font-weight: 500; letter-spacing: 0.01em;
+      transition: opacity 0.2s ease, transform 0.1s ease;
+      margin-bottom: 0.875rem;
+    }
+    .cta-button:hover { opacity: 0.92; }
+    .cta-button:active { transform: translateY(1px); }
+    .cta-anchor { font-size: 0.875rem; color: var(--secondary); }
+
+    /* ============ SECTION DIVIDER ============ */
+    section { padding: 4.5rem 2rem; }
+    .section-inner { max-width: 720px; margin: 0 auto; }
+    .section-divider { width: 36px; height: 1.5px; background: var(--near-black); margin: 0 auto 1.5rem; }
+    section h2 {
+      font-family: 'DM Serif Display', serif; font-weight: 400;
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem); line-height: 1.15; letter-spacing: -0.01em;
+      color: var(--near-black); margin-bottom: 1.75rem; text-align: center;
+    }
+    section p { font-size: 1rem; line-height: 1.7; color: var(--near-black); margin-bottom: 1.25rem; }
+    section p:last-child { margin-bottom: 0; }
+
+    /* ============ PROBLEM ============ */
+    .problem { background: var(--light-grey); }
+    .problem-bullets { list-style: none; padding: 0; max-width: 580px; margin: 0 auto 2rem; }
+    .problem-bullets li {
+      padding: 0.75rem 0; border-bottom: 0.5px solid var(--border);
+      font-size: 1rem; color: var(--near-black); line-height: 1.55;
+    }
+    .problem-bullets li:last-child { border-bottom: none; }
+    .problem-bullets li::before { content: "·  "; color: var(--secondary); margin-right: 0.25rem; }
+    .problem .bridge { font-family: 'DM Serif Display', serif; font-size: 1.25rem; font-style: italic; color: var(--near-black); text-align: center; margin: 2.5rem 0 1.5rem; }
+
+    /* ============ MECHANISM ============ */
+    .mechanism p { font-size: 1.0625rem; line-height: 1.7; }
+    .mechanism strong { font-weight: 600; }
+
+    /* ============ WHAT'S INSIDE ============ */
+    .inside { background: var(--light-grey); }
+    .inside-list { list-style: none; padding: 0; max-width: 580px; margin: 0 auto 2.5rem; }
+    .inside-list li {
+      padding: 0.875rem 0; border-bottom: 0.5px solid var(--border);
+      font-size: 1rem; line-height: 1.55; display: flex; gap: 0.75rem; align-items: flex-start;
+    }
+    .inside-list li:last-child { border-bottom: none; }
+    .inside-list .check { color: var(--blue); flex-shrink: 0; font-weight: 600; }
+    .price-frame { text-align: center; max-width: 480px; margin: 0 auto; }
+    .price-frame .price-big { font-family: 'DM Serif Display', serif; font-size: 3rem; color: var(--near-black); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.5rem; }
+    .price-frame .price-sub { font-size: 0.9375rem; color: var(--dark-grey); }
+
+    /* ============ SOCIAL PROOF ============ */
+    .proof blockquote {
+      border-left: 3px solid var(--blue); padding: 1rem 1.5rem; margin: 1.5rem 0; background: var(--light-grey); border-radius: 0 6px 6px 0;
+    }
+    .proof blockquote p { font-style: italic; color: var(--near-black); margin-bottom: 0.75rem; line-height: 1.65; }
+    .proof blockquote .attr { font-size: 0.8125rem; font-weight: 500; color: var(--secondary); font-style: normal; }
+
+    /* ============ BONUSES ============ */
+    .bonuses { background: var(--light-grey); }
+    .bonus-list { list-style: none; padding: 0; max-width: 580px; margin: 0 auto; }
+    .bonus-list li {
+      padding: 1rem 0; border-bottom: 0.5px solid var(--border);
+      font-size: 0.9375rem; line-height: 1.6; color: var(--near-black);
+    }
+    .bonus-list li:last-child { border-bottom: none; }
+    .bonus-list .gift { font-weight: 600; color: var(--blue); }
+
+    /* ============ PRICING ============ */
+    .pricing { text-align: center; }
+    .pricing .anchor { font-size: 0.9375rem; color: var(--dark-grey); margin-bottom: 1.5rem; max-width: 460px; margin-left: auto; margin-right: auto; }
+    .pricing .price-display { font-family: 'DM Serif Display', serif; font-size: 4.5rem; line-height: 1; color: var(--near-black); letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .pricing .price-line { font-size: 1rem; color: var(--dark-grey); margin-bottom: 2.25rem; }
+
+    /* ============ GUARANTEE ============ */
+    .guarantee { background: var(--light-grey); }
+    .guarantee .signature { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.125rem; color: var(--near-black); margin-top: 1.5rem; }
+
+    /* ============ FAQ ============ */
+    .faq-item { padding: 1.5rem 0; border-bottom: 0.5px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-family: 'DM Serif Display', serif; font-size: 1.0625rem; color: var(--near-black); margin-bottom: 0.5rem; }
+    .faq-a { font-size: 0.9375rem; line-height: 1.65; color: var(--dark-grey); }
+
+    /* ============ FINAL CTA ============ */
+    .final-cta { background: var(--near-black); color: var(--white); text-align: center; }
+    .final-cta h2 { color: var(--white); }
+    .final-cta .restate { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.25rem; color: var(--secondary); line-height: 1.5; margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .final-cta .cta-button { margin-bottom: 1.5rem; }
+    .final-cta .ps { font-size: 0.9375rem; color: var(--secondary); max-width: 480px; margin: 0 auto; line-height: 1.65; }
+    .final-cta .ps a { color: var(--white); text-decoration: underline; }
+    .final-cta .sig { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--white); margin-top: 1rem; }
+
+    /* ============ FOOTER ============ */
+    footer { background: var(--near-black); color: var(--secondary); padding: 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.8125rem; }
+    footer a { color: var(--secondary); }
+    footer .footer-brand { font-family: 'DM Serif Display', serif; color: var(--white); font-size: 1rem; margin-bottom: 0.5rem; display: block; }
+
+    /* ============ MOBILE ============ */
+    @media (max-width: 640px) {
+      .site-header { padding: 1rem 1.25rem; }
+      .header-cta { padding: 0.5rem 1rem; font-size: 0.8125rem; }
+      .hero { padding: 3rem 1.25rem 3rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .pricing .price-display { font-size: 3.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header class="site-header">
+    <a href="/" class="header-wordmark">Lifestyle OS</a>
+    <a href="https://checkout.lifestyle-os.fit/28-day-upgrade" class="header-cta">Get the Upgrade — $28</a>
+  </header>
+
+
+  <!-- ====== SECTION 1 — HERO ====== -->
+  <section class="hero">
+    <div class="hero-opening">"I just want to feel better."</div>
+    <h1>The 28-Day Upgrade for people who just want to feel better.</h1>
+    <p class="hero-sub">Not another program. 28 small experiments, one a day. Most people's bodies have been running a quiet emergency for years — storing fat, losing sleep, running on nothing. These actions interrupt that pattern, one piece at a time. By Day 14 you feel it shifting. By Day 28 you know which ones did it — and they're yours to keep.</p>
+    <p class="hero-proof">Coaching since 2001. Living it as a family since 2008.<br>Two of our adult kids now run businesses inside it.</p>
+    <a href="https://checkout.lifestyle-os.fit/28-day-upgrade" class="cta-button">Get the 28-Day Upgrade — $28</a>
+    <div class="cta-anchor">Less than what you spent on the last supplement that didn't work.</div>
+  </section>
+
+
+  <!-- ====== SECTION 2 — THE PROBLEM ====== -->
+  <section class="problem">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>You've already tried.</h2>
+      <ul class="problem-bullets">
+        <li>The diet that worked for your friend (and didn't work for you)</li>
+        <li>Macros, for three weeks, until you stopped logging</li>
+        <li>A 12-week challenge that lasted 12 days</li>
+        <li>The wellness app that just confirmed you sleep badly</li>
+        <li>The trainer who gave you a program built for someone half your age</li>
+        <li>"Just have more discipline" advice from someone selling protein powder</li>
+      </ul>
+      <p class="bridge">It wasn't you. It was the approach.</p>
+      <p>You can't fix the wrong thing. You can't change everything at once and expect the body to absorb it. And you can't follow a protocol built for someone whose body is at a different stage than yours.</p>
+      <p>That's why the last program failed. Not effort. Direction.</p>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 3 — THE MECHANISM ====== -->
+  <section class="mechanism">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>What's actually different about the 28-Day Upgrade</h2>
+      <p>Most programs sell you a solution. <strong>The 28-Day Upgrade sells you a diagnosis.</strong> This isn't a marketing position. It's how the framework was born.</p>
+      <p>When my wife and I opened our gym, we ran a nutrition program. Standard stuff — macros, meal timing, protein targets. Same plan would change one person's life and ruin another person's week. After hundreds of clients, we figured out why: every person had something different running underneath them. <strong>A quiet emergency the body had been managing for years</strong> — sometimes decades. Different for everyone. But always there.</p>
+      <p>We stopped calling it nutrition. We called it the Lifestyle Reset. Then we built a way to see it — because once you know the body is running something underneath, you stop asking "what's the best diet" and start asking <em>"what's actually been running against this person."</em></p>
+      <p>That became the Lifestyle OS. The 28-Day Upgrade is the diagnostic version — 28 small experiments, one a day. The ones that interrupt what's been running against your body, you'll feel by Day 14. The few that stick by Day 28 are yours to keep.</p>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 4 — WHAT'S INSIDE ====== -->
+  <section class="inside">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>Here's what you get</h2>
+      <ul class="inside-list">
+        <li><span class="check">✓</span><span>The full 28-Day Upgrade guide — 28 daily action cards, downloadable PDF</span></li>
+        <li><span class="check">✓</span><span>Week 1 — actions that interrupt what's been keeping your body in defense mode</span></li>
+        <li><span class="check">✓</span><span>Week 2 — the restoration that keeps Week 1 from reverting</span></li>
+        <li><span class="check">✓</span><span>Week 3 — actions that signal the body to build, not just maintain</span></li>
+        <li><span class="check">✓</span><span>Week 4 — reflection, lock-in, and the honest read on what comes next</span></li>
+        <li><span class="check">✓</span><span>Per-action breakdown: why this one, how to do it, what you'll notice, the trap to avoid</span></li>
+        <li><span class="check">✓</span><span>The "between the ears" read — why every program you've tried before reverted</span></li>
+      </ul>
+      <div class="price-frame">
+        <div class="price-big">$28</div>
+        <div class="price-sub">A dollar a day for 28 days.<br>Less than the supplement you forgot you were subscribed to.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 5 — SOCIAL PROOF ====== -->
+  <section class="proof">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>25 years of coaching · 18 years of our family living it</h2>
+      <blockquote>
+        <p>"He's been doing this for 25 years. We've been living it as a family since 2008 — including raising our two kids inside it. Both are coaches now. Both are entrepreneurs inside the same framework. The thing the 28-Day Upgrade teaches is the thing our household is built around."</p>
+        <span class="attr">— Deanie, wife and co-founder</span>
+      </blockquote>
+      <blockquote>
+        <p>"I'd been counting macros for three years. Lost 8 pounds, gained back 12. The 28-Day Upgrade showed me in seven days that the issue wasn't the food log — it was when I was eating. Down 11 pounds in 8 weeks doing exactly that one thing."</p>
+        <span class="attr">— mid-40s woman, anonymized</span>
+      </blockquote>
+      <blockquote>
+        <p>"I sat down with Javier at lunch. He asked about my life. I asked about his. 30 minutes. He offered to work out with me in the parking lot of the hotel. A week later I was telling people he'd changed my life."</p>
+        <span class="attr">— mid-40s professional, anonymized</span>
+      </blockquote>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 6 — BONUSES ====== -->
+  <section class="bonuses">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>Plus when you join during launch week</h2>
+      <ul class="bonus-list">
+        <li><span class="gift">🎁 The "Yesterday's Check-In" companion sheet</span> — the one-page printable that holds you to the soft accumulation through all 28 days</li>
+        <li><span class="gift">🎁 Lifetime access</span> — the guide updates automatically when the library expands; you don't pay again</li>
+        <li><span class="gift">🛒 At checkout:</span> Add the Cycle 1 Wall Poster PDF for $28 — print-ready file for FedEx/Staples ($15–25 to print). The 28 days on your wall, not just your phone. Same $1/day math — for the visibility.</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 7 — PRICING ====== -->
+  <section class="pricing">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>Your investment</h2>
+      <p class="anchor">The 12-Week version of this work, in person at our gym, runs $145/month for active clients. Most stay on it for 6–18 months.</p>
+      <div class="price-display">$28</div>
+      <p class="price-line">A dollar a day for 28 days. One time. Not a subscription. Yours forever.</p>
+      <a href="https://checkout.lifestyle-os.fit/28-day-upgrade" class="cta-button">Get the 28-Day Upgrade — $28</a>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 8 — GUARANTEE ====== -->
+  <section class="guarantee">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>Your guarantee</h2>
+      <p>Try the first 14 days. Do the daily action — even just half of them. If by Day 14 you haven't noticed a single thing shift in your body — sleep deeper, scale move, energy lift, anything — email me and I'll refund every dollar. No questionnaire. No "let me convince you to stay."</p>
+      <p>If the first 14 days didn't move anything for you, this isn't the right fit, and I'd rather you have the $28 back.</p>
+      <p class="signature">— Javier</p>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 9 — FAQ ====== -->
+  <section class="faq">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>Quick questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">How long does it take to go through?</div>
+        <div class="faq-a">The guide reads in 75–90 minutes the first time. Then you live in the action cards for 28 days — about 5–10 minutes a day to set up each day's experiment.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I'm a beginner / never worked out / haven't dieted?</div>
+        <div class="faq-a">Better. The actions are designed for the body you have today, not for someone already three years into training. The point is finding your one blocker — beginners often see it faster.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if I've tried everything — calorie counting, fasting, peptides, all of it?</div>
+        <div class="faq-a">Then you've collected data on what hasn't worked, which is more useful than starting cold. The 28-Day Upgrade is the diagnostic that maps what hasn't worked to <em>why.</em> The "why" is what changes things.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need a gym, equipment, special food?</div>
+        <div class="faq-a">No. Some actions involve a 20-minute strength session — bodyweight counts. Some involve protein at meals — eggs count. Nothing requires buying anything new.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will I lose weight in 28 days?</div>
+        <div class="faq-a">Maybe a few pounds. Maybe not. The honest answer: most people don't see big composition shifts in a month, and anyone selling you 30-day transformation is lying. What 28 days gives you is the data on which actions work for your body. The bigger shift takes 90+ days using the actions you discovered.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the bridge to what comes after?</div>
+        <div class="faq-a">Day 28 walks you through three paths: stop, repeat the 28 days, or move into Cycle 2 (Deepening). Cycle 3 (Identity) is the full arc. Each cycle is its own $28 PDF — or grab the 12-Week Bundle at checkout and save 20%.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Refund policy?</div>
+        <div class="faq-a">14 days, no hoops. See the guarantee above.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 10 — FINAL CTA ====== -->
+  <section class="final-cta">
+    <div class="section-inner">
+      <h2>Are you in?</h2>
+      <p class="restate">The 28-Day Upgrade. 28 small experiments. The few that make you feel better — you keep.</p>
+      <a href="https://checkout.lifestyle-os.fit/28-day-upgrade" class="cta-button">Get the 28-Day Upgrade — $28</a>
+      <p class="ps">Still on the fence? Email me at <a href="mailto:hello@lifestyle-os.fit">hello@lifestyle-os.fit</a>. I'll tell you straight up if it's right for where you actually are.</p>
+      <p class="sig">— Javier</p>
+    </div>
+  </section>
+
+
+  <!-- ====== FOOTER ====== -->
+  <footer>
+    <span class="footer-brand">Lifestyle OS</span>
+    <div>lifestyle-os.fit · <a href="mailto:hello@lifestyle-os.fit">hello@lifestyle-os.fit</a></div>
+  </footer>
+
+</body>
+</html>
