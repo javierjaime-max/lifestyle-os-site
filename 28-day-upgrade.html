@@ -44,7 +44,10 @@
       display: flex; align-items: center; justify-content: space-between;
       position: sticky; top: 0; z-index: 100;
     }
-    .header-wordmark { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.25rem; color: var(--white); letter-spacing: -0.02em; }
+    .header-wordmark-block { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .header-dots { display: flex; gap: 4px; }
+    .header-dots span { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+    .header-wordmark { font-family: 'DM Serif Display', serif; font-weight: 400; font-size: 1.25rem; color: var(--white); letter-spacing: -0.02em; line-height: 1; }
     .header-cta {
       background: var(--blue); color: var(--white);
       padding: 0.6rem 1.25rem; border-radius: 8px;
@@ -54,7 +57,14 @@
     .header-cta:hover { opacity: 0.9; }
 
     /* ============ HERO ============ */
-    .hero { padding: 5rem 2rem 4rem; max-width: 720px; margin: 0 auto; text-align: center; }
+    .hero { padding: 5rem 2rem 4rem; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center; }
+    .hero-text { text-align: left; }
+    .hero-visual { display: flex; justify-content: center; align-items: center; }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem 3rem; }
+      .hero-text { text-align: center; }
+      .hero-visual { order: -1; }
+    }
     .hero-opening { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.25rem; color: var(--dark-grey); margin-bottom: 1.5rem; }
     .hero h1 {
       font-family: 'DM Serif Display', serif; font-weight: 400;
@@ -81,6 +91,72 @@
     .cta-button:hover { opacity: 0.92; }
     .cta-button:active { transform: translateY(1px); }
     .cta-anchor { font-size: 0.875rem; color: var(--secondary); }
+
+    /* ============ BOOK COVER MOCKUP ============ */
+    .book-cover {
+      width: 100%; max-width: 320px;
+      aspect-ratio: 3 / 4;
+      background: var(--near-black); color: var(--white);
+      border-radius: 6px; box-shadow: 0 20px 50px rgba(0,0,0,0.25), 0 8px 16px rgba(0,0,0,0.15);
+      padding: 1.25rem 1rem; display: flex; flex-direction: column;
+      align-items: center; justify-content: space-between;
+      position: relative; transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+    .book-cover:hover { transform: rotate(-1deg) translateY(-4px); }
+    .cover-dots { display: flex; gap: 4px; margin-top: 0.25rem; }
+    .cover-dots span { width: 4px; height: 4px; border-radius: 50%; display: inline-block; }
+    .cover-center { text-align: center; }
+    .cover-product { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dark-grey); margin-bottom: 0.75rem; }
+    .cover-brand { font-family: 'DM Serif Display', serif; font-size: 0.875rem; color: var(--dark-grey); margin-bottom: 0.5rem; }
+    .cover-rule { width: 20px; height: 1px; background: rgba(255,255,255,0.4); margin: 0.5rem auto; }
+    .cover-title { font-family: 'DM Serif Display', serif; font-size: 2.25rem; font-weight: 400; color: var(--white); letter-spacing: -0.02em; line-height: 1; margin: 0.5rem 0; }
+    .cover-cycle { font-size: 0.625rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dark-grey); margin-top: 0.5rem; }
+    .cover-footer { text-align: center; }
+    .cover-author { font-size: 0.625rem; font-weight: 300; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dark-grey); margin-bottom: 0.25rem; }
+    .cover-url { font-size: 0.5rem; font-weight: 300; letter-spacing: 0.06em; color: rgba(255,255,255,0.35); }
+
+    /* ============ POSTER MOCKUP ============ */
+    .poster-mockup {
+      width: 100%; max-width: 380px;
+      aspect-ratio: 3 / 4;
+      background: var(--white); border-radius: 4px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35), 0 8px 16px rgba(0,0,0,0.2);
+      overflow: hidden; margin: 0 auto;
+      transform: rotate(-1deg);
+      transition: transform 0.3s ease;
+    }
+    .poster-mockup:hover { transform: rotate(0deg) translateY(-4px); }
+    .pm-banner {
+      background: var(--near-black); color: var(--white);
+      padding: 0.875rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .pm-banner-left { display: flex; flex-direction: column; gap: 1px; align-items: flex-start; }
+    .pm-product { font-size: 0.45rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--secondary); }
+    .pm-brand { font-family: 'DM Serif Display', serif; font-size: 0.65rem; }
+    .pm-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; line-height: 1; letter-spacing: -0.02em; }
+    .pm-banner-right { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+    .pm-cycle { font-size: 0.45rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--secondary); }
+    .pm-dots { display: flex; gap: 2px; }
+    .pm-dots span { width: 4px; height: 4px; border-radius: 50%; }
+    .pm-body { padding: 0.875rem 0.875rem 0.625rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+    .pm-column { display: flex; flex-direction: column; gap: 2px; }
+    .pm-week-header { font-size: 0.45rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--secondary); padding-bottom: 2px; border-top: 1.5px solid var(--near-black); padding-top: 4px; margin-bottom: 4px; }
+    .pm-card { background: var(--light-grey); border-radius: 3px; border-left: 3px solid var(--near-black); padding: 4px 5px; display: flex; flex-direction: column; gap: 1px; min-height: 24px; }
+    .pm-card .pm-num { font-family: 'DM Serif Display', serif; font-size: 0.625rem; line-height: 1; color: var(--near-black); }
+    .pm-card .pm-sub { font-size: 0.35rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1; }
+    .pm-card.recovery { border-left-color: var(--recovery); } .pm-card.recovery .pm-sub { color: var(--recovery); }
+    .pm-card.metabolic { border-left-color: var(--metabolic); } .pm-card.metabolic .pm-sub { color: var(--metabolic); }
+    .pm-card.physical { border-left-color: var(--physical); } .pm-card.physical .pm-sub { color: var(--physical); }
+    .pm-card.cognitive { border-left-color: var(--cognitive); } .pm-card.cognitive .pm-sub { color: var(--cognitive); }
+    .pm-card.time { border-left-color: var(--time); } .pm-card.time .pm-sub { color: var(--time); }
+    .pm-card.financial { border-left-color: var(--financial); } .pm-card.financial .pm-sub { color: var(--financial); }
+    .pm-card.bonds { border-left-color: var(--bonds); } .pm-card.bonds .pm-sub { color: var(--bonds); }
+    .pm-card.strategic { border-left-color: var(--strategic); } .pm-card.strategic .pm-sub { color: var(--strategic); }
+    .pm-footer { padding: 0.5rem 0.875rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .pm-mantra { font-size: 0.45rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dark-grey); }
+    .pm-brand-footer { font-family: 'DM Serif Display', serif; font-size: 0.625rem; color: var(--near-black); }
 
     /* ============ SECTION DIVIDER ============ */
     section { padding: 4.5rem 2rem; }
@@ -121,6 +197,28 @@
     .price-frame { text-align: center; max-width: 480px; margin: 0 auto; }
     .price-frame .price-big { font-family: 'DM Serif Display', serif; font-size: 3rem; color: var(--near-black); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.5rem; }
     .price-frame .price-sub { font-size: 0.9375rem; color: var(--dark-grey); }
+
+    /* ============ MADE TO BE SEEN — visibility / wall poster section ============ */
+    .visibility { background: var(--near-black); color: var(--white); }
+    .visibility h2 { color: var(--white); }
+    .visibility .section-divider { background: var(--white); }
+    .visibility p { color: var(--white); opacity: 0.92; }
+    .visibility .lead { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.375rem; color: var(--white); text-align: center; margin: 1rem 0 2rem; line-height: 1.4; }
+    .effects-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2.5rem 0; }
+    .effect { padding: 1.5rem 1.25rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; }
+    .effect-label { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.625rem; display: block; }
+    .effect-body { font-size: 0.9375rem; line-height: 1.6; color: var(--white); opacity: 0.85; }
+    .effect.accountability .effect-label { color: var(--blue); }
+    .effect.encouragement .effect-label { color: var(--metabolic); }
+    .effect.wonder .effect-label { color: var(--strategic); }
+    .visibility .poster-cta {
+      background: var(--white); color: var(--near-black);
+      padding: 1.5rem 1.75rem; border-radius: 10px;
+      max-width: 580px; margin: 2.5rem auto 0;
+    }
+    .visibility .poster-cta strong { color: var(--near-black); font-weight: 600; }
+    .visibility .poster-cta p { color: var(--near-black); opacity: 1; margin-bottom: 0; font-size: 0.9375rem; line-height: 1.6; }
+    @media (max-width: 640px) { .effects-row { grid-template-columns: 1fr; gap: 0.875rem; } }
 
     /* ============ SOCIAL PROOF ============ */
     .proof blockquote {
@@ -165,9 +263,11 @@
     .final-cta .sig { font-family: 'DM Serif Display', serif; font-style: italic; color: var(--white); margin-top: 1rem; }
 
     /* ============ FOOTER ============ */
-    footer { background: var(--near-black); color: var(--secondary); padding: 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.8125rem; }
+    footer { background: var(--near-black); color: var(--secondary); padding: 2.5rem 2rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.8125rem; }
     footer a { color: var(--secondary); }
-    footer .footer-brand { font-family: 'DM Serif Display', serif; color: var(--white); font-size: 1rem; margin-bottom: 0.5rem; display: block; }
+    .footer-dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 0.875rem; }
+    .footer-dots span { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+    footer .footer-brand { font-family: 'DM Serif Display', serif; color: var(--white); font-size: 1.125rem; margin-bottom: 0.5rem; display: block; }
 
     /* ============ MOBILE ============ */
     @media (max-width: 640px) {
@@ -183,19 +283,54 @@
 
   <!-- ====== HEADER ====== -->
   <header class="site-header">
-    <a href="/" class="header-wordmark">Lifestyle OS</a>
-    <a href="https://checkout.lifestyle-os.fit/28-day-upgrade" class="header-cta">Get the Upgrade — $28</a>
+    <a href="/" class="header-wordmark-block">
+      <span class="header-wordmark">Lifestyle OS</span>
+      <div class="header-dots">
+        <span style="background:#FF9500"></span>
+        <span style="background:#007AFF"></span>
+        <span style="background:#FF3B30"></span>
+        <span style="background:#AF52DE"></span>
+        <span style="background:#5AC8FA"></span>
+        <span style="background:#34C759"></span>
+        <span style="background:#FF2D55"></span>
+        <span style="background:#5856D6"></span>
+      </div>
+    </a>
+    <a href="https://lifestyleos.samcart.com/products/the-28-day-upgrade-foundation" class="header-cta">Get the Upgrade — $28</a>
   </header>
 
 
   <!-- ====== SECTION 1 — HERO ====== -->
   <section class="hero">
-    <div class="hero-opening">"I just want to feel better."</div>
-    <h1>The 28-Day Upgrade for people who just want to feel better.</h1>
-    <p class="hero-sub">Not another program. 28 small experiments, one a day. Most people's bodies have been running a quiet emergency for years — storing fat, losing sleep, running on nothing. These actions interrupt that pattern, one piece at a time. By Day 14 you feel it shifting. By Day 28 you know which ones did it — and they're yours to keep.</p>
-    <p class="hero-proof">Coaching since 2001. Living it as a family since 2008.<br>Two of our adult kids now run businesses inside it.</p>
-    <a href="https://checkout.lifestyle-os.fit/28-day-upgrade" class="cta-button">Get the 28-Day Upgrade — $28</a>
-    <div class="cta-anchor">Less than what you spent on the last supplement that didn't work.</div>
+    <div class="hero-text">
+      <div class="hero-opening">"I just want to feel better."</div>
+      <h1>The 28-Day Upgrade for people who just want to feel better.</h1>
+      <p class="hero-sub">Not another program. 28 small experiments, one a day. Most people's bodies have been stuck in defense mode for years — storing fat, losing sleep, running on nothing. These actions interrupt that pattern, one piece at a time. By Day 14 you feel it shifting. By Day 28 you know which ones did it — and they're yours to keep.</p>
+      <p class="hero-proof">Coaching since 2001. Living it as a family since 2008.<br>Two of our adult kids now run businesses inside it.</p>
+      <a href="https://lifestyleos.samcart.com/products/the-28-day-upgrade-foundation" class="cta-button">Get the 28-Day Upgrade — $28</a>
+      <div class="cta-anchor">Less than what you spent on the last supplement that didn't work.</div>
+    </div>
+    <div class="hero-visual">
+      <!-- Book cover mockup — matches Cycle-1-Upgrade.html cover -->
+      <div class="book-cover">
+        <div class="cover-dots">
+          <span style="background:#FF9500"></span><span style="background:#007AFF"></span><span style="background:#FF3B30"></span><span style="background:#AF52DE"></span>
+          <span style="background:#5AC8FA"></span><span style="background:#34C759"></span><span style="background:#FF2D55"></span><span style="background:#5856D6"></span>
+        </div>
+        <div class="cover-center">
+          <div class="cover-product">The 28-Day Upgrade</div>
+          <div class="cover-brand">Lifestyle OS</div>
+          <div class="cover-rule"></div>
+          <div class="cover-title">Foundation</div>
+          <div class="cover-rule"></div>
+          <div class="cover-cycle">Cycle 1 of 3</div>
+        </div>
+        <div class="cover-footer">
+          <div class="cover-author">Javier Jaime</div>
+          <div class="cover-url">lifestyle-os.fit</div>
+        </div>
+      </div>
+    </div>
   </section>
 
 
@@ -224,10 +359,10 @@
     <div class="section-inner">
       <div class="section-divider"></div>
       <h2>What's actually different about the 28-Day Upgrade</h2>
-      <p>Most programs sell you a solution. <strong>The 28-Day Upgrade sells you a diagnosis.</strong> This isn't a marketing position. It's how the framework was born.</p>
-      <p>When my wife and I opened our gym, we ran a nutrition program. Standard stuff — macros, meal timing, protein targets. Same plan would change one person's life and ruin another person's week. After hundreds of clients, we figured out why: every person had something different running underneath them. <strong>A quiet emergency the body had been managing for years</strong> — sometimes decades. Different for everyone. But always there.</p>
-      <p>We stopped calling it nutrition. We called it the Lifestyle Reset. Then we built a way to see it — because once you know the body is running something underneath, you stop asking "what's the best diet" and start asking <em>"what's actually been running against this person."</em></p>
-      <p>That became the Lifestyle OS. The 28-Day Upgrade is the diagnostic version — 28 small experiments, one a day. The ones that interrupt what's been running against your body, you'll feel by Day 14. The few that stick by Day 28 are yours to keep.</p>
+      <p>Most programs sell you <strong>someone else's results.</strong> Eat what worked for them. Train what worked for them. Sleep on the schedule that worked for them. When it doesn't move <em>you</em> the way it moved them, you blame yourself.</p>
+      <p>When my wife and I opened our gym, we ran a nutrition program. Standard stuff — macros, meal timing, protein targets. The same plan would change one person's life and ruin another person's week. After hundreds of clients, we figured out why: <strong>every person had something different running underneath them.</strong> Different defaults. Different stress patterns. Different starting points. Their bodies had been stuck in defense mode for years — sometimes decades.</p>
+      <p>So we stopped giving people the answer. We gave them a way to find their own.</p>
+      <p>The 28-Day Upgrade is 28 small experiments — one a day. By Day 14 you'll feel something shift. By Day 28 you'll know exactly which 4–7 actions actually move <em>your</em> body — and they're yours to keep forever. Not because they worked for someone else. Because they worked for you.</p>
     </div>
   </section>
 
@@ -249,6 +384,103 @@
       <div class="price-frame">
         <div class="price-big">$28</div>
         <div class="price-sub">A dollar a day for 28 days.<br>Less than the supplement you forgot you were subscribed to.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====== SECTION 4.5 — MADE TO BE SEEN (visibility / wall poster) ====== -->
+  <section class="visibility">
+    <div class="section-inner">
+      <div class="section-divider"></div>
+      <h2>Made to be seen.</h2>
+      <p class="lead">The book explains. The poster drives.</p>
+
+      <!-- Poster mockup — matches Cycle-1 Foundation poster -->
+      <div class="poster-mockup">
+        <div class="pm-banner">
+          <div class="pm-banner-left">
+            <span class="pm-product">The 28-Day Upgrade</span>
+            <span class="pm-brand">Lifestyle OS</span>
+          </div>
+          <div class="pm-title">Foundation</div>
+          <div class="pm-banner-right">
+            <span class="pm-cycle">Cycle 1 of 3</span>
+            <div class="pm-dots">
+              <span style="background:#FF9500"></span><span style="background:#007AFF"></span><span style="background:#FF3B30"></span><span style="background:#AF52DE"></span>
+              <span style="background:#5AC8FA"></span><span style="background:#34C759"></span><span style="background:#FF2D55"></span><span style="background:#5856D6"></span>
+            </div>
+          </div>
+        </div>
+        <div class="pm-body">
+          <div class="pm-column">
+            <div class="pm-week-header">Week 1</div>
+            <div class="pm-card metabolic"><span class="pm-num">01</span><span class="pm-sub">Metabolic</span></div>
+            <div class="pm-card metabolic"><span class="pm-num">02</span><span class="pm-sub">Metabolic</span></div>
+            <div class="pm-card recovery"><span class="pm-num">03</span><span class="pm-sub">Recovery</span></div>
+            <div class="pm-card physical"><span class="pm-num">04</span><span class="pm-sub">Physical</span></div>
+            <div class="pm-card metabolic"><span class="pm-num">05</span><span class="pm-sub">Metabolic</span></div>
+            <div class="pm-card metabolic"><span class="pm-num">06</span><span class="pm-sub">Metabolic</span></div>
+            <div class="pm-card recovery"><span class="pm-num">07</span><span class="pm-sub">Recovery</span></div>
+          </div>
+          <div class="pm-column">
+            <div class="pm-week-header">Week 2</div>
+            <div class="pm-card recovery"><span class="pm-num">08</span><span class="pm-sub">Recovery</span></div>
+            <div class="pm-card metabolic"><span class="pm-num">09</span><span class="pm-sub">Metabolic</span></div>
+            <div class="pm-card recovery"><span class="pm-num">10</span><span class="pm-sub">Recovery</span></div>
+            <div class="pm-card bonds"><span class="pm-num">11</span><span class="pm-sub">Bonds</span></div>
+            <div class="pm-card physical"><span class="pm-num">12</span><span class="pm-sub">Physical</span></div>
+            <div class="pm-card recovery"><span class="pm-num">13</span><span class="pm-sub">Recovery</span></div>
+            <div class="pm-card cognitive"><span class="pm-num">14</span><span class="pm-sub">Cognitive</span></div>
+          </div>
+          <div class="pm-column">
+            <div class="pm-week-header">Week 3</div>
+            <div class="pm-card physical"><span class="pm-num">15</span><span class="pm-sub">Physical</span></div>
+            <div class="pm-card physical"><span class="pm-num">16</span><span class="pm-sub">Physical</span></div>
+            <div class="pm-card bonds"><span class="pm-num">17</span><span class="pm-sub">Bonds</span></div>
+            <div class="pm-card financial"><span class="pm-num">18</span><span class="pm-sub">Financial</span></div>
+            <div class="pm-card time"><span class="pm-num">19</span><span class="pm-sub">Time</span></div>
+            <div class="pm-card cognitive"><span class="pm-num">20</span><span class="pm-sub">Cognitive</span></div>
+            <div class="pm-card financial"><span class="pm-num">21</span><span class="pm-sub">Financial</span></div>
+          </div>
+          <div class="pm-column">
+            <div class="pm-week-header">Week 4</div>
+            <div class="pm-card metabolic"><span class="pm-num">22</span><span class="pm-sub">Metabolic</span></div>
+            <div class="pm-card strategic"><span class="pm-num">23</span><span class="pm-sub">Strategic</span></div>
+            <div class="pm-card time"><span class="pm-num">24</span><span class="pm-sub">Time</span></div>
+            <div class="pm-card strategic"><span class="pm-num">25</span><span class="pm-sub">Strategic</span></div>
+            <div class="pm-card bonds"><span class="pm-num">26</span><span class="pm-sub">Bonds</span></div>
+            <div class="pm-card strategic"><span class="pm-num">27</span><span class="pm-sub">Strategic</span></div>
+            <div class="pm-card strategic"><span class="pm-num">28</span><span class="pm-sub">Strategic</span></div>
+          </div>
+        </div>
+        <div class="pm-footer">
+          <span class="pm-mantra">Made to be seen.</span>
+          <span class="pm-brand-footer">Lifestyle OS</span>
+        </div>
+      </div>
+
+      <p style="margin-top: 2.5rem;">Every other program lives in your phone. Notifications buried it by Day 4. By Day 11 you forgot you bought it. The wall poster is different: it doesn't ask permission to be present. It's there when you wake up, when you make coffee, when you walk past it at 9pm. Your household sees it. Your visitors see it. The version of you that committed sees it every day — whether you want to or not.</p>
+
+      <p>Three things happen when the program hangs on a wall instead of living in an app:</p>
+
+      <div class="effects-row">
+        <div class="effect accountability">
+          <span class="effect-label">Accountability</span>
+          <div class="effect-body">You see it every day. You can't quietly stop. Witnessing makes dropout cost real.</div>
+        </div>
+        <div class="effect encouragement">
+          <span class="effect-label">Encouragement</span>
+          <div class="effect-body">Your household sees it. "How's Day 14?" Small reinforcements you didn't have to engineer.</div>
+        </div>
+        <div class="effect wonder">
+          <span class="effect-label">Wonder</span>
+          <div class="effect-body">Visitors see it. Coworkers see it. Curiosity starts conversations. The conversation is the lock-in.</div>
+        </div>
+      </div>
+
+      <div class="poster-cta">
+        <p><strong>The wall poster is a print-ready PDF — $28.</strong> Same dollar-a-day math as the program itself. Take it to FedEx or Staples ($15–25 to print on matte, fits any standard 18×24 frame). Add it at checkout when you get the 28-Day Upgrade. The 28 days move from your phone to your wall.</p>
       </div>
     </div>
   </section>
@@ -283,7 +515,6 @@
       <ul class="bonus-list">
         <li><span class="gift">🎁 The "Yesterday's Check-In" companion sheet</span> — the one-page printable that holds you to the soft accumulation through all 28 days</li>
         <li><span class="gift">🎁 Lifetime access</span> — the guide updates automatically when the library expands; you don't pay again</li>
-        <li><span class="gift">🛒 At checkout:</span> Add the Cycle 1 Wall Poster PDF for $28 — print-ready file for FedEx/Staples ($15–25 to print). The 28 days on your wall, not just your phone. Same $1/day math — for the visibility.</li>
       </ul>
     </div>
   </section>
@@ -297,7 +528,7 @@
       <p class="anchor">The 12-Week version of this work, in person at our gym, runs $145/month for active clients. Most stay on it for 6–18 months.</p>
       <div class="price-display">$28</div>
       <p class="price-line">A dollar a day for 28 days. One time. Not a subscription. Yours forever.</p>
-      <a href="https://checkout.lifestyle-os.fit/28-day-upgrade" class="cta-button">Get the 28-Day Upgrade — $28</a>
+      <a href="https://lifestyleos.samcart.com/products/the-28-day-upgrade-foundation" class="cta-button">Get the 28-Day Upgrade — $28</a>
     </div>
   </section>
 
@@ -357,7 +588,7 @@
     <div class="section-inner">
       <h2>Are you in?</h2>
       <p class="restate">The 28-Day Upgrade. 28 small experiments. The few that make you feel better — you keep.</p>
-      <a href="https://checkout.lifestyle-os.fit/28-day-upgrade" class="cta-button">Get the 28-Day Upgrade — $28</a>
+      <a href="https://lifestyleos.samcart.com/products/the-28-day-upgrade-foundation" class="cta-button">Get the 28-Day Upgrade — $28</a>
       <p class="ps">Still on the fence? Email me at <a href="mailto:hello@lifestyle-os.fit">hello@lifestyle-os.fit</a>. I'll tell you straight up if it's right for where you actually are.</p>
       <p class="sig">— Javier</p>
     </div>
@@ -366,6 +597,16 @@
 
   <!-- ====== FOOTER ====== -->
   <footer>
+    <div class="footer-dots">
+      <span style="background:#FF9500"></span>
+      <span style="background:#007AFF"></span>
+      <span style="background:#FF3B30"></span>
+      <span style="background:#AF52DE"></span>
+      <span style="background:#5AC8FA"></span>
+      <span style="background:#34C759"></span>
+      <span style="background:#FF2D55"></span>
+      <span style="background:#5856D6"></span>
+    </div>
     <span class="footer-brand">Lifestyle OS</span>
     <div>lifestyle-os.fit · <a href="mailto:hello@lifestyle-os.fit">hello@lifestyle-os.fit</a></div>
   </footer>
