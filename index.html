@@ -4,6 +4,21 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- IG/FB boost traffic and bio-link traffic → sales page directly. Brand visitors (no UTM) still see homepage. -->
+  <script>
+    (function(){
+      var s = new URLSearchParams(location.search);
+      var fromAd = s.get('utm_source') === 'ig'
+                || s.get('utm_source') === 'fb'
+                || s.get('utm_source') === 'instagram'
+                || s.get('utm_source') === 'facebook'
+                || s.has('fbclid');
+      if (fromAd) {
+        var qs = location.search ? location.search : '';
+        location.replace('/28-day-upgrade.html' + qs);
+      }
+    })();
+  </script>
   <title>Lifestyle OS — Find out what is actually running your life</title>
   <meta name="description" content="You are not broken. You are running the wrong operating system. The free Lifestyle OS assessment maps all eight areas of your life and finds what is actually driving the rest.">
   <meta property="og:title" content="Lifestyle OS">
