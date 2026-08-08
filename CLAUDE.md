@@ -1,5 +1,20 @@
 # CLAUDE.md — lifestyle-os-site
 
+> ## ⏸ PAUSED — 2026-08-07 (GP decision)
+> **L·OS is frozen in place. Do not start new work here without Javier saying so.**
+> The site stays live and working; nothing was dismantled.
+>
+> State at pause:
+> - The assessment/diagnostic was **retired** the same day (Neo4j Aura cancelled). All
+>   CTAs point at the books. `assessment.html` is deleted.
+> - The Full Package is **13 books at $129**, anchored at $187 (the real a-la-carte total).
+>   The old $196 anchor was not derivable from any real price.
+> - `28-day-upgrade.html` still links **SamCart**, which is cancelled and **dies 2026-08-22**.
+>   After that those 7 links are dead. One real customer bought through it — the only
+>   revenue L·OS has ever earned. Migrating needs new Stripe prices (none exist).
+> - QuickStart shows "Free — available soon": `api/send-quickstart.ts` works but nothing
+>   on this site calls it. The lead magnet has no front door.
+
 ## Ecosystem: Lifestyle OS
 This repo is part of the **Lifestyle OS ecosystem**. Before editing consumer-facing text, read:
 - **Ecosystem governance:** `L·OS/CLAUDE.md`
